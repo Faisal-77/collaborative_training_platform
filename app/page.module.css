@@ -1,19 +1,19 @@
-.contaner{
-  background: #126C66;
+.contaner {
+  background: #126c66;
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
   width: 100%;
 }
 
-.rowBackground{
-display: flex;
-flex-direction:row;
-justify-content:space-between;
-align-items: center;
-border-bottom: 2px white solid;
-padding: 10px;
+.rowBackground {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px white solid;
+  padding: 10px;
 }
-.tvtc_logo{
+.tvtc_logo {
   height: 5;
   width: 21.938;
 }
@@ -23,32 +23,33 @@ padding: 10px;
 }
 
 .text_nav {
+  width: -moz-fit-content;
   width: fit-content;
-  font-family: 'Tajawal';
+  font-family: "Tajawal";
   font-weight: 900;
   font-size: 18px;
   text-decoration-line: underline;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-.log_btn{
-width: 144px;
-height:41px;
+.log_btn {
+  width: 144px;
+  height: 41px;
 
-background: #A3D09D;
-border-radius: 25px;
-/* تسجيل الدخول */
+  background: #a3d09d;
+  border-radius: 25px;
+  /* تسجيل الدخول */
 
-font-family: 'Tajawal';
-font-style: normal;
-font-weight: 900;
-font-size: 14px;
-line-height: 22px;
-color: #FFFFFF;
-border:  0 ;
+  font-family: "Tajawal";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ffffff;
+  border: 0;
 }
-.content_container{
-  display:flex;
+.content_container {
+  display: flex;
   flex-direction: column;
 }
 .img_background_content {
@@ -59,25 +60,25 @@ border:  0 ;
 
 .rectangel {
   height: 109px;
-  background: #126C66;
+  background: #126c66;
 }
 
-.under_rectaangle{
+.under_rectaangle {
   display: flex;
   flex-direction: row;
-  justify-content:space-around;
+  justify-content: space-around;
   width: 100%;
   padding: 20px;
 }
 
-.content_under_rectangle{
+.content_under_rectangle {
   width: 15.313rem;
   height: 11.625rem;
   margin: 8px auto;
-  background: #A3D09D;
+  background: #a3d09d;
   border-radius: 22px;
 
-  font-family: 'Tajawal';
+  font-family: "Tajawal";
   font-style: normal;
   font-weight: 700;
   font-size: 1.313;
@@ -87,17 +88,16 @@ border:  0 ;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  text-align:center;
-  color: #FFFFFF;
+  text-align: center;
+  color: #ffffff;
 }
-.footer_main{
-  background-color: #126C66;
+.footer_main {
+  background-color: #126c66;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 70px;
   border-bottom: 2px white solid;
-  
 }
 .text_footer_2 {
   padding: 5px;
@@ -105,10 +105,76 @@ border:  0 ;
   display: flex;
   justify-content: center;
   text-align: center;
+  width: -moz-fit-content;
   width: fit-content;
-  font-family: 'Tajawal';
+  font-family: "Tajawal";
   font-weight: 900;
   font-size: 14px;
   text-decoration-line: underline;
-  color: #FFFFFF;
+  color: #ffffff;
 }
+/* LOGIN FORM AND REGISTER */
+.formBackground {
+  background-image: url("https://tvtc.gov.sa/ar/MediaCenter/News/PublishingImages/News/%D9%85%D8%A8%D9%86%D9%89%20%D8%A7%D9%84%D9%85%D8%A4%D8%B3%D8%B3%D8%A9.PNG");
+  height: 100vh;
+  background-size: cover;
+  opacity: 0.8;
+}
+
+ .boxForm {
+  display: flex;
+   flex-direction: row; 
+   justify-content: center;
+  align-items: center; 
+  height: 100vh;
+} 
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 586px;
+  width: 569px;
+  /* max-width: 569px; */
+  background-color: rgba(0, 121, 137,0.7);
+  backdrop-filter: blur(8px); 
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 0px 10px 10px 0px;
+  box-shadow: 5px 0px 5px 5px rgba(0, 121, 137,0.7);
+
+}
+.formSign{
+  color: #ffffff;
+}
+.infoForm{
+  display: flex;
+  width: 432px;
+  min-height: 586px;
+  /* max-width: 432px; */
+  background-color: rgba(119, 205, 217,0.7);
+  backdrop-filter: blur(8px); 
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px 0px 0px 10px;
+  box-shadow: -5px 0px 5px 5px rgba(119, 205, 217,0.7);
+  
+
+}
+.formInput{
+  display: block;
+}
+.formLabel{
+
+}
+
+/* LOGIN Form Design */
+/* Username */
+
+/* position: absolute;
+width: 317px;
+height: 51px;
+left: 777px;
+top: 407px;
+
+background: rgba(255, 255, 255, 0.4);
+border-radius: 15px; */
+

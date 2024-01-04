@@ -17,7 +17,7 @@ export default function nav() {
         <Link href={'/'}>  <span className={styles.text_nav}>  الصفحة الرائيسية </span> </Link>
         </div>
         <div className={`col `}>      
-          <Link href={'/'}>  <span className={styles.text_nav}> جهاة التدريب </span> </Link>
+          <Link href={'/about'}>  <span className={styles.text_nav}> جهاة التدريب </span> </Link>
         </div>
         <div className="col ">
             <Link href={'/'}>  <span className={styles.text_nav}>الأقتراحات</span> </Link>
