@@ -12,7 +12,7 @@ export  function Content() {
     <div className={`row ${styles.content_container}`}>
       <div className='col'>
         <div className={styles.img_background_content}>
-          <Image src={logo} layout="fill" objectFit="cover" />
+          <Image src={logo} style={{ width: '100%', height: '100%' }} />
         </div>
       </div>
       <div className={`col ${styles.rectangel}`}>

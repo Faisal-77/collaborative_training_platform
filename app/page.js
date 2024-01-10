@@ -6,7 +6,8 @@ import  {Content , Under_content} from './components/home_page/conent';
 import {Footer , Footer_2} from './components/home_page/footer'
 export default function Home() {
   return (
-  <div className={`container-fluid text-center`}>
+   <div className={`container-fluid text-center`}>
+  
       <div className={styles.contaner}>
           <Header />
           <Nav />
@@ -14,6 +15,7 @@ export default function Home() {
       <Content />
       <Footer />
       <Footer_2 />
-  </div>
+      
+   </div>
   )
 }
