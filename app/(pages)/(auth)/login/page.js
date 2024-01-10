@@ -1,6 +1,4 @@
-import Loginform from "@/app/components/loginform";
 import Login from "@/app/components/login";
-import AuthForms from "@/app/components/infoForm";
 function login() {
     return (
         <>
