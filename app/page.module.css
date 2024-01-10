@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
  /* `sm` applies to x-small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) { 
@@ -118,6 +119,24 @@
   padding: 10px;
 }
 .tvtc_logo {
+=======
+.contaner{
+  background: #126C66;
+  display: flex;
+  flex-direction: column;  
+  width: 100%;
+}
+
+.rowBackground{
+display: flex;
+flex-direction:row;
+justify-content:space-between;
+align-items: center;
+border-bottom: 2px white solid;
+padding: 10px;
+}
+.tvtc_logo{
+>>>>>>> b232140c822ac6976de930c30327e8f028ec6b7e
   height: 5;
   width: 21.938;
 }
@@ -127,6 +146,7 @@
 }
 
 .text_nav {
+<<<<<<< HEAD
   width: -moz-fit-content;
   width: fit-content;
   /* font-family: "Tajawal"; */
@@ -158,12 +178,45 @@
 }
 .img_background_content {
   /* position: relative; */
+=======
+  width: fit-content;
+  font-family: 'Tajawal';
+  font-weight: 900;
+  font-size: 18px;
+  text-decoration-line: underline;
+  color: #FFFFFF;
+}
+
+.log_btn{
+width: 144px;
+height:41px;
+
+background: #A3D09D;
+border-radius: 25px;
+/* تسجيل الدخول */
+
+font-family: 'Tajawal';
+font-style: normal;
+font-weight: 900;
+font-size: 14px;
+line-height: 22px;
+color: #FFFFFF;
+border:  0 ;
+}
+.content_container{
+  display:flex;
+  flex-direction: column;
+}
+.img_background_content {
+  position: relative;
+>>>>>>> b232140c822ac6976de930c30327e8f028ec6b7e
   width: 100%;
   height: 420px;
 }
 
 .rectangel {
   height: 109px;
+<<<<<<< HEAD
   background: #126c66;
 }
 
@@ -171,10 +224,20 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+=======
+  background: #126C66;
+}
+
+.under_rectaangle{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+>>>>>>> b232140c822ac6976de930c30327e8f028ec6b7e
   width: 100%;
   padding: 20px;
 }
 
+<<<<<<< HEAD
 .content_under_rectangle {
   width: 15.313rem;
   height: 11.625rem;
@@ -183,6 +246,16 @@
   border-radius: 22px;
 
   /* font-family: "Tajawal"; */
+=======
+.content_under_rectangle{
+  width: 15.313rem;
+  height: 11.625rem;
+  margin: 8px auto;
+  background: #A3D09D;
+  border-radius: 22px;
+
+  font-family: 'Tajawal';
+>>>>>>> b232140c822ac6976de930c30327e8f028ec6b7e
   font-style: normal;
   font-weight: 700;
   font-size: 1.313;
@@ -192,16 +265,25 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+<<<<<<< HEAD
   text-align: center;
   color: #ffffff;
 }
 .footer_main {
   background-color: #126c66;
+=======
+  text-align:center;
+  color: #FFFFFF;
+}
+.footer_main{
+  background-color: #126C66;
+>>>>>>> b232140c822ac6976de930c30327e8f028ec6b7e
   display: flex;
   justify-content: center;
   align-items: center;
   height: 70px;
   border-bottom: 2px white solid;
+
 }
 .text_footer_2 {
   padding: 5px;
@@ -209,6 +291,7 @@
   display: flex;
   justify-content: center;
   text-align: center;
+<<<<<<< HEAD
   width: -moz-fit-content;
   width: fit-content;
   /* font-family: "Tajawal"; */
@@ -395,3 +478,12 @@ color: rgba(0, 26, 255, 0.8);
   border-radius: 15px 15px 0 0;
 }
 
+=======
+  width: fit-content;
+  font-family: 'Tajawal';
+  font-weight: 900;
+  font-size: 14px;
+  text-decoration-line: underline;
+  color: #FFFFFF;
+}
+>>>>>>> b232140c822ac6976de930c30327e8f028ec6b7e
