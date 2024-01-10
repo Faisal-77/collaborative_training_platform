@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
  /* `sm` applies to x-small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) { 
@@ -118,8 +117,6 @@
   border-bottom: 2px white solid;
   padding: 10px;
 }
-.tvtc_logo {
-=======
 .contaner{
   background: #126C66;
   display: flex;
@@ -136,7 +133,6 @@ border-bottom: 2px white solid;
 padding: 10px;
 }
 .tvtc_logo{
->>>>>>> b232140c822ac6976de930c30327e8f028ec6b7e
   height: 5;
   width: 21.938;
 }
@@ -146,7 +142,6 @@ padding: 10px;
 }
 
 .text_nav {
-<<<<<<< HEAD
   width: -moz-fit-content;
   width: fit-content;
   /* font-family: "Tajawal"; */
@@ -178,7 +173,7 @@ padding: 10px;
 }
 .img_background_content {
   /* position: relative; */
-=======
+  width: -moz-fit-content;
   width: fit-content;
   font-family: 'Tajawal';
   font-weight: 900;
@@ -209,14 +204,12 @@ border:  0 ;
 }
 .img_background_content {
   position: relative;
->>>>>>> b232140c822ac6976de930c30327e8f028ec6b7e
   width: 100%;
   height: 420px;
 }
 
 .rectangel {
   height: 109px;
-<<<<<<< HEAD
   background: #126c66;
 }
 
@@ -224,29 +217,25 @@ border:  0 ;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-=======
-  background: #126C66;
+  background: #fff;
 }
 
 .under_rectaangle{
   display: flex;
   flex-direction: row;
   justify-content:space-around;
->>>>>>> b232140c822ac6976de930c30327e8f028ec6b7e
   width: 100%;
   padding: 20px;
 }
 
-<<<<<<< HEAD
-.content_under_rectangle {
+/* .content_under_rectangle {
   width: 15.313rem;
   height: 11.625rem;
   margin: 8px auto;
   background: #a3d09d;
   border-radius: 22px;
-
+} */
   /* font-family: "Tajawal"; */
-=======
 .content_under_rectangle{
   width: 15.313rem;
   height: 11.625rem;
@@ -255,7 +244,6 @@ border:  0 ;
   border-radius: 22px;
 
   font-family: 'Tajawal';
->>>>>>> b232140c822ac6976de930c30327e8f028ec6b7e
   font-style: normal;
   font-weight: 700;
   font-size: 1.313;
@@ -265,28 +253,21 @@ border:  0 ;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-<<<<<<< HEAD
   text-align: center;
   color: #ffffff;
 }
 .footer_main {
   background-color: #126c66;
-=======
   text-align:center;
   color: #FFFFFF;
 }
 .footer_main{
   background-color: #126C66;
->>>>>>> b232140c822ac6976de930c30327e8f028ec6b7e
   display: flex;
   justify-content: center;
   align-items: center;
   height: 70px;
   border-bottom: 2px white solid;
-<<<<<<< HEAD
-=======
-  
->>>>>>> b232140c822ac6976de930c30327e8f028ec6b7e
 }
 .text_footer_2 {
   padding: 5px;
@@ -294,7 +275,6 @@ border:  0 ;
   display: flex;
   justify-content: center;
   text-align: center;
-<<<<<<< HEAD
   width: -moz-fit-content;
   width: fit-content;
   /* font-family: "Tajawal"; */
@@ -344,8 +324,8 @@ border:  0 ;
   display: flex;
   justify-content: space-between;
    background-color: rgba(119, 205, 217,0.7); 
-  backdrop-filter: blur(2px); 
-  -webkit-backdrop-filter: blur(2px);
+   backdrop-filter: blur(2px); 
+   -webkit-backdrop-filter: blur(2px);
   border-radius: 10px 0px 0px 10px;
   box-shadow: -5px 0px 5px 5px rgba(119, 205, 217,0.7);
   /* box-sizing: border-box; */  
@@ -481,12 +461,10 @@ color: rgba(0, 26, 255, 0.8);
   border-radius: 15px 15px 0 0;
 }
 
-=======
-  width: fit-content;
+  /* width: fit-content;
   font-family: 'Tajawal';
   font-weight: 900;
   font-size: 14px;
   text-decoration-line: underline;
   color: #FFFFFF;
-}
->>>>>>> b232140c822ac6976de930c30327e8f028ec6b7e
+} */

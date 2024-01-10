@@ -34,11 +34,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-<<<<<<< HEAD
 
 #DEBUGING
 /TEST.html
-=======
->>>>>>> b232140c822ac6976de930c30327e8f028ec6b7e
+
 #.hintrc
 /.hintrc
