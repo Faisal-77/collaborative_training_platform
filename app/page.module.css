@@ -1,3 +1,108 @@
+<<<<<<< HEAD
+
+ /* `sm` applies to x-small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+  /*width in small screens*/
+  .w_sm_100 {
+    width: 100% !important;
+  }
+  .w_sm_75 {
+    width: 75% !important;
+  }
+  .w_sm_50 {
+    width: 50% !important;
+  }
+  .w_sm_25 {
+    width: 25% !important;
+    /* End width in small screens*/
+  }
+ }
+
+ /* `md` applies to small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px ) { 
+  /*width in medium screens*/
+  .w_md_100 {
+    width: 100% !important;
+  }
+  .w_md_75 {
+    width: 75% !important;
+  }
+  .w_md_50 {
+    width: 50% !important;
+  }
+  .w_md_25 {
+    width: 25% !important;
+  }
+  .h_md_100 {
+    height: 100dvh !important;
+  }
+  .h_md_0 {
+    height: 0% !important;
+  }
+  /* End width in medium screens*/
+ }
+
+ /* `lg` applies to medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px){ 
+  /*width in large screens*/
+  .w_lg_100 {
+    width: 100% !important;
+  }
+  .w_lg_75 {
+    width: 75% !important;
+  }
+  .w_lg_50 {
+    width: 50% !important;
+  }
+  .w_lg_25 {
+    width: 25% !important;
+  }
+  /* End width in large screens*/
+  .h_lg_50{
+    height: 50% !important;
+  }
+  .form {
+    height: 100%;
+  }
+  .infoForm{
+    width: 432px;
+  }
+ }
+
+ /* `xl` applies to large devices (desktops, min 1200px and up) */
+@media (992px <= width  <= 3840px)  {
+  /*width in large screens*/
+  .w_xl_100 {
+    width: 100% !important;
+  }
+  .w_xl_75 {
+    width: 75% !important;
+  }
+  .w_xl_50 {
+    width: 50% !important;
+  }
+  .w_xl_25 {
+    width: 25% !important;
+  }
+  /* End width in large screens*/
+  .h_xl_50{
+    height: 50% !important;
+  }
+  /* 
+    width for form sign in large screens
+    */
+    .form {
+      width: 569px;
+      /* height: 586px; */
+    }
+    .infoForm{
+      width: 432px;
+
+    }
+ }
+
+
+
 .contaner {
   background: #126c66;
   display: flex;
@@ -14,6 +119,24 @@
   padding: 10px;
 }
 .tvtc_logo {
+=======
+.contaner{
+  background: #126C66;
+  display: flex;
+  flex-direction: column;  
+  width: 100%;
+}
+
+.rowBackground{
+display: flex;
+flex-direction:row;
+justify-content:space-between;
+align-items: center;
+border-bottom: 2px white solid;
+padding: 10px;
+}
+.tvtc_logo{
+>>>>>>> b232140c822ac6976de930c30327e8f028ec6b7e
   height: 5;
   width: 21.938;
 }
@@ -23,9 +146,10 @@
 }
 
 .text_nav {
+<<<<<<< HEAD
   width: -moz-fit-content;
   width: fit-content;
-  font-family: "Tajawal";
+  /* font-family: "Tajawal"; */
   font-weight: 900;
   font-size: 18px;
   text-decoration-line: underline;
@@ -40,7 +164,7 @@
   border-radius: 25px;
   /* تسجيل الدخول */
 
-  font-family: "Tajawal";
+  /* font-family: "Tajawal"; */
   font-style: normal;
   font-weight: 900;
   font-size: 14px;
@@ -53,13 +177,46 @@
   flex-direction: column;
 }
 .img_background_content {
+  /* position: relative; */
+=======
+  width: fit-content;
+  font-family: 'Tajawal';
+  font-weight: 900;
+  font-size: 18px;
+  text-decoration-line: underline;
+  color: #FFFFFF;
+}
+
+.log_btn{
+width: 144px;
+height:41px;
+
+background: #A3D09D;
+border-radius: 25px;
+/* تسجيل الدخول */
+
+font-family: 'Tajawal';
+font-style: normal;
+font-weight: 900;
+font-size: 14px;
+line-height: 22px;
+color: #FFFFFF;
+border:  0 ;
+}
+.content_container{
+  display:flex;
+  flex-direction: column;
+}
+.img_background_content {
   position: relative;
+>>>>>>> b232140c822ac6976de930c30327e8f028ec6b7e
   width: 100%;
   height: 420px;
 }
 
 .rectangel {
   height: 109px;
+<<<<<<< HEAD
   background: #126c66;
 }
 
@@ -67,10 +224,20 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+=======
+  background: #126C66;
+}
+
+.under_rectaangle{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+>>>>>>> b232140c822ac6976de930c30327e8f028ec6b7e
   width: 100%;
   padding: 20px;
 }
 
+<<<<<<< HEAD
 .content_under_rectangle {
   width: 15.313rem;
   height: 11.625rem;
@@ -78,7 +245,17 @@
   background: #a3d09d;
   border-radius: 22px;
 
-  font-family: "Tajawal";
+  /* font-family: "Tajawal"; */
+=======
+.content_under_rectangle{
+  width: 15.313rem;
+  height: 11.625rem;
+  margin: 8px auto;
+  background: #A3D09D;
+  border-radius: 22px;
+
+  font-family: 'Tajawal';
+>>>>>>> b232140c822ac6976de930c30327e8f028ec6b7e
   font-style: normal;
   font-weight: 700;
   font-size: 1.313;
@@ -88,16 +265,28 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+<<<<<<< HEAD
   text-align: center;
   color: #ffffff;
 }
 .footer_main {
   background-color: #126c66;
+=======
+  text-align:center;
+  color: #FFFFFF;
+}
+.footer_main{
+  background-color: #126C66;
+>>>>>>> b232140c822ac6976de930c30327e8f028ec6b7e
   display: flex;
   justify-content: center;
   align-items: center;
   height: 70px;
   border-bottom: 2px white solid;
+<<<<<<< HEAD
+=======
+  
+>>>>>>> b232140c822ac6976de930c30327e8f028ec6b7e
 }
 .text_footer_2 {
   padding: 5px;
@@ -105,9 +294,10 @@
   display: flex;
   justify-content: center;
   text-align: center;
+<<<<<<< HEAD
   width: -moz-fit-content;
   width: fit-content;
-  font-family: "Tajawal";
+  /* font-family: "Tajawal"; */
   font-weight: 900;
   font-size: 14px;
   text-decoration-line: underline;
@@ -115,66 +305,188 @@
 }
 /* LOGIN FORM AND REGISTER */
 .formBackground {
-  background-image: url("https://tvtc.gov.sa/ar/MediaCenter/News/PublishingImages/News/%D9%85%D8%A8%D9%86%D9%89%20%D8%A7%D9%84%D9%85%D8%A4%D8%B3%D8%B3%D8%A9.PNG");
-  height: 100vh;
+  background-image: url("../Image/college_buliding.png");
+  height: 100dvh;
   background-size: cover;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
- .boxForm {
-  display: flex;
-   flex-direction: row; 
-   justify-content: center;
-  align-items: center; 
-  height: 100vh;
-} 
 
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 586px;
-  width: 569px;
-  /* max-width: 569px; */
+  justify-content: space-between;
+  padding: 65px; 
   background-color: rgba(0, 121, 137,0.7);
-  backdrop-filter: blur(8px); 
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(2px); 
+  -webkit-backdrop-filter: blur(2px);
   border-radius: 0px 10px 10px 0px;
   box-shadow: 5px 0px 5px 5px rgba(0, 121, 137,0.7);
+}
+.form > h1{
+  font-size: 30px;
+  font-weight: 900;
 
 }
 .formSign{
   color: #ffffff;
-}
-.infoForm{
-  display: flex;
-  width: 432px;
-  min-height: 586px;
-  /* max-width: 432px; */
-  background-color: rgba(119, 205, 217,0.7);
-  backdrop-filter: blur(8px); 
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 10px 0px 0px 10px;
-  box-shadow: -5px 0px 5px 5px rgba(119, 205, 217,0.7);
   
 
+  /* font-family: "Tajawal"; */
+
 }
+
+.infoForm{
+
+  padding: 20px 20px 0 20px;
+  padding-top:30px ;
+  display: flex;
+  justify-content: space-between;
+   background-color: rgba(119, 205, 217,0.7); 
+  backdrop-filter: blur(2px); 
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 10px 0px 0px 10px;
+  box-shadow: -5px 0px 5px 5px rgba(119, 205, 217,0.7);
+  /* box-sizing: border-box; */  
+
+}
+.sub_header{
+  display: block;
+  background-color: #007989;
+   padding: 15px; 
+  border-radius:11px ;
+  margin-top:70px ;
+}
+
+.sub_header > h2{
+  font-size: 22px;
+  font-weight: 900;
+  color: #ffffff;
+
+}
+.infoBoxImg{
+  mix-blend-mode: multiply;
+  border-radius:10px 10px 0 10px;
+  box-sizing: border-box;
+  /* margin-top:124px; */
+}
+
 .formInput{
   display: block;
+  width: 317px;
+  height: 37px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 15px;
+  border: none;
+  margin-bottom: 15px;
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
+  padding-right: 30px;
+}
+.password{
+  margin-bottom: 0px;
+}
+.formInput:focus{
+  border: 2px solid #CFC67C;
+ outline: none;
+ color: black;
+ font-size: 16px;
+ font-weight: 600;
+  box-shadow: #cfc57c81 0px 0px 3px 3px;
+}
+.formInput::placeholder{
+  font-size: 12px;
+  color: rgba(134, 154, 164, 0.60);
 }
 .formLabel{
+  display: block;
+  margin-bottom: 10px;
 
 }
+.btnLogin{
+  background: #CFC67C;
+border-radius: 15px;
+width: 200px;
+height: 58px;
+outline: none;
+border: none;
+color: #FFFFFF;
+font-weight: 800;
+font-size: 18px;
+}
+.btnLogin:hover{
+  background-color: #B0A007;
+}
 
-/* LOGIN Form Design */
-/* Username */
 
-/* position: absolute;
-width: 317px;
-height: 51px;
-left: 777px;
-top: 407px;
+.linksLogin{
+display: block;
+margin-top: 15px;
+margin-bottom: 20px;
+}
+.linksLogin > a{
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 900;
+color: rgba(0, 26, 255, 0.8);
+}
+.linksLogin > a:hover{
+  text-decoration: underline;
+  color: rgba(0, 26, 255, 1);
+}
+.selectForm{
+  display: inline-block;
+  width: 150px;
+  text-align: center;
+  margin-top: 15px;
+}
+.titleSelect{
+  display: block;
+  margin: 0;
+   cursor: pointer; 
+   padding: 16px 0 16px 0; 
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.4);
 
-background: rgba(255, 255, 255, 0.4);
-border-radius: 15px; */
+}
+.contentSelect{
+  /* display: none; */
+  position: absolute;
+  width: 150px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 15px;
+  margin-top: 5px;
 
+}
+.formIcons{
+   position: relative;
+  top: 65px ;
+  right: 10px; 
+  height: 15px;
+}
+
+.formOption{
+  cursor: pointer;
+ 
+}
+.formOption:hover{
+  background-color: #B0A007;
+}
+.formOption:last-child{
+  border-radius: 0 0 15px 15px;
+}
+.formOption:first-child{
+  border-radius: 15px 15px 0 0;
+}
+
+=======
+  width: fit-content;
+  font-family: 'Tajawal';
+  font-weight: 900;
+  font-size: 14px;
+  text-decoration-line: underline;
+  color: #FFFFFF;
+}
+>>>>>>> b232140c822ac6976de930c30327e8f028ec6b7e
