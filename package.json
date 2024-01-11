@@ -1,0 +1,20 @@
+{
+  "name": "collaborative_training_platform",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "file-saver": "^2.0.5",
+    "html2canvas": "^1.4.1",
+    "next": "14.0.4",
+    "react": "^18",
+    "react-bootstrap": "^2.9.2",
+    "react-dom": "^18"
+  }
+}
