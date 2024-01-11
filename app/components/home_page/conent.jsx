@@ -10,10 +10,10 @@ import icon_training from '@/Image/icon_training.png';
 export  function Content() {
   return (
     <div className={`row ${styles.content_container}`}>
-      <div className='col'>
-        <div className={styles.img_background_content}>
-          <Image src={logo} layout="fill" objectFit="cover" />
-        </div>
+      <div className='col p-0'>
+      <div className={styles.img_background_content}>
+           <Image src={logo} layout="fill" objectFit="cover" /> 
+        </div> 
       </div>
       <div className={`col ${styles.rectangel}`}>
         <div><br /> <br /></div>
@@ -26,23 +26,23 @@ export  function Content() {
 export  function Under_content() {
   return (
     
-    <div className={`col ${styles.under_rectaangle}`}>
-        <div className={`row `}>
-          <div className={`col`}>
+    <div className={`col justify-content-center ${styles.under_rectaangle}`}>
+        <div className={`row gap-3 p-3`}>
+          <div className={`col m-3`}>
             <div className={styles.content_under_rectangle}>
               <Image src={icon_book}></Image>
               <p>التخصصات</p>
             </div>
         </div>  
         
-        <div className={`col`}>
+        <div className={`col m-3`}>
             <div className={styles.content_under_rectangle}>
               <Image src={icon_training}></Image>
               <p>جهات التدريب</p>
             </div>
         </div>
 
-        <div className={`col`}>
+        <div className={`col m-3`}>
             <div className={styles.content_under_rectangle}>
               <Image src={icon_text}></Image>
               <p>الاقتراحات</p>
