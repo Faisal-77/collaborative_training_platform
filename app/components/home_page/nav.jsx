@@ -14,14 +14,13 @@ export default function nav() {
         <div className='col'>
         </div>
         <div className="col ">
-        <Link href={'/'}>  <span className={styles.text_nav}>  الصفحة الرائيسية </span> </Link>
+        <Link href={'/'}>  <span className={styles.text_nav}>  الصفحة الرئيسية </span> </Link>
         </div>
         <div className={`col `}>      
-          <Link href={'/about'}>  <span className={styles.text_nav}> جهاة التدريب </span> </Link>
-          <Link href={'/'}>  <span className={styles.text_nav}> جهاة التدريب </span> </Link>
+          <Link href={'/about'}>  <span className={styles.text_nav}> جهات التدريب </span> </Link>
         </div>
         <div className="col ">
-            <Link href={'/'}>  <span className={styles.text_nav}>الأقتراحات</span> </Link>
+            <Link href={'/'}>  <span className={styles.text_nav}>الإقتراحات</span> </Link>
         </div>
         <div className='col'>
         </div>
