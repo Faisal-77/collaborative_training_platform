@@ -23,6 +23,38 @@ padding: 10px;
 }
 
 .text_nav {
+  width: -moz-fit-content;
+  width: fit-content;
+  /* font-family: "Tajawal"; */
+  font-weight: 900;
+  font-size: 18px;
+  text-decoration-line: underline;
+  color: #ffffff;
+}
+
+.log_btn {
+  width: 144px;
+  height: 41px;
+
+  background: #a3d09d;
+  border-radius: 25px;
+  /* تسجيل الدخول */
+
+  /* font-family: "Tajawal"; */
+  font-style: normal;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ffffff;
+  border: 0;
+}
+.content_container {
+  display: flex;
+  flex-direction: column;
+}
+.img_background_content {
+  /* position: relative; */
+  width: -moz-fit-content;
   width: fit-content;
   font-family: 'Tajawal';
   font-weight: 900;
@@ -59,7 +91,14 @@ border:  0 ;
 
 .rectangel {
   height: 109px;
-  background: #126C66;
+  background: #126c66;
+}
+
+.under_rectaangle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #fff;
 }
 
 .under_rectaangle{
@@ -70,6 +109,14 @@ border:  0 ;
   padding: 20px;
 }
 
+/* .content_under_rectangle {
+  width: 15.313rem;
+  height: 11.625rem;
+  margin: 8px auto;
+  background: #a3d09d;
+  border-radius: 22px;
+} */
+  /* font-family: "Tajawal"; */
 .content_under_rectangle{
   width: 15.313rem;
   height: 11.625rem;
@@ -87,6 +134,11 @@ border:  0 ;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  text-align: center;
+  color: #ffffff;
+}
+.footer_main {
+  background-color: #126c66;
   text-align:center;
   color: #FFFFFF;
 }
@@ -97,7 +149,6 @@ border:  0 ;
   align-items: center;
   height: 70px;
   border-bottom: 2px white solid;
-  
 }
 .text_footer_2 {
   padding: 5px;
@@ -105,10 +156,196 @@ border:  0 ;
   display: flex;
   justify-content: center;
   text-align: center;
+  width: -moz-fit-content;
   width: fit-content;
+  /* font-family: "Tajawal"; */
+  font-weight: 900;
+  font-size: 14px;
+  text-decoration-line: underline;
+  color: #ffffff;
+}
+/* LOGIN FORM AND REGISTER */
+.formBackground {
+  background-image: url("../Image/college_buliding.png");
+  height: 100dvh;
+  background-size: cover;
+  opacity: 0.7;
+}
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 65px; 
+  background-color: rgba(0, 121, 137,0.7);
+  -webkit-backdrop-filter: blur(2px); 
+  backdrop-filter: blur(2px);
+  border-radius: 0px 10px 10px 0px;
+  box-shadow: 5px 0px 5px 5px rgba(0, 121, 137,0.7);
+}
+.form > h1{
+  font-size: 30px;
+  font-weight: 900;
+
+}
+.formSign{
+  color: #ffffff;
+  
+
+  /* font-family: "Tajawal"; */
+
+}
+
+.infoForm{
+
+  padding: 20px 20px 0 20px;
+  padding-top:30px ;
+  display: flex;
+  justify-content: space-between;
+   background-color: rgba(119, 205, 217,0.7); 
+   -webkit-backdrop-filter: blur(2px); 
+   backdrop-filter: blur(2px);
+  border-radius: 10px 0px 0px 10px;
+  box-shadow: -5px 0px 5px 5px rgba(119, 205, 217,0.7);
+  /* box-sizing: border-box; */  
+
+}
+.sub_header{
+  display: block;
+  background-color: #007989;
+   padding: 15px; 
+  border-radius:11px ;
+  margin-top:70px ;
+}
+
+.sub_header > h2{
+  font-size: 22px;
+  font-weight: 900;
+  color: #ffffff;
+
+}
+.infoBoxImg{
+  mix-blend-mode: multiply;
+  border-radius:10px 10px 0 10px;
+  box-sizing: border-box;
+  /* margin-top:124px; */
+}
+
+.formInput{
+  display: block;
+  width: 317px;
+  height: 37px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 15px;
+  border: none;
+  margin-bottom: 15px;
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
+  padding-right: 30px;
+}
+.password{
+  margin-bottom: 0px;
+}
+.formInput:focus{
+  border: 2px solid #CFC67C;
+ outline: none;
+ color: black;
+ font-size: 16px;
+ font-weight: 600;
+  box-shadow: #cfc57c81 0px 0px 3px 3px;
+}
+.formInput::placeholder{
+  font-size: 12px;
+  color: rgba(134, 154, 164, 0.60);
+}
+.formLabel{
+  display: block;
+  margin-bottom: 10px;
+
+}
+.btnLogin{
+  background: #CFC67C;
+border-radius: 15px;
+width: 200px;
+height: 58px;
+outline: none;
+border: none;
+color: #FFFFFF;
+font-weight: 800;
+font-size: 18px;
+}
+.btnLogin:hover{
+  background-color: #B0A007;
+}
+
+
+.linksLogin{
+display: block;
+margin-top: 15px;
+margin-bottom: 20px;
+}
+.linksLogin > a{
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 900;
+color: rgba(0, 26, 255, 0.8);
+}
+.linksLogin > a:hover{
+  text-decoration: underline;
+  color: rgba(0, 26, 255, 1);
+}
+.selectForm{
+  display: inline-block;
+  width: 150px;
+  text-align: center;
+  margin-top: 15px;
+}
+.titleSelect{
+  display: block;
+  margin: 0;
+   cursor: pointer; 
+   padding: 16px 0 16px 0; 
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.4);
+
+}
+.contentSelect{
+  /* display: none; */
+  position: absolute;
+  width: 150px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 15px;
+  margin-top: 5px;
+
+}
+.formIcons{
+   position: relative;
+  top: 65px ;
+  right: 10px; 
+  height: 15px;
+}
+
+.formOption{
+  cursor: pointer;
+ 
+}
+.formOption:hover{
+  background-color: #B0A007;
+}
+.formOption:last-child{
+  border-radius: 0 0 15px 15px;
+}
+.formOption:first-child{
+  border-radius: 15px 15px 0 0;
+}
+
+  /* width: fit-content;
   font-family: 'Tajawal';
   font-weight: 900;
   font-size: 14px;
   text-decoration-line: underline;
   color: #FFFFFF;
-}
+} */
