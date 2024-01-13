@@ -21,9 +21,11 @@ const SelectForm = () => {
 
   return (
     <div className={`${styles.selectForm}`}>
+
       <span className={`${styles.selectedOption} ${styles.titleSelect} ${isContentSelectVisible ? 'show' : ''}`} onClick={clickedSelect}>
         {selectedOption}
       </span>
+      
       {isContentSelectVisible && (
         <div className={`${styles.contentSelect}`}>
           <div className={`${styles.formOption}`} onClick={() => chosenOption('برمجيات')}>برمجيات</div>
