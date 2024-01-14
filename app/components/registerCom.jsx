@@ -95,7 +95,7 @@ export default function RegisterCom() {
         <input
           type="submit"
           value="تسجيل الدخول"
-          className={`${styles.btnLogin} align-self-center`}
+          className={`${styles.submitBtn} align-self-center`}
         />
       </form>
     </>

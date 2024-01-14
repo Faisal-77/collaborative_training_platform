@@ -40,7 +40,7 @@ export default function Login() {
               <input
                 type="submit"
                 value="تسجيل الدخول"
-                className={`${styles.btnLogin} align-self-center`}
+                className={`${styles.submitBtn} align-self-center`}
               />
             </form>
         </>

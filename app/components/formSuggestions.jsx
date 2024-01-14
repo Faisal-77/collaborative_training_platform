@@ -68,7 +68,7 @@ export default function Home() {
                               <input
                                 type="submit"
                                 value="إرسال"
-                                class={`${styles.btnLogin}  w-100 `}
+                                class={`${styles.submitBtn}  w-100 `}
                               />
                             </div>
                           </div>
