@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function RegisterCom() {
+
     const [user_name, setUser] = useState("");
     const [email, setEmail] = useState("");
     const [phoneNumber, setPhone] = useState("");

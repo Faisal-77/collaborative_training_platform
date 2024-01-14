@@ -18,7 +18,7 @@
  }
 
  /* `md` applies to small devices (landscape phones, less than 768px) */
-@media (max-width: 767.98px ) { 
+@media (max-width: 800px ) { 
   /*width in medium screens*/
   .w_md_100 {
     width: 100% !important;
@@ -37,6 +37,12 @@
   }
   .h_md_0 {
     height: 0% !important;
+  }
+  .hideOnSmall {
+    display: none !important;
+  }
+  .menuBtn{
+    display: block !important;
   }
   /* End width in medium screens*/
  }
@@ -112,7 +118,6 @@
 
 .rowBackground {
   background: #126c66;
-
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -124,19 +129,73 @@
   width: 21.875rem;
   height: 5rem;
 }
-.navPar {
-  background-color: #126C66;
-  padding: 25px;
-  /* margin: 10px; */
+.menuBtn{
+  display: none;
 }
+.navbar {
+  background-color: #126C66;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar .navList{
+  list-style: none;
+  /* width: 100%; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 5%;
+  margin: 0;
+}
+.navbar li{
+  height: 63px;
+}
+.navbar a{
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 30px;
+  text-decoration: none;
+  color: #ffffff;
+  /* padding: 15px; */
+  border-radius: 6px;
+
+}
+.navbar a:hover{
+  background-color: #005953;
+
+}
+.sidebar {
+  list-style: none;
+
+  position: fixed;
+  top:0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  z-index: 999;
+  backdrop-filter: blur(10px);
+  background-color:#126c66b1 ;
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  
+}
+.sidebar a{
+  width: 100%;
+}
+
+    
 
 .text_nav {
   width: -moz-fit-content;
   width: fit-content;
-  font-weight: 900;
+  font-weight: 700;
   font-size: 18px;
   text-decoration-line: underline;
-  color: #ffffff;
 }
 
 .log_btn {
@@ -345,9 +404,9 @@
 
 }
 
-.btnLogin{
+.submitBtn{
   background: #CFC67C;
-border-radius: 15px;
+border-radius: 6px;
 width: 200px;
 height: 46px;
 outline: none;
@@ -356,7 +415,7 @@ color: #FFFFFF;
 font-weight: 800;
 font-size: 18px;
 }
-.btnLogin:hover{
+.submitBtn:hover{
   background-color: #B0A007;
 }
 

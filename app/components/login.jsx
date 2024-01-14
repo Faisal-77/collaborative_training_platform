@@ -60,6 +60,7 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
+
         <span className={styles.linksLogin}>
           <Link href={"/"}>نسيت كلمة المرور؟</Link>
         </span>
@@ -74,5 +75,21 @@ export default function Login() {
         />
       </form>
     </>
+{/*
+//               <span className={`${styles.linksLogin}`}>
+//                 <Link href={"/"}>نسيت كلمة المرور؟</Link>
+//               </span>
+//               <span className={`${styles.linksLogin}`}>
+//                 <Link href={"/"}>ليس لديك حساب؟</Link>
+//               </span>
+//               <input
+//                 type="submit"
+//                 value="تسجيل الدخول"
+//                 className={`${styles.submitBtn} align-self-center`}
+//               />
+//             </form>
+//         </>
+*/}
+
   );
 }
