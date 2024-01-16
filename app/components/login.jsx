@@ -5,7 +5,6 @@ import logo_tvtc from "@/Image/logo_tvtc.svg";
 import walking_img from "@/Image/img_walking.jpg";
 import Image from "next/image";
 import Link from "next/link";
-import InfoForm from "./infoForm";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
