@@ -458,18 +458,20 @@ color: rgba(0, 26, 255, 0.8);
   margin: 0;
    cursor: pointer; 
    padding: 16px 0 16px 0; 
-  border-radius: 15px;
+  border-radius: 6px;
   background-color: rgba(255, 255, 255, 0.4);
-
+  color: #fff;
+  font-weight: 600;
 }
 .contentSelect{
   /* display: none; */
   position: absolute;
   width: 150px;
-  background-color: rgba(255, 255, 255, 0.4);
-  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 6px;
   margin-top: 5px;
-
+  color: #000;
+  font-weight: 600;
 }
 .formIcons{
    position: relative;
@@ -486,10 +488,10 @@ color: rgba(0, 26, 255, 0.8);
   background-color: #B0A007;
 }
 .formOption:last-child{
-  border-radius: 0 0 15px 15px;
+  border-radius: 0 0 6px 6px;
 }
 .formOption:first-child{
-  border-radius: 15px 15px 0 0;
+  border-radius: 6px 6px 0 0;
 }
 /* Register pages */
 .signupBackground{

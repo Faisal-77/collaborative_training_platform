@@ -14,6 +14,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+// select form
+
+
+
+
 // TwoStepForm component
 const TwoStepForm = () => {
   const router = useRouter();
@@ -279,18 +284,19 @@ function StepTwo({ setFormData, formData, prevStep, error, setError }) {
               />
             </div>
           </div>
-          {/* Department */}
+          {/* Department & Major */}
           <div className="container text-center mb-5">
             <div className="row">
-              <div className="col p-0 ">
-                <SelectForm />
+              <div className="col-6 p-0 ">
+                <SelectForm  selectedOption={"اختر القسم"} chosenOption={["الحاسب وتقنية المعلومات","الميكانيكا", "الكهرباء"]}/>
               </div>
-              <div className="col p-0 ">
-                <SelectForm />
+              <div className="col-6 p-0 ">
+                <SelectForm selectedOption={"اختر التخصص"} chosenOption={["برمجيات","دعم فني", "شبكات"]}/>
               </div>
             </div>
           </div>
           {/* Error Message */}
+          
 
           {/* Submit Button */}
           <div className="container text-center">
