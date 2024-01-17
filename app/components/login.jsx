@@ -2,7 +2,7 @@
 import styles from "@/app/page.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo_tvtc from "@/Image/logo_tvtc.svg";
-import walking_img from "@/Image/img_walking.svg";
+import walking_img from "@/Image/img_walking.jpg";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -37,59 +37,116 @@ export default function Login() {
 
   return (
     <>
-      <h1>تسجيل الدخول</h1>
-      <form className="d-flex flex-column" onSubmit={handleSubmit}>
-        <label htmlFor="username" className={styles.formLabel}>
-          اسم المستخدم
-        </label>
-        <input
-          type="text"
-          placeholder="اسم المستخدم"
-          id="username"
-          className={styles.formInput}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <label htmlFor="password" className={styles.formLabel}>
-          كلمة المرور
-        </label>
-        <input
-          type="password"
-          placeholder="كلمة المرور"
-          id="password"
-          className={`${styles.formInput} ${styles.password}`}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+      <section className={styles.formBackground}>
+        <div class={`container h-100`}>
+          <div class="row justify-content-center align-items-center h-100">
+            <div class="col-lg-10 col-md-12">
+              <div class={``}>
+                <div class="row no-gutters">
+                  <div class="col-md-12 col-lg-6 p-0 d-flex align-items-stretch">
+                    <section class={`contact-wrap w-100 p-4 ${styles.form}`}>
+                      <h1>تسجيل الدخول</h1>
+                      <form onSubmit={handleSubmit}>
+                        <div class={`row contact-wrap justify-content-center`}>
+                          <div class={`col-md-10 ${styles.colForm}`}>
+                            <label
+                              htmlFor="username"
+                              className={styles.formLabel}
+                            >
+                              اسم المستخدم
+                            </label>
+                            <div class="form-group">
+                              <input
+                                type="text"
+                                class={`${styles.formInput}`}
+                                id="username"
+                                placeholder="اسم المستخدم"
+                                onChange={(e) => setUsername(e.target.value)}
+                              />
+                            </div>
+                          </div>
+                          <div class={`col-md-10 ${styles.colForm}`}>
+                            <label
+                              htmlFor="password"
+                              className={styles.formLabel}
+                            >
+                              كلمة المرور
+                            </label>
+                            <div class="form-group">
+                              <input
+                                type="password"
+                                class={`${styles.formInput} `}
+                                id="password"
+                                placeholder="كلمة المرور"
+                                onChange={(e) => setPassword(e.target.value)}
+                              />
+                            </div>
+                          </div>
+                          <div class="col-md-10 ">
+                            <div className="form-group">
+                              <span className={styles.linksLogin}>
+                                <Link href={"/"}>نسيت كلمة المرور؟</Link>
+                              </span>
+                            </div>
+                          </div>
+                          <div
+                            class={`col-md-12 text-center ${styles.colForm}`}
+                          >
+                            <div class="form-group">
+                              {error && (
+                                <div className="bg-red-500 text-white w-fit">
+                                  {error}
+                                </div>
+                              )}
+                              <input
+                                type="submit"
+                                value="تسجيل الدخول"
+                                className={`${styles.submitBtn} `}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </section>
+                  </div>
+                  <div class="col-md-12 col-lg-6 p-0 d-flex align-items-stretch">
+                    <section
+                      class={`contact-wrap w-100 p-0 ${styles.infoForm}`}
+                    >
+                      <Image src={logo_tvtc} className={`${styles.infoLogo}`} />
 
-
-        <span className={styles.linksLogin}>
-          <Link href={"/"}>نسيت كلمة المرور؟</Link>
-        </span>
-        <span className={styles.linksLogin}>
-          <Link href={"/register"}>ليس لديك حساب؟</Link>
-        </span>
-        {error && <div className="bg-red-500 text-white w-fit">{error}</div>}
-        <input
-          type="submit"
-          value="تسجيل الدخول"
-          className={`${styles.btnLogin} align-self-center`}
-        />
-      </form>
+                      <span className={`${styles.sub_header}`}>
+                        <h2>مرحبًا بك في مركز التدريب التعاوني</h2>
+                      </span>
+                      <h3
+                        className={`align-self-center ${styles.infoBoxTitle}`}
+                      >
+                        إذا لم يكن لديك حساب أنشئ حسابك من هنا
+                      </h3>
+                      <span
+                        className={`align-self-center text-center ${styles.registerBtnSpan}`}
+                      >
+                        <Link href={"/registerEntity"} className={`${styles.registerBtn}`}>
+                          {" "}
+                          جهة التدريب{" "}
+                        </Link>
+                        <Link href={"/registerStud"} className={styles.registerBtn}>
+                          {" "}
+                          المتدرب{" "}
+                        </Link>
+                      </span>
+                      <Image
+                        src={walking_img}
+                        className={`${styles.infoBoxImg}`}
+                      />
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
-{/*
-//               <span className={`${styles.linksLogin}`}>
-//                 <Link href={"/"}>نسيت كلمة المرور؟</Link>
-//               </span>
-//               <span className={`${styles.linksLogin}`}>
-//                 <Link href={"/"}>ليس لديك حساب؟</Link>
-//               </span>
-//               <input
-//                 type="submit"
-//                 value="تسجيل الدخول"
-//                 className={`${styles.submitBtn} align-self-center`}
-//               />
-//             </form>
-//         </>
-*/}
-
   );
 }

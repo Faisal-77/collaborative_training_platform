@@ -1,21 +1,5 @@
 
- /* `sm` applies to x-small devices (portrait phones, less than 576px) */
-@media (max-width: 575.98px) { 
-  /*width in small screens*/
-  .w_sm_100 {
-    width: 100% !important;
-  }
-  .w_sm_75 {
-    width: 75% !important;
-  }
-  .w_sm_50 {
-    width: 50% !important;
-  }
-  .w_sm_25 {
-    width: 25% !important;
-    /* End width in small screens*/
-  }
- }
+
 
  /* `md` applies to small devices (landscape phones, less than 768px) */
 @media (max-width: 800px ) { 
@@ -97,14 +81,14 @@
   /* 
     width for form sign in large screens
     */
-    .form {
+    /*.form {
       width: 569px;
-      /* height: 586px; */
-    }
-    .infoForm{
+      /* height: 586px; 
+    } */
+    /* .infoForm{
       width: 432px;
 
-    }
+    } */
  }
 
 
@@ -302,73 +286,103 @@
 }
 /* LOGIN FORM AND REGISTER */
 .formBackground {
+  opacity: 0.9;
   background-image: url("../Image/college_buliding.png");
   height: 100dvh;
-  background-size: cover;
-  opacity: 0.7;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
 }
 
 
 .form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 65px; 
   background-color: rgba(0, 121, 137,0.7);
-  -webkit-backdrop-filter: blur(2px); 
-  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(5px); 
+  backdrop-filter: blur(5px);
   border-radius: 0px 10px 10px 0px;
-  box-shadow: 5px 0px 5px 5px rgba(0, 121, 137,0.7);
+  color: #ffffff;
 }
 .form > h1{
   font-size: 30px;
   font-weight: 900;
-
+  text-align: center;
+  margin: 10% 0%;
 }
-.formSign{
-  color: #ffffff;
-  
 
-  /* font-family: "Tajawal"; */
-
-}
 
 .infoForm{
-
   padding: 20px 20px 0 20px;
   padding-top:30px ;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-   background-color: rgba(119, 205, 217,0.7); 
-   -webkit-backdrop-filter: blur(2px); 
-   backdrop-filter: blur(2px);
+   background-color: rgba(119, 206, 217, 0.737); 
+   -webkit-backdrop-filter: blur(5px); 
+   backdrop-filter: blur(5px);
   border-radius: 10px 0px 0px 10px;
-  box-shadow: -5px 0px 5px 5px rgba(119, 205, 217,0.7);
-  /* box-sizing: border-box; */  
+  /* box-shadow: -5px 0px 5px 5px rgba(119, 205, 217,0.7); */
+ /* height: 530px; */
 
 }
 .sub_header{
   display: block;
   background-color: #007989;
-   padding: 15px; 
-  border-radius:11px ;
-  margin-top:70px ;
+  text-align: center;
+   padding: 7px 0;
+  border-radius:6px ;
+margin: 25px 30px;
 }
-
 .sub_header > h2{
   font-size: 22px;
   font-weight: 900;
   color: #ffffff;
 
 }
+.infoLogo{
+  margin: 25px;
+  margin-top: 10%;
+  width: 350px;
+}
 .infoBoxImg{
   mix-blend-mode: multiply;
   border-radius:10px 10px 0 10px;
   box-sizing: border-box;
-  /* margin-top:124px; */
+  width: 100%;
+  height: 250px;
 }
-
+.infoBoxTitle{
+  font-size: 20px;
+  font-weight: 900;
+  color: #3f3f3fde;
+}
+.registerBtnSpan{
+  margin: 45px 0;
+  display: block;
+  /* padding: 10px; */
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #BE9A1A;
+  border-radius: 6px;
+}
+.registerBtn{
+ padding: 0px 30px; 
+display: flex;
+align-items: center;
+height: 100%;
+text-decoration: none;
+color: white;
+box-sizing: border-box;
+background-color: #BE9A1A;
+font-weight: 600;
+}
+.registerBtn:hover{
+  background-color: transparent;
+}
+.colForm{
+  margin: 25px 0;
+}
 .formInput{
   display: block;
   background: rgba(255, 255, 255, 0.4);
@@ -382,9 +396,6 @@
   padding-right: 30px;
   width: 100%;
   resize: vertical;
-}
-.password{
-  margin-bottom: 0px;
 }
 .formInput:focus{
   border: 2px solid #CFC67C;
@@ -401,7 +412,9 @@
 .formLabel{
   display: block;
   margin-bottom: 10px;
-
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 22px;
 }
 
 .submitBtn{
@@ -419,11 +432,10 @@ font-size: 18px;
   background-color: #B0A007;
 }
 
-
 .linksLogin{
 display: block;
-margin-top: 15px;
-margin-bottom: 20px;
+margin-top: 0px;
+margin-bottom: 35px;
 }
 .linksLogin > a{
   text-decoration: none;
@@ -479,16 +491,50 @@ color: rgba(0, 26, 255, 0.8);
 .formOption:first-child{
   border-radius: 15px 15px 0 0;
 }
-
-
-
-  /* width: fit-content;
-  font-family: 'Tajawal';
+/* Register pages */
+.signupBackground{
+  background: rgb(98,192,204);
+background: linear-gradient(180deg, rgb(39, 124, 136) 44%, rgba(119,205,217,1) 100%);
+ height: 100dvh;
+}
+.registerForm{
+  background: #007989;
+  box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.25);
+  color: #FFF;
+  border-radius: 10px;
+}
+.registerForm h1{
+  text-align: center;
+  font-size: 30px;
   font-weight: 900;
-  font-size: 14px;
-  text-decoration-line: underline;
-  color: #FFFFFF;
-} */
+}
+.registerLogo{
+  width:400px; 
+  height:90px;
+  margin: 25px 0;
+}
+.timeLine{
+  display: flex;
+  position: relative;
+}
+.timeLineReg{
+  width: 100%;
+    height: 5px;
+    background: #CFC67C;
+   border-radius: 15px;
+   position: absolute;
+  top: 40%;
+}
+.stepForm{
+  background-color: white;
+  color: black;
+  font-weight: 800;
+  border: 2px solid black;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+}
+  
 /* contact design */
 .suggestions{
   display: flex;
@@ -500,8 +546,7 @@ color: rgba(0, 26, 255, 0.8);
 }
 .boxSuggestions{
   border-radius:0 15px 15px 0 ;
-
-  background: rgba(119, 205, 217, 0.55);
+  background: rgba(119, 205, 217, 0.505);
   /* width: 889px; */
   height: 530px;
 
@@ -575,8 +620,6 @@ color: rgba(0, 26, 255, 0.8);
   color: #FFF;
   
 }
-.conList{ 
-}
 .conListEle{
   display: inline-block;
   font-size: 19px;
@@ -594,25 +637,40 @@ padding: 15px 0 0 0;
   height: 25px;
   margin-left: 30px;
 }
+ /* `sm` applies to x-small devices (portrait phones, less than 576px) */
+ @media (max-width: 575.98px) { 
+  /*width in small screens*/
+  .w_sm_100 {
+    width: 100% !important;
+  }
+  .w_sm_75 {
+    width: 75% !important;
+  }
+  .w_sm_50 {
+    width: 50% !important;
+  }
+  .w_sm_25 {
+    width: 25% !important;
+    /* End width in small screens*/
+  }
+ .formBackground {
+   /* background-image: none;
+   background-color: red; */
+   height: 1200px;
+ } 
+ .infoLogo{
+  width: 300px;
+ }
+ }
 @media (max-width: 991.98px){ 
 .boxSuggestions {
   border-radius: 15px 15px 0 0;
 }
 .conInfo{
   border-radius: 0 0 15px 15px;
-
+}
+.form,.infoForm{
+  border-radius: 0px;
 }
 }
 
-/* .inputText{
-  width: 100%;
-  padding: 12px;
-  /* border: 1px solid #ccc; */
-  /* border-radius: 4px;
-  resize: vertical; 
-} */
-/* 
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-} */
