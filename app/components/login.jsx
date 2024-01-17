@@ -126,11 +126,11 @@ export default function Login() {
                       <span
                         className={`align-self-center text-center ${styles.registerBtnSpan}`}
                       >
-                        <Link href={"#"} className={`${styles.registerBtn}`}>
+                        <Link href={"/registerEntity"} className={`${styles.registerBtn}`}>
                           {" "}
                           جهة التدريب{" "}
                         </Link>
-                        <Link href={"#"} className={styles.registerBtn}>
+                        <Link href={"/registerStud"} className={styles.registerBtn}>
                           {" "}
                           المتدرب{" "}
                         </Link>
