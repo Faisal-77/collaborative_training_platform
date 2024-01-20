@@ -6,10 +6,9 @@ import React, { useState } from "react";
 import Link from "next/link";
 export default function nav() {
   const [isSidebarVisible, setSidebarVisible] = useState(false);
-  // const [selectedOption, setSelectedOption] = useState('اختر التخصص');
+  
   const toggleSidebar = () => {
     setSidebarVisible(!isSidebarVisible);
-    console.log("clicked");
   };
 
   return (
@@ -25,7 +24,9 @@ export default function nav() {
                 <Link href={"#"} 
                 onClick={toggleSidebar}
                 style={{ fill: "white" }}
+                className={styles.text_nav}
                 >
+               
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     height="28"
@@ -34,6 +35,7 @@ export default function nav() {
                   >
                     <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
                   </svg>
+                 
                 </Link>
               </li>
               <li>
@@ -64,12 +66,13 @@ export default function nav() {
             </ul>
           )}
           {/*large screen nav */}
-          <ul className={styles.navList}>
+          <ul className={`${styles.navList} `}>
             <li className={styles.menuBtn}>
               <Link
                 href={"#"}
                 onClick={toggleSidebar}
                 style={{ fill: "white" }}
+                className={styles.text_nav}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -79,6 +82,11 @@ export default function nav() {
                 >
                   <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
                 </svg>
+              </Link>
+            </li>
+            <li className={styles.menuBtn}>
+            <Link  href="/login">
+                  <button className={`${styles.log_btn} `}>تسجيل الدخول</button>
               </Link>
             </li>
             <li className={styles.hideOnSmall}>

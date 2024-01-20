@@ -7,11 +7,11 @@ export default function RootLayout({ children }) {
       <>
        <section className={styles.signupBackground}>
     <div className={`container h-100`}>
-      <div class="row justify-content-center align-items-center h-100 ">
-      <div class="col-lg-10 col-md-12 h-100">
-      <div class="row no-gutters justify-content-center align-items-center h-100">
-                  <div class="col-md-12 col-lg-6 p-0 d-flex align-items-stretch justify-content-center">
-                    <section class={` w-100 p-4 ${styles.registerForm}`}>
+      <div className="row justify-content-center align-items-center h-100 ">
+      <div className="col-lg-10 col-md-12 h-100">
+      <div className="row no-gutters justify-content-center align-items-center h-100">
+                  <div className="col-md-12 col-lg-6 p-0 d-flex align-items-stretch justify-content-center">
+                    <section className={` w-100 p-4 ${styles.registerForm}`}>
                   <div className="row justify-content-center">
                     <Image src={logo}  className={`${styles.registerLogo}`} />
                    </div>

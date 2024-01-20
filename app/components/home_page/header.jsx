@@ -13,7 +13,7 @@ export default function Header() {
 
           <div className="col">
               <Link  href="/login">
-                  <button className={styles.log_btn}>تسجيل الدخول</button>
+                  <button className={`${styles.log_btn} ${styles.hideOnSmall}`}>تسجيل الدخول</button>
               </Link>
           </div>
       </div>

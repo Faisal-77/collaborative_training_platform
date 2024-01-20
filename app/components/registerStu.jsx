@@ -92,9 +92,9 @@ function StepOne({ formData, setFormData, nextStep, error, setError }) {
         </div>
       </div>
       <form>
-        <div class={`row justify-content-center`}>
+        <div className={`row justify-content-center`}>
         {/* Full Name */}
-          <div class={`col-md-10 `}>
+          <div className={`col-md-10 `}>
             <div className={styles.iconsAuth}>
               <FontAwesomeIcon icon={faUser} className={styles.formIcons} />
             </div>
@@ -102,7 +102,7 @@ function StepOne({ formData, setFormData, nextStep, error, setError }) {
               الاسم كامل
             </label>
 
-            <div class="form-group">
+            <div className="form-group">
               <input
                 type="text"
                 placeholder="أدخل الاسم كامل"
@@ -119,7 +119,7 @@ function StepOne({ formData, setFormData, nextStep, error, setError }) {
             </div>
           </div>
           {/* Training Number */}
-          <div class={`col-md-10 `}>
+          <div className={`col-md-10 `}>
             <div className={styles.iconsAuth}>
               <FontAwesomeIcon icon={faUser} className={styles.formIcons} />
             </div>
@@ -127,7 +127,7 @@ function StepOne({ formData, setFormData, nextStep, error, setError }) {
               رقم التدريبي
             </label>
 
-            <div class="form-group">
+            <div className="form-group">
               <input
                 type="text"
                 placeholder="رقم التدريبي"
@@ -144,14 +144,14 @@ function StepOne({ formData, setFormData, nextStep, error, setError }) {
             </div>
           </div>
           {/* Email */}
-          <div class={`col-md-10 `}>
+          <div className={`col-md-10 `}>
             <div className={styles.iconsAuth}>
               <FontAwesomeIcon icon={faEnvelope} className={styles.formIcons} />
             </div>
             <label htmlFor="email" className={` ${styles.formLabel}`}>
               البريد الإلكتروني
             </label>
-            <div class="form-group">
+            <div className="form-group">
               <input
                 type="email"
                 placeholder="أدخل البريد الإلكتروني"
@@ -167,14 +167,14 @@ function StepOne({ formData, setFormData, nextStep, error, setError }) {
             </div>
           </div>
           {/* Phone Number */}
-          <div class={`col-md-10 `}>
+          <div className={`col-md-10 `}>
             <div className={styles.iconsAuth}>
               <FontAwesomeIcon icon={faPhone} className={styles.formIcons} />
             </div>
             <label htmlFor="phone" className={` ${styles.formLabel}`}>
               رقم الجوال
             </label>
-            <div class="form-group">
+            <div className="form-group">
               <input
                 type="text"
                 placeholder="أدخل رقم الجوال"
@@ -239,16 +239,16 @@ function StepTwo({ setFormData, formData, prevStep, error, setError }) {
         </div>
       </div>
       <form>
-        <div class={`row justify-content-center`}>
+        <div className={`row justify-content-center`}>
         {/* Password */}
-          <div class={`col-md-10`}>
+          <div className={`col-md-10`}>
             <div className={styles.iconsAuth}>
               <FontAwesomeIcon icon={faLock} className={styles.formIcons} />
             </div>
             <label htmlFor="password" className={` ${styles.formLabel}`}>
               كلمة المرور
             </label>
-            <div class="form-group">
+            <div className="form-group">
               <input
                 type="password"
                 placeholder="أدخل كلمة المرور"
@@ -263,14 +263,14 @@ function StepTwo({ setFormData, formData, prevStep, error, setError }) {
             </div>
           </div>
           {/* Confirm Password */}
-          <div class={`col-md-10`}>
+          <div className={`col-md-10`}>
             <div className={styles.iconsAuth}>
               <FontAwesomeIcon icon={faLock} className={styles.formIcons} />
             </div>
             <label htmlFor="password2" className={` ${styles.formLabel}`}>
               أعد كلمة المرور
             </label>
-            <div class="form-group">
+            <div className="form-group">
               <input
                 type="password"
                 placeholder="أعد كلمة المرور"

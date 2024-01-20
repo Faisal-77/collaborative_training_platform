@@ -27,7 +27,7 @@ const SelectForm = ({selectedOption, chosenOption}) => {
       {isContentSelectVisible && (
         <div className={`${styles.contentSelect}`}>
         {chosenOption.map((option,index) => (
-          <div className={`${styles.formOption}`} onClick={() => chosenOption1(chosenOption[index])}>{chosenOption[index]}</div>
+          <div className={`${styles.formOption}`} key={index} onClick={() => chosenOption1(chosenOption[index])}>{chosenOption[index]}</div>
         ))}
         </div>
       )}
