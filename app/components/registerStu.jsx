@@ -417,22 +417,24 @@ const SelectForm = ({setFormData , formData}) => {
     setFormData({ ...formData, department: optionValue });
     clickedSelect();
   };
-
+  const list = [
+    'تقنية الحاسب الألي' , 'التقنية الألكترونية' ,
+   'التقنية الميكانيكية' , 'التقنية الأدارية' , 'التقنية الكهربائية'
+  ]
   return (
     <div className={`${styles.selectForm}`}>
 
       <span className={`${styles.selectedOption} ${styles.titleSelect} ${isContentSelectVisible ? 'show' : ''}`} onClick={clickedSelect}>
         {formData.department}
       </span>
+      
       {isContentSelectVisible && (
         <div className={`${styles.contentSelect}`}>
-
-          <div className={`${styles.formOption}`} onClick={() => chosenOption('تقنية الحاسب الألي')}>تقنية الحاسب الألي</div>
-          <div className={`${styles.formOption}`} onClick={() => chosenOption('التقنية الألكترونية')}>التقنية الألكترونية</div>
-          <div className={`${styles.formOption}`} onClick={() => chosenOption('التقنية الميكانيكية')}>التقنية الميكانيكية</div>
-          <div className={`${styles.formOption}`} onClick={() => chosenOption('التقنية الأدارية')}>التقنية الأدارية</div>
-          <div className={`${styles.formOption}`} onClick={() => chosenOption('التقنية الكهربائية')}>التقنية الكهربائيبة</div>
-        
+           {list.map ((val , index) =>
+          <div className={`${styles.formOption}`} onClick={() => chosenOption(list[index])}>
+            {val}
+          </div>
+           )}
         </div>             
       )}
     </div>
