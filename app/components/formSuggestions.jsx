@@ -5,21 +5,21 @@ import { faClock ,faPhone, faUser, faEnvelope } from "@fortawesome/free-solid-sv
 export default function Home() {
   return (
     <>
-      <section class="ftco-section">
-        <div class={`container`}>
-          <div class="row justify-content-center">
-            <div class="col-lg-10 col-md-12">
-              <div class={`${styles.wrapper}`}>
-                <div class="row no-gutters">
-                  <div class="col-md-12 col-lg-6 p-0 d-flex align-items-stretch">
+      <section className="ftco-section">
+        <div className={`container`}>
+          <div className="row justify-content-center">
+            <div className="col-lg-10 col-md-12">
+              <div className={`${styles.wrapper}`}>
+                <div className="row no-gutters">
+                  <div className="col-md-12 col-lg-6 p-0 d-flex align-items-stretch">
                     <section
-                      class={`contact-wrap w-100 p-4 ${styles.boxSuggestions}`}
+                      className={`contact-wrap w-100 p-4 ${styles.boxSuggestions}`}
                     >
-                      <h3 class={styles.contactTitle}>للاقتراحات والشكوى</h3>
+                      <h3 className={styles.contactTitle}>للاقتراحات والشكوى</h3>
                       <form method="POST" id="contactForm" name="contactForm">
-                        <div class={`row ${styles.contactWrap}`}>
-                          <div class="col-md-12">
-                            <div class="form-group">
+                        <div className={`row ${styles.contactWrap}`}>
+                          <div className="col-md-12">
+                            <div className="form-group">
                               <input
                                 type="text"
                                 class={`${styles.formInput}`}
@@ -29,33 +29,33 @@ export default function Home() {
                               />
                             </div>
                           </div>
-                          <div class="col-md-12">
-                            <div class="form-group">
+                          <div className="col-md-12">
+                            <div className="form-group">
                               <input
                                 type="phone"
-                                class={`${styles.formInput}`}
+                                className={`${styles.formInput}`}
                                 name="phone"
                                 id="phone"
                                 placeholder="رقم الهاتف"
                               />
                             </div>
                           </div>
-                          <div class="col-md-12">
-                            <div class="form-group">
+                          <div className="col-md-12">
+                            <div className="form-group">
                               <input
                                 type="Email"
-                                class={`${styles.formInput}`}
+                                className={`${styles.formInput}`}
                                 name="email"
                                 id="email"
                                 placeholder="البريد الإلكتروني"
                               />
                             </div>
                           </div>
-                          <div class="col-md-12">
-                            <div class="form-group">
+                          <div className="col-md-12">
+                            <div className="form-group">
                               <textarea
                                 name="message"
-                                class={`${styles.formInput}`}
+                                className={`${styles.formInput}`}
                                 id="message"
                                 cols="30"
                                 rows="7"
@@ -63,12 +63,12 @@ export default function Home() {
                               ></textarea>
                             </div>
                           </div>
-                          <div class="col-md-12">
-                            <div class="form-group">
+                          <div className="col-md-12">
+                            <div className="form-group">
                               <input
                                 type="submit"
                                 value="إرسال"
-                                class={`${styles.submitBtn}  w-100 `}
+                                className={`${styles.submitBtn}  w-100 `}
                               />
                             </div>
                           </div>
@@ -76,9 +76,9 @@ export default function Home() {
                       </form>
                     </section>
                   </div>
-                  <div class="col-md-12 col-lg-6 d-flex align-items-stretch p-0">
+                  <div className="col-md-12 col-lg-6 d-flex align-items-stretch p-0">
                     <section
-                      class={`w-100 p-lg-6   ${styles.boxSuggestions} ${styles.conInfo}`}
+                      className={`w-100 p-lg-6   ${styles.boxSuggestions} ${styles.conInfo}`}
                     >
                       <div className={`${styles.conInfoShape}`}>
                         <div
@@ -88,7 +88,7 @@ export default function Home() {
                           className={`${styles.conInfoShape_2} align-self-center`}
                         >
                           <div className={`${styles.conInfoEle} w-100`}>
-                            <h3  class={`${styles.contactTitle} ${styles.conInfoH3}`}>معلومات التواصل</h3>
+                            <h3  className={`${styles.contactTitle} ${styles.conInfoH3}`}>معلومات التواصل</h3>
                             <div className={styles.conList}>
                             <div className={styles.conListItem}>
                             <FontAwesomeIcon icon={faEnvelope} className={styles.conListIcon}/>
@@ -103,7 +103,7 @@ export default function Home() {
                             <span className={styles.conListEle} dir="ltr">8:00 am - 2:00 pm </span>
                             </div>
                             </div>
-                            <p class={`${styles.conInfoP}`}>لا تتردد في الاتصال بنا في أي وقت.<br/> سيتم التواصل في أقرب وقت ممكن!</p>
+                            <p className={`${styles.conInfoP}`}>لا تتردد في الاتصال بنا في أي وقت.<br/> سيتم التواصل في أقرب وقت ممكن!</p>
                           </div>
                         </div>
                         <div

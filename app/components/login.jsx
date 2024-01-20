@@ -38,51 +38,51 @@ export default function Login() {
   return (
     <>
       <section className={styles.formBackground}>
-        <div class={`container h-100`}>
-          <div class="row justify-content-center align-items-center h-100">
-            <div class="col-lg-10 col-md-12">
-              <div class={``}>
-                <div class="row no-gutters">
-                  <div class="col-md-12 col-lg-6 p-0 d-flex align-items-stretch">
-                    <section class={`contact-wrap w-100 p-4 ${styles.form}`}>
+        <div className={`container h-100`}>
+          <div className="row justify-content-center align-items-center h-100">
+            <div className="col-lg-10 col-md-12">
+              <div className={``}>
+                <div className="row no-gutters">
+                  <div className="col-md-12 col-lg-6 p-0 d-flex align-items-stretch">
+                    <section className={`contact-wrap w-100 p-4 ${styles.form}`}>
                       <h1>تسجيل الدخول</h1>
                       <form onSubmit={handleSubmit}>
-                        <div class={`row contact-wrap justify-content-center`}>
-                          <div class={`col-md-10 ${styles.colForm}`}>
+                        <div className={`row contact-wrap justify-content-center`}>
+                          <div className={`col-md-10 ${styles.colForm}`}>
                             <label
                               htmlFor="username"
                               className={styles.formLabel}
                             >
                               اسم المستخدم
                             </label>
-                            <div class="form-group">
+                            <div className="form-group">
                               <input
                                 type="text"
-                                class={`${styles.formInput}`}
+                                className={`${styles.formInput}`}
                                 id="username"
                                 placeholder="اسم المستخدم"
                                 onChange={(e) => setUsername(e.target.value)}
                               />
                             </div>
                           </div>
-                          <div class={`col-md-10 ${styles.colForm}`}>
+                          <div className={`col-md-10 ${styles.colForm}`}>
                             <label
                               htmlFor="password"
                               className={styles.formLabel}
                             >
                               كلمة المرور
                             </label>
-                            <div class="form-group">
+                            <div className="form-group">
                               <input
                                 type="password"
-                                class={`${styles.formInput} `}
+                                className={`${styles.formInput} `}
                                 id="password"
                                 placeholder="كلمة المرور"
                                 onChange={(e) => setPassword(e.target.value)}
                               />
                             </div>
                           </div>
-                          <div class="col-md-10 ">
+                          <div className="col-md-10 ">
                             <div className="form-group">
                               <span className={styles.linksLogin}>
                                 <Link href={"/"}>نسيت كلمة المرور؟</Link>
@@ -90,9 +90,9 @@ export default function Login() {
                             </div>
                           </div>
                           <div
-                            class={`col-md-12 text-center ${styles.colForm}`}
+                            className={`col-md-12 text-center ${styles.colForm}`}
                           >
-                            <div class="form-group">
+                            <div className="form-group">
                               {error && (
                                 <div className="bg-red-500 text-white w-fit">
                                   {error}
@@ -109,9 +109,9 @@ export default function Login() {
                       </form>
                     </section>
                   </div>
-                  <div class="col-md-12 col-lg-6 p-0 d-flex align-items-stretch">
+                  <div className="col-md-12 col-lg-6 p-0 d-flex align-items-stretch">
                     <section
-                      class={`contact-wrap w-100 p-0 ${styles.infoForm}`}
+                      className={`contact-wrap w-100 p-0 ${styles.infoForm}`}
                     >
                       <Image src={logo_tvtc} className={`${styles.infoLogo}`} />
 
