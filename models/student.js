@@ -18,7 +18,6 @@ const StudentSchema = new Schema({
     password: {
         type: String,
         minLength: [6, "Password must be at least 6 characters"],
-        select : false
     },
     department :{
         type :String,
@@ -30,6 +29,6 @@ const StudentSchema = new Schema({
     {timestamps : true}
 )
 
-const Student = models.Students || model("Students" , StudentSchema);
+const Student = models.student || model("student" , StudentSchema);
 
 export default Student;
