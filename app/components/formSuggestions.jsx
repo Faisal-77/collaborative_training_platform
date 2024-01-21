@@ -22,7 +22,7 @@ export default function Home() {
                             <div className="form-group">
                               <input
                                 type="text"
-                                class={`${styles.formInput}`}
+                                className={`${styles.formInput}`}
                                 name="name"
                                 id="name"
                                 placeholder="الاسم"

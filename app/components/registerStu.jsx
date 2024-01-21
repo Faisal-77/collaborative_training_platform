@@ -16,6 +16,7 @@ import { useRouter } from "next/navigation";
 import { set } from "mongoose";
 import { handel_validate_input_student } from "@/lib/handel_validate_input";
 
+
 // TwoStepForm component
 const TwoStepForm = () => {
   const router = useRouter();
@@ -315,6 +316,7 @@ function StepTwo({ setFormData, formData, prevStep, error, setError , handelSubm
           </div>
         </div>
       </div>
+
       <form onSubmit={handelSubmit}>
         <div className={`row justify-content-center`}>
         {/* Password */}
@@ -363,7 +365,7 @@ function StepTwo({ setFormData, formData, prevStep, error, setError , handelSubm
               />
             </div>
           </div>
-          {/* Department */}
+          {/* Department & Major */}
           <div className="container text-center mb-5">
             <div className="row">
               <div className="col p-0 ">
@@ -374,6 +376,7 @@ function StepTwo({ setFormData, formData, prevStep, error, setError , handelSubm
               </div>
             </div>
           </div>
+
 
           {/* Error Message */}
           {error && (

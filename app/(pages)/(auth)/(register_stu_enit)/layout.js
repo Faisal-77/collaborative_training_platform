@@ -5,6 +5,7 @@ import Image from "next/image";
 
 export default function RootLayout({ children }) {
   return (
+
     <>
       <section className={styles.signupBackground}>
         <div className="container h-100">
