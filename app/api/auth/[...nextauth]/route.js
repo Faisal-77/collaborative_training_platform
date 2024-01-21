@@ -15,6 +15,7 @@ export const authOptions = {
                 try{
                     await connectToDatabase();
                     const user = await Student.findOne({user_name})
+                    
                     if (!user){
                         return;
                     }
