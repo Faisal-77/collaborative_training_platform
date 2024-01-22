@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 export default function nav() {
   const [isSidebarVisible, setSidebarVisible] = useState(false);
-  
+
   const toggleSidebar = () => {
     setSidebarVisible(!isSidebarVisible);
   };
@@ -21,12 +21,12 @@ export default function nav() {
           {isSidebarVisible && (
             <ul className={`${styles.sidebar} ${styles.w_sm_100}`}>
               <li>
-                <Link href={"#"} 
-                onClick={toggleSidebar}
-                style={{ fill: "white" }}
-                className={styles.text_nav}
+                <Link
+                  href={"#"}
+                  onClick={toggleSidebar}
+                  style={{ fill: "white" }}
+                  className={styles.text_nav}
                 >
-               
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     height="28"
@@ -35,33 +35,22 @@ export default function nav() {
                   >
                     <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
                   </svg>
-                 
                 </Link>
               </li>
               <li>
-                <Link href={"/"} className={styles.text_nav}>
-                  الصفحة الرئيسية
-                </Link>
+                <Link href={"/"}>الصفحة الرئيسية</Link>
               </li>
               <li>
-                <Link href={"/"} className={styles.text_nav}>
-                  التخصصات
-                </Link>
+                <Link href={"/"}>التخصصات</Link>
               </li>
               <li>
-                <Link href={"/"} className={styles.text_nav}>
-                  جهات التدريب
-                </Link>
+                <Link href={"/"}>جهات التدريب</Link>
               </li>
               <li>
-                <Link href={"/"} className={styles.text_nav}>
-                  الخدمات
-                </Link>
+                <Link href={"/"}>الخدمات</Link>
               </li>
               <li>
-                <Link href={"/suggestions"} className={styles.text_nav}>
-                  الاقتراحات
-                </Link>
+                <Link href={"/suggestions"}>الاقتراحات</Link>
               </li>
             </ul>
           )}
@@ -85,8 +74,8 @@ export default function nav() {
               </Link>
             </li>
             <li className={styles.menuBtn}>
-            <Link  href="/login">
-                  <button className={`${styles.log_btn} `}>تسجيل الدخول</button>
+              <Link href="/login">
+                <button className={`${styles.log_btn} `}>تسجيل الدخول</button>
               </Link>
             </li>
             <li className={styles.hideOnSmall}>

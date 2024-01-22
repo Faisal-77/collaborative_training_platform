@@ -142,7 +142,6 @@
   padding: 0 30px;
   text-decoration: none;
   color: #ffffff;
-  /* padding: 15px; */
   border-radius: 6px;
 }
 
@@ -190,7 +189,6 @@
 }
 
 .img_background_content {
-  /* position: relative; */
   width: -moz-fit-content;
   width: fit-content;
   font-family: "Tajawal";
@@ -221,14 +219,6 @@
   padding: 20px;
 }
 
-/* .content_under_rectangle {
-  width: 15.313rem;
-  height: 11.625rem;
-  margin: 8px auto;
-  background: #a3d09d;
-  border-radius: 22px;
-} */
-/* font-family: "Tajawal"; */
 .content_under_rectangle {
   width: 15.313rem;
   height: 11.625rem;
@@ -270,7 +260,6 @@
   text-align: center;
   width: -moz-fit-content;
   width: fit-content;
-  /* font-family: "Tajawal"; */
   font-weight: 900;
   font-size: 14px;
   text-decoration-line: underline;
@@ -309,8 +298,6 @@
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   border-radius: 10px 0px 0px 10px;
-  /* box-shadow: -5px 0px 5px 5px rgba(119, 205, 217,0.7); */
-  /* height: 530px; */
 }
 .sub_header {
   display: block;
@@ -650,13 +637,11 @@
 .userTools {
   cursor: pointer;
 }
-.iconBtn {
-  color: #fff;
-  font-size: 40px;
-  margin: 0 35px;
-}
+
 .colsOftools {
   border-left: 2px solid #fff;
+  color: #fff;
+  font-size: 40px;
 }
 .navbarAdmin {
   min-height: 77dvh;
@@ -688,6 +673,9 @@
 .userBtn:hover {
   background: #d9d9d9;
 }
+.searchInput {
+  max-width: 25em;
+}
 .sidebarAdmin {
   list-style: none;
   width: 100%;
@@ -715,9 +703,8 @@
 .companyCard {
   background-color: #a3d09d;
   border-radius: 6px;
-  height: 18.75rem;
+  /* min-height: 18.75rem; */
   box-shadow: -7px 8px 5px 0px rgba(0, 0, 0, 0.25);
-  height: auto;
   width: auto;
 }
 .logoBox {
@@ -773,10 +760,61 @@
   color: #000;
   box-shadow: -7px 1px 6.5px 11px rgba(86, 86, 86, 0.4),
     7px -1px 6.5px 11px rgba(86, 86, 86, 0.4);
+  padding: 2px 7px;
+  border-radius: 6px;
 }
 .closeBtn {
   cursor: pointer;
   font-size: 30px;
+}
+.contentContact {
+  display: flex;
+  flex-direction: column;
+}
+.contentContact > h5 {
+  font-size: 22px;
+  font-weight: 700;
+}
+.contactText {
+  display: inline;
+  padding: 0 25px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.contactSpan {
+  margin: 15px 0;
+}
+.contactSpan > i {
+  position: relative;
+  top: 3px;
+  padding-top: 10px;
+  font-size: 20px;
+}
+/*sideBar Admin */
+.sidebarAdminBtn {
+  cursor: pointer;
+  padding: 15px 30px;
+  border-radius: 6px;
+}
+.sidebarAdminBtn:hover {
+  background-color: #005953;
+}
+.sidebar li {
+  height: 63px;
+}
+.sidebar li a {
+  height: 100%;
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: 700;
+  display: flex;
+  padding: 0 30px;
+  border-radius: 6px;
+  align-items: center;
+}
+.sidebar li a:hover {
+  background-color: #005953;
 }
 /* `sm` applies to x-small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
@@ -799,6 +837,21 @@
   }
   .infoLogo {
     width: 300px;
+  }
+  .tvtc_logo {
+    width: 230px;
+    height: 55px;
+  }
+  .iconPerson {
+    color: #fff;
+    font-size: 50px;
+    margin: 15px;
+  }
+  .colsOftools {
+    display: none;
+  }
+  .filterSection {
+    padding: 15px 8px;
   }
 }
 @media (max-width: 991.98px) {

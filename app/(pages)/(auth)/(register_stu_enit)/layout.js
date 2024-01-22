@@ -5,7 +5,6 @@ import Image from "next/image";
 
 export default function RootLayout({ children }) {
   return (
-
     <>
       <section className={styles.signupBackground}>
         <div className="container h-100">
@@ -15,7 +14,11 @@ export default function RootLayout({ children }) {
                 <div className="col-md-12 col-lg-6 p-0 d-flex align-items-stretch justify-content-center">
                   <section className={`w-100 p-4 ${styles.registerForm}`}>
                     <div className="row justify-content-center">
-                      <Image src={logo} className={`${styles.registerLogo}`} />
+                      <Image
+                        src={logo}
+                        className={`${styles.registerLogo}`}
+                        alt="TVTC LOGO"
+                      />
                     </div>
                     {children}
                   </section>

@@ -15,7 +15,7 @@ export default function AdminHeader() {
       </div>
       <div className="col-6">
         <div className="float-start m-3">
-          <Image src={logo} width={351} height={80} />
+          <Image className={styles.tvtc_logo} src={logo} alt="TVTC LOGO" />
         </div>
       </div>
     </header>
