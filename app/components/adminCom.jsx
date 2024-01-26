@@ -50,7 +50,7 @@ export default function AdminCom() {
                 </Link>
               </div>
               <div
-                className={`col-2 h-100 text-center p-0 m-0 ${styles.colsOftools}`}
+                className={`col-2 h-100 text-center p-0 m-0 ${styles.colsOftools} ${styles.hideOnSmall}`}
               >
                 <Link href={"/"} style={{ color: "white" }}>
                   <i className={`bi bi-house`}></i>
@@ -134,12 +134,15 @@ export default function AdminCom() {
               </li>
             </ul>
           </nav>
+
           <section
             className={`col-lg-10 col-md-12 p-0 m-0 ${styles.mainAdmin}`}
           >
             <main className="container-fluid mt-5">
-              <section className="row justify-content-center align-items-stretch">
-                <div className={`col-md-3 col-sm-10 col-xs-10 p-4  m-5`}>
+              <section className={`row align-items-stretch pe-5 ps-5`}>
+                <div
+                  className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+                >
                   <CompanyCard
                     logo={aramco}
                     name={"شركة أرامكو السعودية"}
@@ -148,7 +151,9 @@ export default function AdminCom() {
                     contactPhone={"+966138772828"}
                   />
                 </div>
-                <div className={`col-md-3 col-sm-10 col-xs-10 p-4 m-5`}>
+                <div
+                  className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+                >
                   <CompanyCard
                     logo={sabic}
                     name={"الشركة السعودية للصناعات    الأساسية (سابك)"}
@@ -157,7 +162,9 @@ export default function AdminCom() {
                     contactPhone={"+966112258000"}
                   />
                 </div>
-                <div className={`col-md-3 col-sm-10 col-xs-10 p-4  m-5 `}>
+                <div
+                  className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+                >
                   <CompanyCard
                     logo={alrajih}
                     name={"مصرف الراجحي"}
@@ -168,7 +175,11 @@ export default function AdminCom() {
                     contactPhone={"+966920003344"}
                   />
                 </div>
-                <div className={`col-md-3 col-sm-10 col-xs-10 p-4  m-5`}>
+              </section>
+              <section className={`row align-items-stretch pe-5 ps-5`}>
+                <div
+                  className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+                >
                   <CompanyCard
                     logo={sdaia}
                     name={"الهيئة السعودية للبيانات والذكاء الاصطناعي"}
@@ -179,8 +190,9 @@ export default function AdminCom() {
                     contactPhone={"8001221111"}
                   />
                 </div>
-
-                <div className={`col-md-3 col-sm-10 col-xs-10 p-4  m-5`}>
+                <div
+                  className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+                >
                   <CompanyCard
                     logo={mcitt}
                     name={"وزارة الاتصالات وتقنية المعلومات"}
@@ -191,7 +203,9 @@ export default function AdminCom() {
                     contactPhone={"4444814011"}
                   />
                 </div>
-                <div className={`col-md-3 col-sm-10 col-xs-10 p-4  m-5`}>
+                <div
+                  className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+                >
                   <CompanyCard
                     logo={ncps}
                     name={"المركز الوطني لتنمية القطاع غير الربحي"}
@@ -218,7 +232,7 @@ const CompanyCard = ({ logo, name, info, contactEmail, contactPhone }) => {
   };
   return (
     <>
-      <div className={`${styles.companyCard}`}>
+      <div className={` `}>
         <div className={`text-center ${styles.logoBox}`}>
           <Image src={logo} className={styles.companyLogos} />
         </div>

@@ -29,6 +29,9 @@
     padding: 0px 0px !important;
     justify-content: space-between !important;
   }
+  .filterSection {
+    padding: 15px 8px !important;
+  }
   /* End width in medium screens*/
 }
 
@@ -644,7 +647,7 @@
   font-size: 40px;
 }
 .navbarAdmin {
-  min-height: 77dvh;
+  min-height: 79dvh;
   background: #126c66;
   border-left: 2px solid #fff;
 }
@@ -703,9 +706,8 @@
 .companyCard {
   background-color: #a3d09d;
   border-radius: 6px;
-  /* min-height: 18.75rem; */
   box-shadow: -7px 8px 5px 0px rgba(0, 0, 0, 0.25);
-  width: auto;
+  margin: 30px;
 }
 .logoBox {
   width: 100%;
