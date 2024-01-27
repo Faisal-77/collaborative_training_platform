@@ -1,7 +1,7 @@
 import logo from "@/Image/white__logo1.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import UserTools from "@/app/components/userTools";
+import UserTools from "@/app/components/adminComponents/userTools";
 import Image from "next/image";
 import styles from "@/app/page.module.css";
 
