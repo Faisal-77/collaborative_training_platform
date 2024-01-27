@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import SelectForm from "./selectForm";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {handel_validate_input_entity} from '../../lib/handel_validate_input'
+import { handel_validate_input_entity } from "../../lib/handel_validate_input";
 import {
   faLock,
   faPhone,
@@ -27,23 +27,28 @@ const TwoStepForm = () => {
     password: "",
     password2: "",
   });
-  
+
   const [error, setError] = useState("");
   const [step, setStep] = useState(1);
 
   const nextStep = (e) => {
     e.preventDefault();
-    const {name , field , email , phone_number} = formData
-    if(!name || !field || !email || !phone_number){
-      setError('جميع الحقول مطلوبة ');
-      return
-    }
-    const check_input = handel_validate_input_entity(name , field , email , phone_number)
-    if (check_input !== true){
-      setError(check_input)
+    const { name, field, email, phone_number } = formData;
+    if (!name || !field || !email || !phone_number) {
+      setError("جميع الحقول مطلوبة ");
       return;
     }
-    setError("")
+    const check_input = handel_validate_input_entity(
+      name,
+      field,
+      email,
+      phone_number
+    );
+    if (check_input !== true) {
+      setError(check_input);
+      return;
+    }
+    setError("");
     setStep(step + 1);
   };
 
@@ -57,55 +62,54 @@ const TwoStepForm = () => {
     const user_namePattern = /^[^\d\s]+$/u;
     const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\S]{8,}$/;
 
-    if(!user_namePattern.test(formData.user_name)){
-      setError(' اسم المستخدم يجب الا يبدأ برقم ولا يحتوي على مسافات');
+    if (!user_namePattern.test(formData.user_name)) {
+      setError(" اسم المستخدم يجب الا يبدأ برقم ولا يحتوي على مسافات");
       return;
     }
-    if(!passwordPattern.test(formData.password) ){
+    if (!passwordPattern.test(formData.password)) {
       setError(`كلمة المرور خطأ 
       يجب أن تحتوي على 8 خانات على الأقل
-       وحرف كبير وحرف صغير`)
-       return;
+       وحرف كبير وحرف صغير`);
+      return;
     }
-    if (formData.password !== formData.password2){
-      setError("تأكيد كلمة المرر لا يساوي كلمة المرور")
+    if (formData.password !== formData.password2) {
+      setError("تأكيد كلمة المرر لا يساوي كلمة المرور");
       return;
     }
     try {
-      const resExist = await fetch('api/exist_student', {
-          method: "POST",
-          headers: {
-              "Content-type": "application/json"
-          },
-          body: JSON.stringify( formData.user_name ),
+      const resExist = await fetch("api/exist_student", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(formData.user_name),
       });
 
       const { user } = await resExist.json();
 
       if (user) {
-          setError("اسم المستخدم مسجل بالفعل");
-          return;
+        setError("اسم المستخدم مسجل بالفعل");
+        return;
       }
 
-      const res = await fetch('api/register_entity', {
-          method: "POST",
-          body: JSON.stringify({
-              formData
-          }),
+      const res = await fetch("api/register_entity", {
+        method: "POST",
+        body: JSON.stringify({
+          formData,
+        }),
       });
 
       if (res.ok) {
-        
-          const form = e.target;
-          form.reset();
-          router.push("/login");
+        const form = e.target;
+        form.reset();
+        router.push("/login");
       } else {
-          console.log("خطأ في التسجيل");
+        console.log("خطأ في التسجيل");
       }
     } catch (error) {
       console.log("error api :", error);
     }
-  }
+  };
   return (
     <div>
       {step === 1 && (
@@ -124,7 +128,7 @@ const TwoStepForm = () => {
           prevStep={prevStep}
           error={error}
           setError={setError}
-          handelSubmit = {handelSubmit}
+          handelSubmit={handelSubmit}
         />
       )}
     </div>
@@ -133,7 +137,6 @@ const TwoStepForm = () => {
 
 // StepOne component
 function StepOne({ formData, setFormData, nextStep, error, setError }) {
-
   return (
     <>
       <h1>تسجيل جهة تدريب جديدة</h1>
@@ -156,9 +159,8 @@ function StepOne({ formData, setFormData, nextStep, error, setError }) {
         </div>
       </div>
       <form>
-        
         <div className={`row justify-content-center`}>
-        {/* اسم المؤسسة / جهة التدريب */}
+          {/* اسم المؤسسة / جهة التدريب */}
           <div className={`col-md-10 `}>
             <div className={styles.iconsAuth}>
               <FontAwesomeIcon icon={faUser} className={styles.formIcons} />
@@ -256,24 +258,26 @@ function StepOne({ formData, setFormData, nextStep, error, setError }) {
             </div>
           </div>
 
-          
-
           {/* Error Message */}
           {error && (
-                    <div className='bg-red-500 text-white w-fit '>
-                        {error}
-                    </div>
-                )}
+            <div className={`col-md-10 `}>
+              <div className="form-group">
+                <div className="alert alert-danger" role="alert">
+                  {error}
+                </div>
+              </div>
+            </div>
+          )}
           {/* Submit Button */}
 
-          <div className="container text-center mt-5">
+          <div className="col-10 container text-center mt-5">
             <div className="row justify-content-evenly">
-              <div className="col p-0 ">
+              <div className="col p-0 mt-2">
                 <Link href="/login">
                   <button className={styles.submitBtn}>الخطوة السابقة</button>
                 </Link>
               </div>
-              <div className="col p-0 ">
+              <div className="col p-0 mt-2">
                 <button className={styles.submitBtn} onClick={nextStep}>
                   التالي
                 </button>
@@ -287,7 +291,14 @@ function StepOne({ formData, setFormData, nextStep, error, setError }) {
 }
 
 // StepTwo component
-function StepTwo({ setFormData, formData, prevStep, error, setError  , handelSubmit}) {
+function StepTwo({
+  setFormData,
+  formData,
+  prevStep,
+  error,
+  setError,
+  handelSubmit,
+}) {
   return (
     <>
       <h1>تسجيل جهة تدريب جديدة</h1>
@@ -382,20 +393,24 @@ function StepTwo({ setFormData, formData, prevStep, error, setError  , handelSub
           </div>
 
           {/* Error Message */}
-            {error && (
-                    <div className='bg-red-500 text-white w-fit '>
-                        {error}
-                    </div>
-                )}
+          {error && (
+            <div className={`col-md-10 `}>
+              <div className="form-group">
+                <div className="alert alert-danger" role="alert">
+                  {error}
+                </div>
+              </div>
+            </div>
+          )}
 
-          <div className="container text-center mt-5">
+          <div className="col-10 container text-center mt-5">
             <div className="row justify-content-evenly">
-              <div className="col p-0 ">
+              <div className="col p-0 mt-2">
                 <button className={styles.submitBtn} onClick={prevStep}>
                   الخطوة السابقة
                 </button>
               </div>
-              <div className="col p-0 ">
+              <div className="col p-0 mt-2">
                 <input
                   type="submit"
                   value="تسجيل الدخول"
