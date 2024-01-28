@@ -239,9 +239,11 @@ const CompanyCard = ({ logo, name, info, contactEmail, contactPhone }) => {
         <div className={`${styles.companyContent}`}>
           <h4 className={styles.companyName}>{name}</h4>
           <p className={styles.companyInfo}>{info}</p>
+
           <div className={styles.chatIcon} onClick={toggleChat}>
             <i className="bi bi-chat-square-text"></i>
           </div>
+          
           <div
             className={styles.popupContainer}
             style={{ display: isChatClicked ? "flex" : "none" }}
