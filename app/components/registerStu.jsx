@@ -16,7 +16,6 @@ import { useRouter } from "next/navigation";
 import { set } from "mongoose";
 import { handel_validate_input_student } from "@/lib/handel_validate_input";
 
-
 // TwoStepForm component
 const TwoStepForm = () => {
   const router = useRouter();
@@ -34,86 +33,91 @@ const TwoStepForm = () => {
 
   const [error, setError] = useState("");
   const [step, setStep] = useState(1);
-  
-  
+
   const nextStep = (e) => {
     e.preventDefault();
-    
-    const {full_name ,user_name , email , phoneNumber } = formData;
-    if (!full_name || !user_name || !email || !phoneNumber){
+
+    const { full_name, user_name, email, phoneNumber } = formData;
+    if (!full_name || !user_name || !email || !phoneNumber) {
       setError("جميع الحقول مطلوبة");
-      return
+      return;
     }
-    const check_input = handel_validate_input_student(full_name ,user_name , email , phoneNumber )
-    if (check_input !== true){
-      setError(check_input)
-      return
-    }else{
-    setError("")
-    setStep(step + 1);
+    const check_input = handel_validate_input_student(
+      full_name,
+      user_name,
+      email,
+      phoneNumber
+    );
+    if (check_input !== true) {
+      setError(check_input);
+      return;
+    } else {
+      setError("");
+      setStep(step + 1);
     }
   };
 
   const prevStep = () => {
     setStep(step - 1);
   };
-  
+
   const handelSubmit = async (e) => {
     e.preventDefault();
 
     const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\S]{8,}$/;
-    if(!passwordPattern.test(formData.password) ){
+    if (!passwordPattern.test(formData.password)) {
       setError(`كلمة المرور خطأ 
       يجب أن تحتوي على 8 خانات على الأقل
-       وحرف كبير وحرف صغير`)
-       return;
+       وحرف كبير وحرف صغير`);
+      return;
     }
-    if (formData.password !== formData.password2){
-      setError("تأكيد كلمة المرر لا يساوي كلمة المرور")
+    if (formData.password !== formData.password2) {
+      setError("تأكيد كلمة المرر لا يساوي كلمة المرور");
       return;
-    }if(formData.department == 'القسم'){
-      setError('الرجاء تحديد القسم')
+    }
+    if (formData.department == "القسم") {
+      setError("الرجاء تحديد القسم");
       return;
-    }if(formData.major == 'التخصص'){
-      setError("الرجاء تحديد التخصص")
+    }
+    if (formData.major == "التخصص") {
+      setError("الرجاء تحديد التخصص");
       return;
     }
     try {
-        const resExist = await fetch('api/exist_student', {
-            method: "POST",
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify( formData.user_name ),
-        });
+      const resExist = await fetch("api/exist_student", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(formData.user_name),
+      });
 
-        const { user } = await resExist.json();
+      const { user } = await resExist.json();
 
-        if (user) {
-            setError("اسم المستخدم مسجل بالفعل");
-            return;
-        }
+      if (user) {
+        setError("اسم المستخدم مسجل بالفعل");
+        return;
+      }
 
-        const res = await fetch('api/register', {
-            method: "POST",
-            body: JSON.stringify({
-                formData
-            }),
-        });
+      const res = await fetch("api/register", {
+        method: "POST",
+        body: JSON.stringify({
+          formData,
+        }),
+      });
 
-        if (res.ok) {
-            const form = e.target;
-            form.reset();
-            router.push("/login");
-        } else {
-            console.log("خطأ في التسجيل");
-        }
+      if (res.ok) {
+        const form = e.target;
+        form.reset();
+        router.push("/login");
+      } else {
+        console.log("خطأ في التسجيل");
+      }
     } catch (error) {
-        console.log("error api :", error);
+      console.log("error api :", error);
     }
-};
+  };
   return (
-    
     <div>
       {step === 1 && (
         <StepOne
@@ -131,17 +135,15 @@ const TwoStepForm = () => {
           prevStep={prevStep}
           error={error}
           setError={setError}
-          handelSubmit = {handelSubmit}
+          handelSubmit={handelSubmit}
         />
       )}
-
     </div>
   );
 };
 
 // StepOne component
 function StepOne({ formData, setFormData, nextStep, error, setError }) {
-
   return (
     <>
       <h1>تسجيل متدرب جديد</h1>
@@ -165,7 +167,7 @@ function StepOne({ formData, setFormData, nextStep, error, setError }) {
       </div>
       <form>
         <div className={`row justify-content-center`}>
-        {/* Full Name */}
+          {/* Full Name */}
           <div className={`col-md-10 `}>
             <div className={styles.iconsAuth}>
               <FontAwesomeIcon icon={faUser} className={styles.formIcons} />
@@ -263,24 +265,26 @@ function StepOne({ formData, setFormData, nextStep, error, setError }) {
             </div>
           </div>
 
-    
-
           {/* Error Message */}
           {error && (
-                    <div className='bg-red-500 text-white w-fit '>
-                        {error}
-                    </div>
-                )}
+            <div className={`col-md-10 `}>
+              <div className="form-group">
+                <div className="alert alert-danger" role="alert">
+                  {error}
+                </div>
+              </div>
+            </div>
+          )}
           {/* Submit Button */}
 
-          <div className="container text-center mt-5">
+          <div className="col-10 container text-center mt-5">
             <div className="row justify-content-evenly">
-              <div className="col p-0 ">
+              <div className="col p-0 mt-2">
                 <Link href="/login">
                   <button className={styles.submitBtn}>الخطوة السابقة</button>
                 </Link>
               </div>
-              <div className="col p-0 ">
+              <div className="col p-0 mt-2">
                 <button className={styles.submitBtn} onClick={nextStep}>
                   التالي
                 </button>
@@ -294,7 +298,14 @@ function StepOne({ formData, setFormData, nextStep, error, setError }) {
 }
 
 // StepTwo component
-function StepTwo({ setFormData, formData, prevStep, error, setError , handelSubmit}) {
+function StepTwo({
+  setFormData,
+  formData,
+  prevStep,
+  error,
+  setError,
+  handelSubmit,
+}) {
   return (
     <>
       <h1>تسجيل متدرب جديد</h1>
@@ -319,7 +330,7 @@ function StepTwo({ setFormData, formData, prevStep, error, setError , handelSubm
 
       <form onSubmit={handelSubmit}>
         <div className={`row justify-content-center`}>
-        {/* Password */}
+          {/* Password */}
           <div className={`col-md-10`}>
             <div className={styles.iconsAuth}>
               <FontAwesomeIcon icon={faLock} className={styles.formIcons} />
@@ -369,31 +380,37 @@ function StepTwo({ setFormData, formData, prevStep, error, setError , handelSubm
           <div className="container text-center mb-5">
             <div className="row">
               <div className="col p-0 ">
-                <SelectForm  setFormData={setFormData} formData={formData}/>
+                <SelectForm setFormData={setFormData} formData={formData} />
               </div>
               <div className="col p-0 ">
-                <SelectForm_mejor  setFormData={setFormData} formData={formData} />
+                <SelectForm_mejor
+                  setFormData={setFormData}
+                  formData={formData}
+                />
               </div>
             </div>
           </div>
 
-
           {/* Error Message */}
           {error && (
-                    <div className='bg-red-500 text-white w-fit '>
-                        {error}
-                    </div>
-                )}
+            <div className={`col-md-10 `}>
+              <div className="form-group">
+                <div className="alert alert-danger" role="alert">
+                  {error}
+                </div>
+              </div>
+            </div>
+          )}
           {/* Submit Button */}
 
-          <div className="container text-center">
+          <div className="col-10 container text-center mt-5">
             <div className="row justify-content-evenly">
-              <div className="col p-0 ">
+              <div className="col p-0 mt-2">
                 <button className={styles.submitBtn} onClick={prevStep}>
                   الخطوة السابقة
                 </button>
               </div>
-              <div className="col p-0 ">
+              <div className="col p-0 mt-2">
                 <input
                   type="submit"
                   value="تسجيل"
@@ -408,10 +425,9 @@ function StepTwo({ setFormData, formData, prevStep, error, setError , handelSubm
   );
 }
 
-
-const SelectForm = ({setFormData , formData}) => {
+const SelectForm = ({ setFormData, formData }) => {
   const [isContentSelectVisible, setContentSelectVisible] = useState(false);
-  
+
   const clickedSelect = () => {
     setContentSelectVisible(!isContentSelectVisible);
   };
@@ -421,79 +437,94 @@ const SelectForm = ({setFormData , formData}) => {
     clickedSelect();
   };
   const list = [
-    'تقنية الحاسب الألي' , 'التقنية الألكترونية' ,
-   'التقنية الميكانيكية' , 'التقنية الأدارية' , 'التقنية الكهربائية'
-  ]
+    "تقنية الحاسب الألي",
+    "التقنية الألكترونية",
+    "التقنية الميكانيكية",
+    "التقنية الأدارية",
+    "التقنية الكهربائية",
+  ];
   return (
     <div className={`${styles.selectForm}`}>
-
-      <span className={`${styles.selectedOption} ${styles.titleSelect} ${isContentSelectVisible ? 'show' : ''}`} onClick={clickedSelect}>
+      <span
+        className={`${styles.selectedOption} ${styles.titleSelect} ${
+          isContentSelectVisible ? "show" : ""
+        }`}
+        onClick={clickedSelect}
+      >
         {formData.department}
       </span>
-      
+
       {isContentSelectVisible && (
         <div className={`${styles.contentSelect}`}>
-           {list.map ((val , index) =>
-          <div className={`${styles.formOption}`} onClick={() => chosenOption(list[index])}>
-            {val}
-          </div>
-           )}
-        </div>             
+          {list.map((val, index) => (
+            <div
+              className={`${styles.formOption}`}
+              onClick={() => chosenOption(list[index])}
+            >
+              {val}
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );
 };
 
-
-const SelectForm_mejor = ({setFormData , formData}) => {
+const SelectForm_mejor = ({ setFormData, formData }) => {
   const [isContentSelectVisible, setContentSelectVisible] = useState(false);
-  const [cells , setCell] = useState ([]);
+  const [cells, setCell] = useState([]);
 
   const clickedSelect = () => {
     setContentSelectVisible(!isContentSelectVisible);
   };
-  const dispaly_cells = () =>{
-      if(formData.department ==  'تقنية الحاسب الألي' ){
-        setCell(["برمجيات" , "شبكات" , "دعم فني"])
-      }else if(formData.department == 'التقنية الألكترونية'){
-        setCell(['ألكترونيات صناعة وتحكم', 'الأجهزة الطبية'])
-      }else if (formData.department == 'التقنية الميكانيكية'){
-        setCell(['تبريد وتكييف','إنتاج','مركبات','الات ومعدات ثقيلة'])
-      }else if (formData.department == 'التقنية الأدارية'){
-        setCell(['تسويق','إدارة مكتبية','محاسبة'])
-      }else if (formData.department == 'التقنية الكهربائية'){
-        setCell(['قوى كهربائية'])
-      }else{
-        setCell['التخصص']
-      }
-  }
-  useEffect(()=>{
+  const dispaly_cells = () => {
+    if (formData.department == "تقنية الحاسب الألي") {
+      setCell(["برمجيات", "شبكات", "دعم فني"]);
+    } else if (formData.department == "التقنية الألكترونية") {
+      setCell(["ألكترونيات صناعة وتحكم", "الأجهزة الطبية"]);
+    } else if (formData.department == "التقنية الميكانيكية") {
+      setCell(["تبريد وتكييف", "إنتاج", "مركبات", "الات ومعدات ثقيلة"]);
+    } else if (formData.department == "التقنية الأدارية") {
+      setCell(["تسويق", "إدارة مكتبية", "محاسبة"]);
+    } else if (formData.department == "التقنية الكهربائية") {
+      setCell(["قوى كهربائية"]);
+    } else {
+      setCell["التخصص"];
+    }
+  };
+  useEffect(() => {
     dispaly_cells();
-    setFormData({...formData , major : 'التخصص'})
-    
-  },[formData.department])
+    setFormData({ ...formData, major: "التخصص" });
+  }, [formData.department]);
 
-  const chosenOption = (optionValue) => {  
+  const chosenOption = (optionValue) => {
     setFormData({ ...formData, major: optionValue });
     clickedSelect();
   };
 
   return (
     <div className={`${styles.selectForm}`}>
-
-      <span className={`${styles.selectedOption} ${styles.titleSelect} ${isContentSelectVisible ? 'show' : ''}`} onClick={clickedSelect}>
+      <span
+        className={`${styles.selectedOption} ${styles.titleSelect} ${
+          isContentSelectVisible ? "show" : ""
+        }`}
+        onClick={clickedSelect}
+      >
         {formData.major}
       </span>
 
       {isContentSelectVisible && (
         <div className={`${styles.contentSelect}`}>
-
-            {cells.map ((val , index) =>
-                <div className={`${styles.formOption}`} onClick={() => chosenOption(cells[index])} key={index} >
-                    {val}
-                </div>
-            )}
-        </div>            
+          {cells.map((val, index) => (
+            <div
+              className={`${styles.formOption}`}
+              onClick={() => chosenOption(cells[index])}
+              key={index}
+            >
+              {val}
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );

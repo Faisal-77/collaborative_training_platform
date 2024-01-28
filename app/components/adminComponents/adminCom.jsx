@@ -228,7 +228,6 @@ const CompanyCard = ({ logo, name, info, contactEmail, contactPhone }) => {
   const [isChatClicked, setChatClicked] = useState(false);
   const toggleChat = () => {
     setChatClicked(!isChatClicked);
-    console.log(isChatClicked);
   };
   return (
     <>
