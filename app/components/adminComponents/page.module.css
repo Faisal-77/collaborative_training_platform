@@ -1,0 +1,27 @@
+.numbBtn {
+  outline: none;
+  background-color: #fff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  align-self: flex-end;
+}
+.addAdminBtn {
+  align-self: center;
+}
+.deptList {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: first baseline;
+}
+.deptBtnTools {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: 30px;
+}
+/* .deptBtnTools i {
+  position: relative;
+  top: 15%;
+} */

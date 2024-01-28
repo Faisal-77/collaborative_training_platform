@@ -4,7 +4,6 @@ import Image from "next/image";
 import styles from "@/app/page.module.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useState } from "react";
-import Link from "next/link";
 import aramco from "@/Image/Aramco.svg";
 import sabic from "@/Image/Sabic.svg";
 import sdaia from "@/Image/sdaia.svg";
@@ -112,9 +111,9 @@ const CompanyCard = ({ logo, name, info }) => {
         <Image src={logo} className={styles.companyLogos} />
       </div>
       <div className={`${styles.companyContent}`}>
-        <h4 className={styles.companyName}>{name}</h4>
-        <p className={styles.companyInfo}>{info}</p>
-        <div className={`row justify-content-around mt-5 p-3`}>
+        <h4 className={`text-break ${styles.companyName}`}>{name}</h4>
+        <p className={`text-break ${styles.companyInfo}`}>{info}</p>
+        <div className={`row justify-content-around p-3`}>
           <button className={`w-25 ${styles.submitBtn}`} onClick={toggleAccept}>
             قبول
           </button>

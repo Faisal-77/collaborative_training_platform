@@ -6,7 +6,7 @@ import AdminHeader from "@/app/components/adminComponents/adminHeader";
 import Link from "next/link";
 import SelectForm from "@/app/components/selectForm";
 import { useState } from "react";
-import Orders from "@/app/components/adminComponents/orders";
+import DeptAdmin from "@/app/components/adminComponents/deptAdmin";
 
 export default function page() {
   const [isSidebarVisible, setSidebarVisible] = useState(false);
@@ -65,13 +65,7 @@ export default function page() {
                   chosenOption={["أ - ي", "ي - أ", "الأحدث", "الأقدم"]}
                 />
               </div>
-              <div className="form-group col-1 ">
-                <SelectForm
-                  selectedOption={"نوع الطلب"}
-                  chosenOption={["توثيق", "تدريب"]}
-                />
-              </div>
-              <div className="form-group col-1 ">
+              <div className="form-group col-1 pe-5">
                 <SelectForm
                   selectedOption={"حالة الطلب"}
                   chosenOption={["مقبول", "مرفوض", "معلق"]}
@@ -140,7 +134,7 @@ export default function page() {
               </li>
             </ul>
           </nav>
-          <Orders />
+          <DeptAdmin />
         </div>
       </div>
     </>

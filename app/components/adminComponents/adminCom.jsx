@@ -231,39 +231,37 @@ const CompanyCard = ({ logo, name, info, contactEmail, contactPhone }) => {
   };
   return (
     <>
-      <div className={` `}>
-        <div className={`text-center ${styles.logoBox}`}>
-          <Image src={logo} className={styles.companyLogos} />
+      <div className={`text-center ${styles.logoBox}`}>
+        <Image src={logo} className={styles.companyLogos} />
+      </div>
+      <div className={`${styles.companyContent}`}>
+        <h4 className={`text-break ${styles.companyName}`}>{name}</h4>
+        <p className={`text-break ${styles.companyInfo}`}>{info}</p>
+        <div className={styles.chatIcon} onClick={toggleChat}>
+          <i className="bi bi-chat-square-text"></i>
         </div>
-        <div className={`${styles.companyContent}`}>
-          <h4 className={styles.companyName}>{name}</h4>
-          <p className={styles.companyInfo}>{info}</p>
-          <div className={styles.chatIcon} onClick={toggleChat}>
-            <i className="bi bi-chat-square-text"></i>
-          </div>
-          <div
-            className={styles.popupContainer}
-            style={{ display: isChatClicked ? "flex" : "none" }}
-          >
-            <div className={styles.chatBox}>
-              <div className={styles.contentContact}>
-                <div
-                  className={`align-self-end ${styles.closeBtn}`}
-                  onClick={toggleChat}
-                >
-                  <i className="bi bi-x-circle"></i>
-                </div>
-                <h5 className="text-center mt-2">للتواصل والاستفسار</h5>
-                <span className={styles.contactSpan}>
-                  <i className="bi bi-at"></i>
-                  <p className={styles.contactText}>{contactEmail}</p>
-                </span>
-                <span className={styles.contactSpan}>
-                  <i className="bi bi-phone"></i>
-                  <p className={styles.contactText}>{contactPhone}</p>
-                </span>
-              </div>
+      </div>
+      <div
+        className={styles.popupContainer}
+        style={{ display: isChatClicked ? "flex" : "none" }}
+      >
+        <div className={styles.chatBox}>
+          <div className={styles.contentContact}>
+            <div
+              className={`align-self-end ${styles.closeBtn}`}
+              onClick={toggleChat}
+            >
+              <i className="bi bi-x-circle"></i>
             </div>
+            <h5 className="text-center mt-2">للتواصل والاستفسار</h5>
+            <span className={styles.contactSpan}>
+              <i className="bi bi-at"></i>
+              <p className={styles.contactText}>{contactEmail}</p>
+            </span>
+            <span className={styles.contactSpan}>
+              <i className="bi bi-phone"></i>
+              <p className={styles.contactText}>{contactPhone}</p>
+            </span>
           </div>
         </div>
       </div>

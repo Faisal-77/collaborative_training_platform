@@ -66,13 +66,13 @@ const TwoStepForm = () => {
 
     const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\S]{8,}$/;
     if (!passwordPattern.test(formData.password)) {
-      setError(`كلمة المرور خطأ 
-      يجب أن تحتوي على 8 خانات على الأقل
-       وحرف كبير وحرف صغير`);
+      setError(
+        "كلمة المرور الخاصة بك غير صحيحة. يرجى التحقق من أنها تحتوي على 8 خانات على الأقل، وتتضمن حرفًا كبيرًا وحرفًا صغيرًا."
+      );
       return;
     }
     if (formData.password !== formData.password2) {
-      setError("تأكيد كلمة المرر لا يساوي كلمة المرور");
+      setError("الرجاء التحقق من تطابق كلمتي المرور.");
       return;
     }
     if (formData.department == "القسم") {
@@ -95,7 +95,7 @@ const TwoStepForm = () => {
       const { user } = await resExist.json();
 
       if (user) {
-        setError("اسم المستخدم مسجل بالفعل");
+        setError("الرقم التدريبي مسجل بالفعل");
         return;
       }
 
@@ -198,13 +198,13 @@ function StepOne({ formData, setFormData, nextStep, error, setError }) {
               <FontAwesomeIcon icon={faUser} className={styles.formIcons} />
             </div>
             <label htmlFor="trainingNumber" className={` ${styles.formLabel}`}>
-              رقم التدريبي
+              الرقم التدريبي
             </label>
 
             <div className="form-group">
               <input
                 type="text"
-                placeholder="رقم التدريبي"
+                placeholder="الرقم التدريبي"
                 id="trainingNumber"
                 name="trainingNumber"
                 value={formData.user_name}

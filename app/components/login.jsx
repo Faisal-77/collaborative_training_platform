@@ -44,10 +44,14 @@ export default function Login() {
               <div className={``}>
                 <div className="row no-gutters">
                   <div className="col-md-12 col-lg-6 p-0 d-flex align-items-stretch">
-                    <section className={`contact-wrap w-100 p-4 ${styles.form}`}>
+                    <section
+                      className={`contact-wrap w-100 p-4 ${styles.form}`}
+                    >
                       <h1>تسجيل الدخول</h1>
                       <form onSubmit={handleSubmit}>
-                        <div className={`row contact-wrap justify-content-center`}>
+                        <div
+                          className={`row contact-wrap justify-content-center`}
+                        >
                           <div className={`col-md-10 ${styles.colForm}`}>
                             <label
                               htmlFor="username"
@@ -126,11 +130,17 @@ export default function Login() {
                       <span
                         className={`align-self-center text-center ${styles.registerBtnSpan}`}
                       >
-                        <Link href={"/registerEntity"} className={`${styles.registerBtn}`}>
+                        <Link
+                          href={"/registerEntity"}
+                          className={`${styles.registerBtn}`}
+                        >
                           {" "}
                           جهة التدريب{" "}
                         </Link>
-                        <Link href={"/registerStud"} className={styles.registerBtn}>
+                        <Link
+                          href={"/registerStud"}
+                          className={styles.registerBtn}
+                        >
                           {" "}
                           المتدرب{" "}
                         </Link>
