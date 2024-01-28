@@ -14,6 +14,7 @@ import mcitt from "@/Image/mcittt.svg";
 import ncps from "@/Image/ncps.svg";
 
 import { useState } from "react";
+import AdminSidebar from "./adminSidebar";
 export default function AdminCom() {
   const [isSidebarVisible, setSidebarVisible] = useState(false);
 
@@ -73,67 +74,7 @@ export default function AdminCom() {
               </div>
             </div>
           </section>
-          {isSidebarVisible && (
-            <ul className={`${styles.sidebar} ${styles.w_sm_100}`}>
-              <li>
-                <Link
-                  href={"#"}
-                  onClick={toggleSidebar}
-                  style={{ fill: "white" }}
-                  className={styles.text_nav}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="28"
-                    viewBox="0 -960 960 960"
-                    width="28"
-                  >
-                    <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-                  </svg>
-                </Link>
-              </li>
-              <li>
-                <Link href={"/"}>جهة التدريب</Link>
-              </li>
-              <li>
-                <Link href={"/"}>منسقين الأقسام</Link>
-              </li>
-              <li>
-                <Link href={"/"}>الطلبات</Link>
-              </li>
-              <li>
-                <Link href={"/"}>الشكاوى والاقتراحات</Link>
-              </li>
-              <li>
-                <Link href={"/"}>البيانات</Link>
-              </li>
-            </ul>
-          )}
-          <nav
-            className={`col-2 ${styles.navbarAdmin}`}
-            h-100
-            d-flex
-            align-items-center
-            p-0
-          >
-            <ul className={`p-0 ${styles.sidebarAdmin}`}>
-              <li className="mb-5">
-                <Link href={"/"}>جهة التدريب</Link>
-              </li>
-              <li className="mb-5">
-                <Link href={"/"}>منسقين الأقسام</Link>
-              </li>
-              <li className="mb-5">
-                <Link href={"/"}>الطلبات</Link>
-              </li>
-              <li className="mb-5">
-                <Link href={"/"}>الشكاوى والاقتراحات</Link>
-              </li>
-              <li className="mb-5">
-                <Link href={"/"}>البيانات</Link>
-              </li>
-            </ul>
-          </nav>
+          <AdminSidebar />
 
           <section
             className={`col-lg-10 col-md-12 p-0 m-0 ${styles.mainAdmin}`}

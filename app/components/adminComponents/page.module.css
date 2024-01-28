@@ -1,11 +1,17 @@
 .numbBtn {
-  outline: none;
+  outline: #b0a007 solid 1px;
   background-color: #fff;
   border: none;
   width: 44px;
   height: 44px;
   border-radius: 50%;
   align-self: flex-end;
+  font-size: 26px;
+  font-weight: 800;
+}
+.numbBtn:hover {
+  background-color: #b0a007;
+  color: #fff;
 }
 .addAdminBtn {
   align-self: center;
@@ -13,15 +19,62 @@
 .deptList {
   display: flex;
   justify-content: space-evenly;
-  align-items: first baseline;
+  align-items: last baseline;
 }
 .deptBtnTools {
-  outline: none;
-  border: none;
-  background-color: transparent;
   font-size: 30px;
 }
-/* .deptBtnTools i {
+
+.editInput {
+  background: #acacac;
+  color: rgb(31, 31, 31);
+}
+.editInput::placeholder {
+  color: #3d3d3d;
+}
+.table {
+  background: #0287a2;
+  color: #65686e;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 70px;
+  border-radius: 6px;
+}
+.headerRow {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 20px 15px;
+  border-bottom: #fff solid 2px;
+  color: #fff;
+  margin-bottom: 7px;
+  font-size: 24px;
+  font-weight: 700;
+}
+.row {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 20px 15px;
+  background-color: #86eafe;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 35px 0;
+  border-radius: 6px;
+}
+.backBtn {
+  font-size: 60px;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.backBtn:hover {
+  background-color: rgba(211, 211, 211, 0.8);
+}
+.backBtn i {
   position: relative;
-  top: 15%;
-} */
+  bottom: 18%;
+}

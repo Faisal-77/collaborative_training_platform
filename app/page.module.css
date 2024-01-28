@@ -377,7 +377,7 @@
 .formInput:focus {
   border: 2px solid #cfc67c;
   outline: none;
-  color: black;
+
   font-size: 16px;
   font-weight: 600;
   box-shadow: #cfc57c81 0px 0px 3px 3px;

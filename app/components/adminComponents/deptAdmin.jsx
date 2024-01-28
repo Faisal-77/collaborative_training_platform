@@ -5,7 +5,7 @@ import adminStyle from "./page.module.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useState } from "react";
 import Link from "next/link";
-export default function Orders() {
+export default function deptAdmin() {
   return (
     <section className={`col-lg-10 col-md-12 p-0 m-0 ${styles.mainAdmin}`}>
       <main className="container-fluid mt-5">
@@ -16,31 +16,38 @@ export default function Orders() {
             <CompanyCard
               dept={"قسم الحاسب وتقنية المعلومات"}
               name="محمد الحربي"
-              number={1}
+              deptName={"IT"}
+              number={2}
             />
           </div>
           <div
             className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
           >
             <CompanyCard
-              dept={"قسم الحاسب وتقنية المعلومات"}
-              name="محمد الحربي"
+              dept={"قسم التقنية الإدارية "}
+              deptName={"tm"}
+              name="o الحربي"
+              number={1}
             />
           </div>
           <div
             className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
           >
-            <CompanyCard dept={"قسم الحاسب وتقنية المعلومات"} number={1} />
+            <CompanyCard dept={"قسم الحاسب وتقنية المعلومات"} />
           </div>
         </section>
       </main>
     </section>
   );
 }
-const CompanyCard = ({ dept, name, number = 0 }) => {
-  const [isAccepted, setAccepted] = useState(false);
-  const toggleAccept = () => {
-    setAccepted(!isAccepted);
+const CompanyCard = ({ dept, name, deptName, number = 0 }) => {
+  const [isAdded, setAdded] = useState(false);
+  const toggleAdd = () => {
+    setAdded(!isAdded);
+  };
+  const [isEdited, setEdited] = useState(false);
+  const toggleEdit = () => {
+    setEdited(!isEdited);
   };
   const [isDeleted, setDeleted] = useState(false);
   const toggleDelete = () => {
@@ -60,6 +67,7 @@ const CompanyCard = ({ dept, name, number = 0 }) => {
             </h4>
             <button
               className={`${adminStyle.deptBtnTools} btn btn-outline-secondary h-50`}
+              onClick={toggleEdit}
             >
               <i className="bi bi-pencil"></i>
             </button>
@@ -73,32 +81,73 @@ const CompanyCard = ({ dept, name, number = 0 }) => {
         ) : (
           <button
             className={`text-center w-50 mt-5 ${styles.submitBtn} ${adminStyle.addAdminBtn}`}
-            onClick={toggleAccept}
+            onClick={toggleAdd}
           >
             إضافة منسق القسم
           </button>
         )}
 
-        <button className={adminStyle.numbBtn}>{number}</button>
+        <Link
+          href={`/departmentCoordinators/${deptName}/`}
+          className={adminStyle.numbBtn}
+        >
+          <button className={adminStyle.numbBtn}>{number}</button>
+        </Link>
+        {/* edit popup */}
         <div
           className={styles.popupContainer}
-          style={{ display: isAccepted ? "flex" : "none" }}
+          style={{ display: isEdited ? "flex" : "none" }}
         >
           <div className={styles.chatBox}>
             <div className={styles.contentContact}>
               <div
                 className={`align-self-end ${styles.closeBtn}`}
-                onClick={toggleAccept}
+                onClick={toggleEdit}
               >
                 <i className="bi bi-x-circle"></i>
               </div>
-              <h5 className="text-center mt-2 fs-1 text-success">
-                <i className="bi bi-check-circle-fill"></i>
-              </h5>
-              <h5 className="text-center mt-5  ">تمت إضافة الطلب بنجاح</h5>
+
+              <h5 className="text-center mt-2  ">تعديل منسق القسم</h5>
+              <div className="form-group mt-5 pe-2 ps-2">
+                <input
+                  className={`${styles.formInput} ${adminStyle.editInput}`}
+                  placeholder={name}
+                />
+                <div className="row justify-content-around mt-5">
+                  <button className={`w-25 ${styles.submitBtn}`}>حفظ</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        {/* add popup */}
+        <div
+          className={styles.popupContainer}
+          style={{ display: isAdded ? "flex" : "none" }}
+        >
+          <div className={styles.chatBox}>
+            <div className={styles.contentContact}>
+              <div
+                className={`align-self-end ${styles.closeBtn}`}
+                onClick={toggleAdd}
+              >
+                <i className="bi bi-x-circle"></i>
+              </div>
+
+              <h5 className="text-center mt-2  ">إضافة منسق القسم</h5>
+              <div className="form-group mt-5 pe-2 ps-2">
+                <input
+                  className={`${styles.formInput} ${adminStyle.editInput}`}
+                  placeholder="اسم منسق القسم"
+                />
+                <div className="row justify-content-around mt-5">
+                  <button className={`w-25 ${styles.submitBtn}`}>حفظ</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* delete popup */}
         <div
           className={styles.popupContainer}
           style={{ display: isDeleted ? "flex" : "none" }}
