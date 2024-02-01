@@ -6,18 +6,19 @@ import adminStyle from "@/app/components/adminComponents/page.module.css";
 import AdminHeader from "@/app/components/adminComponents/adminHeader";
 import Link from "next/link";
 import SelectForm from "@/app/components/selectForm";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import StudTables from "@/app/components/adminComponents/studTables";
 import AdminSidebar from "@/app/components/adminComponents/adminSidebar";
+import { useCombinedSort } from "@/lib/filter";
 
-export default function page({ params }) {
+export default function page({ params, initialItems }) {
   const [isSidebarVisible, setSidebarVisible] = useState(false);
 
   const toggleSidebar = () => {
     setSidebarVisible(!isSidebarVisible);
-    console.log("isSidebarVisible: ", isSidebarVisible);
   };
-  const s = [
+
+  initialItems = [
     {
       name: "محمد",
       trainigNumber: 457900146,
@@ -61,6 +62,12 @@ export default function page({ params }) {
       dept: "tm",
     },
   ];
+
+  const { items, handleSortChangeAZ, handleSortChangeMajor } =
+    useCombinedSort(initialItems);
+  const major = initialItems
+    .filter((item) => item.dept === params.deptName)
+    .map((item) => item.major);
   return (
     <>
       <div className="container-fluid">
@@ -108,18 +115,25 @@ export default function page({ params }) {
               <div className="form-group col-1">
                 <SelectForm
                   selectedOption={"الترتيب"}
-                  chosenOption={["أ - ي", "ي - أ", "الأحدث", "الأقدم"]}
+                  options={["أ - ي", "ي - أ", "الأحدث", "الأقدم"]}
+                  onChange={handleSortChangeAZ}
+                  defaultSelected={"الترتيب"}
                 />
               </div>
               <div className="form-group col-1 pe-5">
                 <SelectForm
                   selectedOption={"التخصص"}
-                  chosenOption={[" التسويق", "شبكات", "برمجيات"]}
+                  options={major}
+                  defaultSelected={"الجميع"}
+                  onChange={handleSortChangeMajor}
                 />
               </div>
             </div>
           </section>
-          <AdminSidebar />
+          <AdminSidebar
+            isSidebarVisible={isSidebarVisible}
+            toggleSidebar={toggleSidebar}
+          />
           <section
             className={`col-lg-10 col-md-12 p-2 m-0 ${styles.mainAdmin}`}
           >
@@ -141,13 +155,14 @@ export default function page({ params }) {
                       <div className={` ${adminStyle.col}`}>الرقم التدريبي</div>
                       <div className={` ${adminStyle.col}`}>التخصص</div>
                     </div>
-                    {s
-                      .filter((stud) => stud.dept === params.deptName)
-                      .map((stud, index) => (
+                    {items
+                      .filter((item) => item.dept === params.deptName)
+                      .map((item, index) => (
                         <StudTables
-                          name={stud.name}
-                          trainigNumber={stud.trainigNumber}
-                          major={stud.major}
+                          key={index}
+                          name={item.name}
+                          trainigNumber={item.trainigNumber}
+                          major={item.major}
                           no={index + 1}
                         />
                       ))}

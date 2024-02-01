@@ -822,6 +822,7 @@
 .sidebar li a:hover {
   background-color: #005953;
 }
+
 /* `sm` applies to x-small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
   /*width in small screens*/
@@ -872,6 +873,6 @@
     border-radius: 0px;
   }
   .navbarAdmin {
-    display: none;
+    display: none !important;
   }
 }

@@ -3,13 +3,7 @@ import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "@/app/page.module.css";
 import { useState } from "react";
-export default function AdminSidebar() {
-  const [isSidebarVisible, setSidebarVisible] = useState(false);
-
-  const toggleSidebar = () => {
-    setSidebarVisible(!isSidebarVisible);
-    console.log("isSidebarVisible: ", isSidebarVisible);
-  };
+export default function AdminSidebar({ isSidebarVisible, toggleSidebar }) {
   return (
     <>
       {isSidebarVisible && (
@@ -49,11 +43,12 @@ export default function AdminSidebar() {
         </ul>
       )}
       <nav
-        className={`col-2 ${styles.navbarAdmin}`}
+        className={`col-2 ${styles.navbarAdmin}
         h-100
         d-flex
         align-items-center
         p-0
+        ${styles.hideOnSmall}`}
       >
         <ul className={`p-0 ${styles.sidebarAdmin}`}>
           <li className="mb-5">

@@ -5,39 +5,25 @@ import adminStyle from "./page.module.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useState } from "react";
 import Link from "next/link";
-export default function deptAdmin() {
+export default function deptAdmin({
+  deprtmentName,
+  nameHead,
+  deptID,
+  noOfStud = 0,
+}) {
   return (
-    <section className={`col-lg-10 col-md-12 p-0 m-0 ${styles.mainAdmin}`}>
-      <main className="container-fluid mt-5">
-        <section className={`row align-items-stretch pe-5 ps-5`}>
-          <div
-            className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
-          >
-            <CompanyCard
-              dept={"قسم الحاسب وتقنية المعلومات"}
-              name="محمد الحربي"
-              deptName={"IT"}
-              number={2}
-            />
-          </div>
-          <div
-            className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
-          >
-            <CompanyCard
-              dept={"قسم التقنية الإدارية "}
-              deptName={"tm"}
-              name="o الحربي"
-              number={1}
-            />
-          </div>
-          <div
-            className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
-          >
-            <CompanyCard dept={"قسم الحاسب وتقنية المعلومات"} />
-          </div>
-        </section>
-      </main>
-    </section>
+    <>
+      <div
+        className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+      >
+        <CompanyCard
+          dept={deprtmentName}
+          name={nameHead}
+          deptName={deptID}
+          number={noOfStud}
+        />
+      </div>
+    </>
   );
 }
 const CompanyCard = ({ dept, name, deptName, number = 0 }) => {

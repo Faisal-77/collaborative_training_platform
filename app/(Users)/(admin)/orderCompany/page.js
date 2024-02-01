@@ -8,14 +8,16 @@ import SelectForm from "@/app/components/selectForm";
 import { useState } from "react";
 import Orders from "@/app/components/adminComponents/orders";
 import AdminSidebar from "@/app/components/adminComponents/adminSidebar";
+// import Fillter from "@/app/components/training_entity/fillter";
+// import { sortAZ } from "@/lib/filter";
 
 export default function page() {
   const [isSidebarVisible, setSidebarVisible] = useState(false);
 
   const toggleSidebar = () => {
     setSidebarVisible(!isSidebarVisible);
-    console.log("isSidebarVisible: ", isSidebarVisible);
   };
+
   return (
     <>
       <div className="container-fluid">
@@ -60,19 +62,19 @@ export default function page() {
                   placeholder="البحث"
                 />
               </div>
-              <div className="form-group col-1">
+              <div className="form-group col-2">
                 <SelectForm
                   selectedOption={"الترتيب"}
                   chosenOption={["أ - ي", "ي - أ", "الأحدث", "الأقدم"]}
                 />
               </div>
-              <div className="form-group col-1 ">
+              <div className="form-group col-2 ">
                 <SelectForm
                   selectedOption={"نوع الطلب"}
                   chosenOption={["توثيق", "تدريب"]}
                 />
               </div>
-              <div className="form-group col-1 ">
+              <div className="form-group col-2 ">
                 <SelectForm
                   selectedOption={"حالة الطلب"}
                   chosenOption={["مقبول", "مرفوض", "معلق"]}
@@ -80,7 +82,10 @@ export default function page() {
               </div>
             </div>
           </section>
-          <AdminSidebar />
+          <AdminSidebar
+            isSidebarVisible={isSidebarVisible}
+            toggleSidebar={toggleSidebar}
+          />
           <Orders />
         </div>
       </div>

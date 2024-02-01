@@ -20,7 +20,6 @@ export default function AdminCom() {
 
   const toggleSidebar = () => {
     setSidebarVisible(!isSidebarVisible);
-    console.log("isSidebarVisible: ", isSidebarVisible);
   };
   return (
     <>
@@ -74,7 +73,10 @@ export default function AdminCom() {
               </div>
             </div>
           </section>
-          <AdminSidebar />
+          <AdminSidebar
+            isSidebarVisible={isSidebarVisible}
+            toggleSidebar={toggleSidebar}
+          />
 
           <section
             className={`col-lg-10 col-md-12 p-0 m-0 ${styles.mainAdmin}`}

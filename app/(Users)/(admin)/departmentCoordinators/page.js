@@ -8,14 +8,60 @@ import SelectForm from "@/app/components/selectForm";
 import { useState } from "react";
 import DeptAdmin from "@/app/components/adminComponents/deptAdmin";
 import AdminSidebar from "@/app/components/adminComponents/adminSidebar";
+import { useCombinedSort } from "@/lib/filter";
 
-export default function page() {
+export default function page({ initialItems }) {
   const [isSidebarVisible, setSidebarVisible] = useState(false);
 
   const toggleSidebar = () => {
     setSidebarVisible(!isSidebarVisible);
-    console.log("isSidebarVisible: ", isSidebarVisible);
   };
+  initialItems = [
+    {
+      id: 1,
+      deprtmentName: "الحاسب وتقنية الملعومات",
+      name: "محمد الحربي",
+      deptID: "IT",
+      noOfStud: "5",
+    },
+    {
+      id: 2,
+      deprtmentName: "الهندسة المدنية",
+      name: "فاطمة العلي",
+      deptID: "CE",
+      noOfStud: "8",
+    },
+    {
+      id: 3,
+      deprtmentName: "الطب",
+      name: "علي الصفار",
+      deptID: "MD",
+      noOfStud: "12",
+    },
+    {
+      id: 4,
+      deprtmentName: "الفنون الجميلة",
+      name: "أميرة العسيري",
+      deptID: "FA",
+      noOfStud: "6",
+    },
+    {
+      id: 5,
+      deprtmentName: "الاقتصاد",
+      name: "يوسف الشهراني",
+      deptID: "ECO",
+      noOfStud: "10",
+    },
+    {
+      id: 6,
+      deprtmentName: "العلوم السياسية",
+      name: "نورة المطيري",
+      deptID: "POL",
+      noOfStud: "7",
+    },
+  ];
+  const { items, handleSortChangeAZ } = useCombinedSort(initialItems);
+
   return (
     <>
       <div className="container-fluid">
@@ -63,17 +109,37 @@ export default function page() {
               <div className="form-group col-1">
                 <SelectForm
                   selectedOption={"الترتيب"}
-                  chosenOption={["أ - ي", "ي - أ", "الأحدث", "الأقدم"]}
+                  options={["أ - ي", "ي - أ", "الأحدث", "الأقدم"]}
+                  onChange={handleSortChangeAZ}
+                  defaultSelected={"الترتيب"}
                 />
               </div>
-              <div className="form-group col-1 pe-5 ">
+              <div className="form-group col-1 pe-5">
                 <button className={styles.submitBtn}>إضافة منسق جديد</button>
               </div>
             </div>
           </section>
-          <AdminSidebar />
-
-          <DeptAdmin />
+          <AdminSidebar
+            isSidebarVisible={isSidebarVisible}
+            toggleSidebar={toggleSidebar}
+          />
+          <section
+            className={`col-lg-10 col-md-12 p-0 m-0 ${styles.mainAdmin}`}
+          >
+            <main className="container-fluid mt-5">
+              <section className={`row align-items-stretch pe-5 ps-5`}>
+                {items.map((data, index) => (
+                  <DeptAdmin
+                    deprtmentName={data.deprtmentName}
+                    nameHead={data.name}
+                    deptID={data.deptID}
+                    noOfStud={data.noOfStud}
+                    key={index}
+                  />
+                ))}
+              </section>
+            </main>
+          </section>
         </div>
       </div>
     </>
