@@ -7,7 +7,7 @@ import AdminHeader from "@/app/components/adminComponents/adminHeader";
 import Link from "next/link";
 import SelectForm from "@/app/components/selectForm";
 import { useState, useEffect } from "react";
-import StudTables from "@/app/components/adminComponents/studTables";
+import StudRows from "@/app/components/adminComponents/StudRows";
 import AdminSidebar from "@/app/components/adminComponents/adminSidebar";
 import { useCombinedSort } from "@/lib/filter";
 
@@ -138,7 +138,7 @@ export default function page({ params, initialItems }) {
             className={`col-lg-10 col-md-12 p-2 m-0 ${styles.mainAdmin}`}
           >
             <Link
-              href={"/departmentCoordinators"}
+              href={"/admin/departmentCoordinators"}
               className="text-decoration-none text-black"
             >
               <div className={adminStyle.backBtn}>
@@ -158,7 +158,7 @@ export default function page({ params, initialItems }) {
                     {items
                       .filter((item) => item.dept === params.deptName)
                       .map((item, index) => (
-                        <StudTables
+                        <StudRows
                           key={index}
                           name={item.name}
                           trainigNumber={item.trainigNumber}

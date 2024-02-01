@@ -74,7 +74,7 @@ const CompanyCard = ({ dept, name, deptName, number = 0 }) => {
         )}
 
         <Link
-          href={`/departmentCoordinators/${deptName}/`}
+          href={`departmentCoordinators/${deptName}/`}
           className={adminStyle.numbBtn}
         >
           <button className={adminStyle.numbBtn}>{number}</button>

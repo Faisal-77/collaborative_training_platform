@@ -1,8 +1,7 @@
-"use client";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "@/app/page.module.css";
-import { useState } from "react";
+
 export default function AdminSidebar({ isSidebarVisible, toggleSidebar }) {
   return (
     <>
@@ -26,13 +25,13 @@ export default function AdminSidebar({ isSidebarVisible, toggleSidebar }) {
             </Link>
           </li>
           <li>
-            <Link href={"/trainingCompany"}>جهات التدريب</Link>
+            <Link href={"/admin/trainingCompany"}>جهات التدريب</Link>
           </li>
           <li>
-            <Link href={"/departmentCoordinators"}>منسقين الأقسام</Link>
+            <Link href={"/admin/departmentCoordinators"}>منسقين الأقسام</Link>
           </li>
           <li>
-            <Link href={"/orderCompany"}>الطلبات</Link>
+            <Link href={"/admin/orderCompany"}>الطلبات</Link>
           </li>
           <li>
             <Link href={"/"}>الشكاوى والاقتراحات</Link>
@@ -52,13 +51,13 @@ export default function AdminSidebar({ isSidebarVisible, toggleSidebar }) {
       >
         <ul className={`p-0 ${styles.sidebarAdmin}`}>
           <li className="mb-5">
-            <Link href={"/trainingCompany"}>جهات التدريب</Link>
+            <Link href={"/admin/trainingCompany"}>جهات التدريب</Link>
           </li>
           <li className="mb-5">
-            <Link href={"/departmentCoordinators"}>منسقين الأقسام</Link>
+            <Link href={"/admin/departmentCoordinators"}>منسقين الأقسام</Link>
           </li>
           <li className="mb-5">
-            <Link href={"/orderCompany"}>الطلبات</Link>
+            <Link href={"/admin/orderCompany"}>الطلبات</Link>
           </li>
           <li className="mb-5">
             <Link href={"/"}>الشكاوى والاقتراحات</Link>
