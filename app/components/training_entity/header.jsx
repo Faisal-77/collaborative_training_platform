@@ -5,10 +5,7 @@ import React from "react";
 
 export default function Header() {
   return (
-    <div className="row">
-      <div className="col-12">
+    
         <AdminHeader />
-      </div>
-    </div>
   );
 }

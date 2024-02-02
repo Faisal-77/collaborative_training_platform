@@ -9,15 +9,29 @@ import Request_form from "./request_form";
 export default function Request_content() {
   return (
     <div className={`${styles.req_conainer} container`}>
-      <div className={`${styles.req_title} row`}>
-        <div className={`${styles.text} col-12`}>
-          <span className={`${styles.text_req_span}`}> التخصص </span>
-          <span className={`${styles.text_req_span}`}>العدد</span>
-          <span className={`${styles.text_req_span}`}>الفترة</span>
-          <span className={`${styles.text_req_span}`}> الساعات </span>
-          <span className={`${styles.text_req_span}`}> الحالة </span>
-        </div>
-      </div>
+       <div className={`${styles.req_title} row`}>
+
+<div className={`${styles.text} col text-center`}>
+<span className={`${styles.text_req_span}`}> التخصص </span>
+</div>
+
+<div className={`${styles.text} col text-center`}>
+<span className={`${styles.text_req_span}`}> العدد </span>
+</div>
+
+<div className={`${styles.text} col text-center`}>
+<span className={`${styles.text_req_span}`}> الفترة </span>
+</div>
+
+<div className={`${styles.text} col text-center`}>
+<span className={`${styles.text_req_span}`}> الساعات </span>
+</div>
+
+<div className={`${styles.text} col text-center`}>
+<span className={`${styles.text_req_span}`}> الحالة </span>
+</div>
+
+</div>
       <CompanyCard
         state={"مرفوض"}
         mejor={"هندسة البرمجيات"}
@@ -110,8 +124,7 @@ const CompanyCard = ({
                         : styles.req_state_wating
                     }`}
           >
-            {" "}
-            {state}{" "}
+            {state}
           </span>
         </div>
         <div

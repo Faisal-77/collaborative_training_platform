@@ -161,7 +161,6 @@
   }
 
 .create_button{
-position: absolute;
 background: #CFC67C;
 border: #CFC67C 0 ;
 border-radius: 6px;
@@ -195,6 +194,7 @@ border-radius: 6px;
 margin: 80px auto;
 display: flex;
 flex-direction: column;
+justify-content: center;
 }
 
 .req_title{
@@ -210,7 +210,6 @@ flex-direction: column;
 
 .text_req_span{
   justify-content: center;
-  margin: 0 75px;
 }
 
 .req_conent_accepted{
@@ -254,7 +253,6 @@ border-radius: 4px;
 border-right: #F0AD4E 8px solid;
 align-items: center;
 margin: 10px 0;
-align-items: center;
 
 font-family: 'Tajawal';
 font-style: normal;
@@ -262,6 +260,23 @@ font-weight: 400;
 font-size: 16px;
 line-height: 22px;
 }
+.training_conent{
+  /* Rectangle 31 */
+height: 50px;
+background: #86EAFE;
+border-radius: 4px;
+align-items: center;
+margin: 20px 0;
+align-items: center;
+
+font-family: 'Tajawal';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 22px;
+
+}
+
 .text_req_span_content_state{
   justify-content: center;
   padding: 0 60px;
@@ -364,6 +379,9 @@ color: #FFFFFF;
 
 padding: 5px 50px;
 }
+.btn_create :hover{
+  background-color: #b0a007;
+}
 .popupContainer {
   position: fixed;
   top: 0;
@@ -380,6 +398,16 @@ padding: 5px 50px;
 .chatBox {
   width: 300px;
   height: 300px;
+  background-color: #fff;
+  color: #000;
+  box-shadow: -7px 1px 6.5px 11px rgba(86, 86, 86, 0.4),
+    7px -1px 6.5px 11px rgba(86, 86, 86, 0.4);
+  padding: 2px 7px;
+  border-radius: 6px;
+}
+.chatBox_training {
+  width: 400px;
+  height: 260px;
   background-color: #fff;
   color: #000;
   box-shadow: -7px 1px 6.5px 11px rgba(86, 86, 86, 0.4),
@@ -414,6 +442,17 @@ padding: 5px 50px;
   font-size: 18px;
   font-weight: 700;
 }
+.contactText_training {
+  display: inline;
+  padding: 0 2px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.contactText_training_title{
+  padding: 0 2px;
+  font-size: 20px;
+  font-weight: 900;
+}
 .create_button_box{
 background: #CFC67C;
 border: #CFC67C 0 ;
@@ -429,3 +468,95 @@ font-weight: 700;
 font-size: 16px;
 line-height: 22px;
 }
+
+.create_button_box{
+  background-color: #b0a007;
+}
+
+.training_plan_button{
+  background: #CFC67C;
+  border: #CFC67C 0 ;
+  border-radius: 6px;
+  padding: 5px 30px ;
+  color:white;
+
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+    }
+.training_plan_button:hover{
+  background-color: #b0a007;
+}
+
+.evaluation_container{
+  /* Frame 16 */
+
+background: #0287A2;
+padding-bottom: 15px;
+box-shadow: -6px 6px 4px rgba(0, 0, 0, 0.25);
+border-radius: 6px;
+font-family: 'Tajawal';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 29px;
+color: #FFFFFF;
+display: block;
+}
+.eval_title{
+  height: 50px;
+  align-items: center;
+  margin: 20px 0;
+  padding-top: 10px;
+}
+.eval_content{
+  height: 50px;
+  align-items: center;
+
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 22px;
+  color: #000;
+  margin: 20px 0;
+}
+.gread_of{
+  position: relative;
+ float: left;
+}
+.eval_right{
+  float: right;
+}
+.eval_row{
+background: #86EAFE;
+border-radius: 4px;
+height: 100%;
+padding: 5px 15px;
+}
+.eval_row_ev{
+  background: #86EAFE;
+  border-radius: 4px;
+  padding: 10px 80px;
+  }
+.eval_row_ev_input{
+  background: #86EAFE;
+  border-radius: 4px;
+  padding: 10px 5px;
+  width: 160px;
+  }
+  .eval_row_ev_input:focus{
+    border: 2px solid #cfc67c;
+    outline: none;
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: #cfc57c81 0px 0px 3px 3px;
+  }
+  .icone_inter_gread{
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
