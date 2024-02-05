@@ -16,7 +16,7 @@ export default function Orders() {
       <main className="container-fluid mt-5">
         <section className={`row align-items-stretch pe-5 ps-5`}>
           <div
-            className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+            className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
           >
             <CompanyCard
               logo={aramco}
@@ -27,7 +27,7 @@ export default function Orders() {
             />
           </div>
           <div
-            className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+            className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
           >
             <CompanyCard
               logo={sabic}
@@ -38,7 +38,7 @@ export default function Orders() {
             />
           </div>
           <div
-            className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+            className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
           >
             <CompanyCard
               logo={alrajih}
@@ -53,7 +53,7 @@ export default function Orders() {
         </section>
         <section className={`row align-items-stretch pe-5 ps-5`}>
           <div
-            className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+            className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
           >
             <CompanyCard
               logo={sdaia}
@@ -66,7 +66,7 @@ export default function Orders() {
             />
           </div>
           <div
-            className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+            className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
           >
             <CompanyCard
               logo={mcitt}
@@ -79,7 +79,7 @@ export default function Orders() {
             />
           </div>
           <div
-            className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+            className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
           >
             <CompanyCard
               logo={ncps}
