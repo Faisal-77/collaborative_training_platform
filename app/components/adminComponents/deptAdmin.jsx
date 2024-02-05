@@ -5,6 +5,7 @@ import adminStyle from "./page.module.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useState } from "react";
 import Link from "next/link";
+import styles2 from "@/app/components/training_entity/page.module.css";
 export default function deptAdmin({
   deprtmentName,
   nameHead,
@@ -84,25 +85,89 @@ const CompanyCard = ({ dept, name, deptName, number = 0 }) => {
           className={styles.popupContainer}
           style={{ display: isEdited ? "flex" : "none" }}
         >
-          <div className={styles.chatBox}>
-            <div className={styles.contentContact}>
-              <div
-                className={`align-self-end ${styles.closeBtn}`}
-                onClick={toggleEdit}
-              >
-                <i className="bi bi-x-circle"></i>
+          <div className={`${styles2.form_request} container`}>
+            <div className={`row`}>
+              <div className={`col`}>
+                <i
+                  className={`${styles2.cancel} bi bi-x-circle`}
+                  onClick={toggleEdit}
+                ></i>
+
+                <h2 className={`${styles2.form_title} text-center`}>
+                  تعديل منسق قسم {dept}
+                </h2>
               </div>
 
-              <h5 className="text-center mt-2  ">تعديل منسق القسم</h5>
-              <div className="form-group mt-5 pe-2 ps-2">
-                <input
-                  className={`${styles.formInput} ${adminStyle.editInput}`}
-                  placeholder={name}
-                />
-                <div className="row justify-content-around mt-5">
-                  <button className={`w-25 ${styles.submitBtn}`}>حفظ</button>
+              <form>
+                <div className={`${styles2.row_content} row`}>
+                  <div className={`${styles2.col_content} col`}>
+                    <label htmlFor="name"> الاسم </label>
+                    <br />
+                    <input
+                      className={styles2.text_form_input}
+                      type="text"
+                      placeholder={name}
+                      name="name"
+                    />
+                  </div>
+
+                  <div className={`${styles2.col_content} col`}>
+                    <label htmlFor="userName"> اسم المستخدم </label>
+                    <br />
+                    <input
+                      className={styles2.text_form_input}
+                      type="text"
+                      placeholder="اسم المستخدم"
+                      name="userName"
+                    />
+                  </div>
                 </div>
-              </div>
+                <div className={`${styles2.row_content} row`}>
+                  <div className={`${styles2.col_content} col`}>
+                    <label htmlFor="mail"> البريد الالكتروني </label>
+                    <br />
+                    <input
+                      className={styles2.text_form_input}
+                      type="text"
+                      placeholder="ادخل البريد الالكتروني"
+                      name="mail"
+                    />
+                  </div>
+
+                  <div className={`${styles2.col_content} col`}>
+                    <label htmlFor="number"> رقم الجوال </label>
+                    <br />
+                    <input
+                      className={styles2.text_form_input}
+                      type="text"
+                      placeholder="رقم الجوال"
+                      name="number"
+                    />
+                  </div>
+                </div>
+                <div className={`${styles2.row_content} row`}>
+                  <div className={`${styles2.col_content} col`}>
+                    <label htmlFor="dept"> القسم </label>
+                    <br />
+                    <input
+                      className={styles2.text_form_input}
+                      type="text"
+                      value={dept}
+                      name="dept"
+                      disabled
+                    />
+                  </div>
+
+                  <div className={`${styles2.col_content} col`}>
+                    <br />
+                    <input
+                      className={`${styles2.btn_create} text-center`}
+                      type="submit"
+                      value="إضافة منسق جديد"
+                    />
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -111,25 +176,88 @@ const CompanyCard = ({ dept, name, deptName, number = 0 }) => {
           className={styles.popupContainer}
           style={{ display: isAdded ? "flex" : "none" }}
         >
-          <div className={styles.chatBox}>
-            <div className={styles.contentContact}>
-              <div
-                className={`align-self-end ${styles.closeBtn}`}
-                onClick={toggleAdd}
-              >
-                <i className="bi bi-x-circle"></i>
+          <div className={`${styles2.form_request} container`}>
+            <div className={`row`}>
+              <div className={`col`}>
+                <i
+                  className={`${styles2.cancel} bi bi-x-circle`}
+                  onClick={toggleAdd}
+                ></i>
+
+                <h2 className={`${styles2.form_title} text-center`}>
+                  إضافة منسق قسم جديد
+                </h2>
               </div>
 
-              <h5 className="text-center mt-2  ">إضافة منسق القسم</h5>
-              <div className="form-group mt-5 pe-2 ps-2">
-                <input
-                  className={`${styles.formInput} ${adminStyle.editInput}`}
-                  placeholder="اسم منسق القسم"
-                />
-                <div className="row justify-content-around mt-5">
-                  <button className={`w-25 ${styles.submitBtn}`}>حفظ</button>
+              <form>
+                <div className={`${styles2.row_content} row`}>
+                  <div className={`${styles2.col_content} col`}>
+                    <label htmlFor="name"> الاسم </label>
+                    <br />
+                    <input
+                      className={styles2.text_form_input}
+                      type="text"
+                      placeholder="ادخل الاسم"
+                      name="name"
+                    />
+                  </div>
+
+                  <div className={`${styles2.col_content} col`}>
+                    <label htmlFor="userName"> اسم المستخدم </label>
+                    <br />
+                    <input
+                      className={styles2.text_form_input}
+                      type="text"
+                      placeholder="اسم المستخدم"
+                      name="userName"
+                    />
+                  </div>
                 </div>
-              </div>
+                <div className={`${styles2.row_content} row`}>
+                  <div className={`${styles2.col_content} col`}>
+                    <label htmlFor="mail"> البريد الالكتروني </label>
+                    <br />
+                    <input
+                      className={styles2.text_form_input}
+                      type="text"
+                      placeholder="ادخل البريد الالكتروني"
+                      name="mail"
+                    />
+                  </div>
+
+                  <div className={`${styles2.col_content} col`}>
+                    <label htmlFor="number"> رقم الجوال </label>
+                    <br />
+                    <input
+                      className={styles2.text_form_input}
+                      type="text"
+                      placeholder="رقم الجوال"
+                      name="number"
+                    />
+                  </div>
+                </div>
+                <div className={`${styles2.row_content} row`}>
+                  <div className={`${styles2.col_content} col`}>
+                    <label htmlFor="dept"> القسم </label>
+                    <br />
+                    <input
+                      className={styles2.text_form_input}
+                      type="text"
+                      placeholder="ادخل القسم"
+                      name="dept"
+                    />
+                  </div>
+
+                  <div className={`${styles2.col_content} col`}>
+                    <br />
+                    <input
+                      className={`${styles2.btn_create} text-center`}
+                      type="submit"
+                      value="إضافة منسق جديد"
+                    />
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>

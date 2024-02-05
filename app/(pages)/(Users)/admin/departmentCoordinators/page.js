@@ -12,7 +12,10 @@ import { useCombinedSort } from "@/lib/filter";
 
 export default function page({ initialItems }) {
   const [isSidebarVisible, setSidebarVisible] = useState(false);
-
+  const [isAdded, setAdded] = useState(false);
+  const toggleAdd = () => {
+    setAdded(!isAdded);
+  };
   const toggleSidebar = () => {
     setSidebarVisible(!isSidebarVisible);
   };
@@ -55,7 +58,7 @@ export default function page({ initialItems }) {
     {
       id: 6,
       deprtmentName: "العلوم السياسية",
-      name: "نورة المطيري",
+
       deptID: "POL",
       noOfStud: "7",
     },
@@ -115,7 +118,9 @@ export default function page({ initialItems }) {
                 />
               </div>
               <div className="form-group col-1 pe-5">
-                <button className={styles.submitBtn}>إضافة منسق جديد</button>
+                <button className={styles.submitBtn} onClick={toggleAdd}>
+                  إضافة منسق جديد
+                </button>
               </div>
             </div>
           </section>
