@@ -492,7 +492,6 @@ line-height: 22px;
 
 .evaluation_container{
   /* Frame 16 */
-
 background: #0287A2;
 padding-bottom: 15px;
 box-shadow: -6px 6px 4px rgba(0, 0, 0, 0.25);
@@ -509,7 +508,7 @@ display: block;
   height: 50px;
   align-items: center;
   margin: 20px 0;
-  padding-top: 10px;
+  padding-top: 10px 50px ;
 }
 .eval_content{
   height: 50px;
@@ -559,4 +558,190 @@ padding: 5px 15px;
     margin-right: 10px;
     cursor: pointer;
   }
+.filtter_container_attendance{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    background-color: #015263;
+    padding: 10px;
+  }
+  .header_nav{
+    text-align: left;
+    justify-content:space-around;
+  }
+  .training_plan_button_attandance{
+    background: #CFC67C;
+    border: #CFC67C 0 ;
+    border-radius: 6px;
+    padding: 5px 30px ;
+    color:white;
+    margin: 0 30px;
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+      }
+.attan_title_sp{
+  margin: 0 70px;
+  background-color: #86EAFE;
+  border-radius: 6px;
+  padding: 5px 5px;
+  color: #000; 
+}
+.attandance_container{
+  /* Frame 16 */
+background: #0287A2;
+padding-bottom: 15px;
+box-shadow: -6px 6px 4px rgba(0, 0, 0, 0.25);
+
+border-radius: 6px;
+font-family: 'Tajawal';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 29px;
+color: #FFFFFF;
+}
+.training_plan_container {
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.training_plan {
+  /* Rectangle 51 */
+  width: 407px;
+  height: 183px;
+  margin: 0 30px 80px;
+  background: #A3D09D;
+  box-shadow: -7px 8px 5px rgba(0, 0, 0, 0.25);
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 22px;
+  /* or 92% */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+}
+.back_arrow{
+  cursor: pointer;
+  font-size: 50px;
+  margin: 30px;
+}
+.add_button_container{
+  width: 300px;
+  height: 100px;
+  display: flex;
+  align-items:baseline;
+  justify-content:flex-end;
+}
+.add_button{
+  /* Component 22 */
+margin:0  20px 0 0 ;
+position: absolute;
+width: 180px;
+height: 76px;
+filter: drop-shadow(-4px 4.5px 5px rgba(0, 0, 0, 0.25));
+background: #BE9A1A;
+border: none;
+border-radius: 6px;
+
+font-family: 'Tajawal';
+font-style: normal;
+font-weight: 800;
+font-size: 20px;
+line-height: 29px;
+color: #FFFFFF;
+}
+.add_button:hover{
+  background: #CFC67C;
+}
+.training_plan_cont{
+  background: #0287A2;
+  margin-top: 10px;
+  padding: 30px 0;
+  border-radius: 6px;
+  font-family: 'Tajawal';
+font-style: normal;
+font-weight: 800;
+font-size: 20px;
+line-height: 29px;
+color: #FFFFFF;
+}
+.training_plan_cont_row{
+padding: 25px 0;
+}
+
+.trining_plan_title_span{
+margin: 0 5px;
+}
+.training_plan_content{
+  background-color: #86EAFE;
+  color: #000;
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  padding: 25px 0;
+  align-items: center;
+  margin: 20px 0;
+}
+.training_plan_icon{
+  font-size:xx-large;
+  cursor: pointer;
+
+}
+.training_plan_icon_garpeg{
+  font-size:xx-large;
+  color: #DC3445;
+  cursor: pointer;
+}
+.add_button_plan{
+  margin:0  20px 0 0 ;
+  width: 120px;
+  height:40px;
+  filter: drop-shadow(-4px 4.5px 5px rgba(0, 0, 0, 0.25));
+  background: #BE9A1A;
+  border: none;
+  border-radius: 6px;
   
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 29px;
+  color: #FFFFFF; 
+}
+.add_button_plan:hover{
+  background: #CFC67C;
+}
+
+.saveAndCancel_button_plan{
+  width: 156px;
+  height:48px;
+  background: #BE9A1A;
+  border: none;
+  border-radius: 6px;
+  margin: 0 5px;
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 29px;
+  color: #FFFFFF; 
+}
+.saveAndCancel_button_plan:hover{
+  background: #CFC67C;
+}
+.training_plan_cont_saveAndCancel{
+  margin: 50px 0 0 0;
+}
