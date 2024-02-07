@@ -6,7 +6,7 @@ import AdminHeader from "@/app/components/adminComponents/adminHeader";
 import Link from "next/link";
 import SelectForm from "@/app/components/selectForm";
 import { useState } from "react";
-import Orders from "@/app/components/adminComponents/orders";
+import { Orders, Order2 } from "@/app/components/adminComponents/orders";
 import AdminSidebar from "@/app/components/adminComponents/adminSidebar";
 // import Fillter from "@/app/components/training_entity/fillter";
 // import { sortAZ } from "@/lib/filter";
@@ -16,6 +16,17 @@ export default function page() {
 
   const toggleSidebar = () => {
     setSidebarVisible(!isSidebarVisible);
+  };
+  const [orders, setOrders] = useState("نوع الطلب");
+  const [typeOfRequest, setTypeOfRequest] = useState("تصنيف الطلب");
+
+  const handelChange = (selectedOption) => {
+    setOrders(selectedOption);
+    console.log(orders);
+  };
+  const handelTypeOfRequest = (selectedOption) => {
+    setTypeOfRequest(selectedOption);
+    console.log(typeOfRequest);
   };
 
   return (
@@ -65,19 +76,24 @@ export default function page() {
               <div className="form-group col-2">
                 <SelectForm
                   selectedOption={"الترتيب"}
-                  chosenOption={["أ - ي", "ي - أ", "الأحدث", "الأقدم"]}
+                  options={["أ - ي", "ي - أ", "الأحدث", "الأقدم"]}
+                  defaultSelected={"الترتيب"}
                 />
               </div>
               <div className="form-group col-2 ">
                 <SelectForm
                   selectedOption={"نوع الطلب"}
-                  chosenOption={["توثيق", "تدريب"]}
+                  options={["توثيق", "تدريب"]}
+                  onChange={handelChange}
+                  defaultSelected={"نوع الطلب"}
                 />
               </div>
               <div className="form-group col-2 ">
                 <SelectForm
-                  selectedOption={"حالة الطلب"}
-                  chosenOption={["مقبول", "مرفوض", "معلق"]}
+                  selectedOption={"تصنيف الطلب"}
+                  options={["طلبات جديدة", "قيد التنفيذ", "مكتمل", "مرفوض"]}
+                  onChange={handelTypeOfRequest}
+                  defaultSelected={"تصنيف الطلب"}
                 />
               </div>
             </div>
@@ -86,7 +102,12 @@ export default function page() {
             isSidebarVisible={isSidebarVisible}
             toggleSidebar={toggleSidebar}
           />
-          <Orders />
+          {orders === "تدريب" ? (
+            <Order2 typeOfRequest={typeOfRequest} />
+          ) : (
+            <Orders />
+          )}
+          {(typeOfRequest, orders)}
         </div>
       </div>
     </>

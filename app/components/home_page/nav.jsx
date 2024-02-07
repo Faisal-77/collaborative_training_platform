@@ -26,6 +26,7 @@ export default function nav() {
                   onClick={toggleSidebar}
                   style={{ fill: "white" }}
                   className={styles.text_nav}
+                  aria-label="Close Sidebar"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -62,6 +63,7 @@ export default function nav() {
                 onClick={toggleSidebar}
                 style={{ fill: "white" }}
                 className={styles.text_nav}
+                aria-label="Open Sidebar"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
