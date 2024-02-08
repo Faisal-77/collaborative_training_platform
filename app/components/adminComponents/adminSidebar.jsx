@@ -34,7 +34,7 @@ export default function AdminSidebar({ isSidebarVisible, toggleSidebar }) {
             <Link href={"/admin/orderCompany"}>الطلبات</Link>
           </li>
           <li>
-            <Link href={"/"}>الشكاوى والاقتراحات</Link>
+            <Link href={"/admin/suggestions"}>الشكاوى والاقتراحات</Link>
           </li>
           <li>
             <Link href={"/"}>البيانات</Link>
@@ -60,7 +60,7 @@ export default function AdminSidebar({ isSidebarVisible, toggleSidebar }) {
             <Link href={"/admin/orderCompany"}>الطلبات</Link>
           </li>
           <li className="mb-5">
-            <Link href={"/"}>الشكاوى والاقتراحات</Link>
+            <Link href={"/admin/suggestions"}>الشكاوى والاقتراحات</Link>
           </li>
           <li className="mb-5">
             <Link href={"/"}>البيانات</Link>

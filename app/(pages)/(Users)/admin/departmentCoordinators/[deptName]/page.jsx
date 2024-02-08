@@ -6,7 +6,7 @@ import adminStyle from "@/app/components/adminComponents/page.module.css";
 import AdminHeader from "@/app/components/adminComponents/adminHeader";
 import Link from "next/link";
 import SelectForm from "@/app/components/selectForm";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import StudRows from "@/app/components/adminComponents/StudRows";
 import AdminSidebar from "@/app/components/adminComponents/adminSidebar";
 import { useCombinedSort } from "@/lib/filter";

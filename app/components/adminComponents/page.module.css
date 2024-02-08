@@ -40,6 +40,23 @@
   padding: 30px 70px;
   border-radius: 6px;
 }
+.typeOfRow {
+  position: absolute;
+  right: 0%;
+  top: 0%;
+  background-color: #333;
+  margin: 0;
+  padding: 0;
+  width: 7px;
+  height: 70px;
+  border-radius: 0 6px 6px 0;
+}
+.sugg {
+  background-color: #22bb33;
+}
+.complaint {
+  background-color: #bb2124;
+}
 .headerRow {
   display: flex;
   width: 100%;
@@ -53,6 +70,7 @@
   font-weight: 700;
 }
 .row {
+  position: relative;
   display: flex;
   width: 100%;
   flex-direction: row;
@@ -77,4 +95,7 @@
 .backBtn i {
   position: relative;
   bottom: 18%;
+}
+.viewBtn {
+  cursor: pointer;
 }
