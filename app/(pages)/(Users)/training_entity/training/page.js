@@ -14,7 +14,6 @@ export default function page() {
         <Nav />
         <Fillter />
         <Training_content />
-        <Evaluation />
     </div>
   )
 }
