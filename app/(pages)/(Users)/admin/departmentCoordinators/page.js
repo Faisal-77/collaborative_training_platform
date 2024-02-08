@@ -22,45 +22,67 @@ export default function page({ initialItems }) {
   initialItems = [
     {
       id: 1,
-      deprtmentName: "الحاسب وتقنية الملعومات",
-      name: "محمد الحربي",
+      name: "قسم الحاسب وتقنية المعلومات",
+      deptHead: {
+        email: "malharby@tvtc.gov.sa",
+        name: "م. محمد فهيد الحربي",
+      },
+      majors: ["دعم فني", "برمجيات", "شبكات"],
       deptID: "IT",
-      noOfStud: "5",
     },
     {
       id: 2,
-      deprtmentName: "الهندسة المدنية",
-      name: "فاطمة العلي",
-      deptID: "CE",
-      noOfStud: "8",
+      name: "قسم التقنية الإدارية",
+      deptHead: {
+        email: "saalda@tvtc.gov.sa",
+        name: "أ. مشعل بن عبدالمحسن الحربي",
+      },
+      majors: ["إدارة أعمال", "محاسبية", "التسويق والابتكار"],
     },
     {
       id: 3,
-      deprtmentName: "الطب",
-      name: "علي الصفار",
-      deptID: "MD",
-      noOfStud: "12",
+      name: "قسم التقنية الكهربائية",
+      deptHead: {
+        email: "faljeraifani@tvtc.gov.sa",
+        name: "أ. فهد بن علي الجريفاني",
+      },
+      majors: ["قوى كهربائية"],
     },
     {
       id: 4,
-      deprtmentName: "الفنون الجميلة",
-      name: "أميرة العسيري",
-      deptID: "FA",
-      noOfStud: "6",
+      name: "قسم التقنية الخاصة",
+      deptHead: {
+        email: "aalfawzan1@tvtc.gov.sa",
+        name: "أ. أديب بن محمد الفوزان",
+      },
+      majors: ["تطبيقات مكتبية"],
     },
     {
       id: 5,
-      deprtmentName: "الاقتصاد",
-      name: "يوسف الشهراني",
-      deptID: "ECO",
-      noOfStud: "10",
+      name: "قسم التقنية السيارات",
+      deptHead: {
+        email: "kalbakri@tvtc.gov.sa",
+        name: "م. خالد بن علي البكري",
+      },
+      majors: ["محركات ومركبات"],
     },
     {
       id: 6,
-      deprtmentName: "العلوم السياسية",
-
-      deptID: "POL",
-      noOfStud: "7",
+      name: "قسم التقنية الميكانيكية",
+      deptHead: {
+        email: "falrobaish@tvtc.gov.sa",
+        name: "م. فهد بن محمد الربيش",
+      },
+      majors: ["التصنيع", "التبريد وتكييف الهواء"],
+    },
+    {
+      id: 7,
+      name: "قسم التقنية الإلكترونية",
+      deptHead: {
+        email: "Aaalnajran@tvtc.gov.sa",
+        name: "م. عبدالكريم بن عبدالله النجران",
+      },
+      majors: ["إلكترونيات صناعية وتحكم", "أجهزة طبية"],
     },
   ];
   const { items, handleSortChangeAZ } = useCombinedSort(initialItems);
@@ -135,8 +157,8 @@ export default function page({ initialItems }) {
               <section className={`row align-items-stretch pe-5 ps-5`}>
                 {items.map((data, index) => (
                   <DeptAdmin
-                    deprtmentName={data.deprtmentName}
-                    nameHead={data.name}
+                    deprtmentName={data.name}
+                    nameHead={data.deptHead.name}
                     deptID={data.deptID}
                     noOfStud={data.noOfStud}
                     key={index}

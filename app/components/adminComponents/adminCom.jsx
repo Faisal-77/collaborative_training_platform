@@ -81,10 +81,12 @@ export default function AdminCom() {
           <section
             className={`col-lg-10 col-md-12 p-0 m-0 ${styles.mainAdmin}`}
           >
-            <main className="container-fluid mt-5">
-              <section className={`row align-items-stretch pe-5 ps-5`}>
+            <main className="container-fluid mt-5 p-5">
+              <section
+                className={`d-flex align-items-stretch flex-wrap flex-row gap-2 `}
+              >
                 <div
-                  className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+                  className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
                 >
                   <CompanyCard
                     logo={aramco}
@@ -95,7 +97,7 @@ export default function AdminCom() {
                   />
                 </div>
                 <div
-                  className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+                  className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
                 >
                   <CompanyCard
                     logo={sabic}
@@ -106,7 +108,7 @@ export default function AdminCom() {
                   />
                 </div>
                 <div
-                  className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+                  className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
                 >
                   <CompanyCard
                     logo={alrajih}
@@ -118,10 +120,9 @@ export default function AdminCom() {
                     contactPhone={"+966920003344"}
                   />
                 </div>
-              </section>
-              <section className={`row align-items-stretch pe-5 ps-5`}>
+
                 <div
-                  className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+                  className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
                 >
                   <CompanyCard
                     logo={sdaia}
@@ -134,7 +135,7 @@ export default function AdminCom() {
                   />
                 </div>
                 <div
-                  className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+                  className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
                 >
                   <CompanyCard
                     logo={mcitt}
@@ -147,7 +148,7 @@ export default function AdminCom() {
                   />
                 </div>
                 <div
-                  className={`col-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+                  className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
                 >
                   <CompanyCard
                     logo={ncps}
@@ -180,8 +181,16 @@ const CompanyCard = ({ logo, name, info, contactEmail, contactPhone }) => {
       <div className={`${styles.companyContent}`}>
         <h4 className={`text-break ${styles.companyName}`}>{name}</h4>
         <p className={`text-break ${styles.companyInfo}`}>{info}</p>
-        <div className={styles.chatIcon} onClick={toggleChat}>
-          <i className="bi bi-chat-square-text"></i>
+        <div className=" row justify-content-between p-4 align-items-center">
+          <button className={`${styles.submitBtn}`}>dfsdf</button>
+
+          <i
+            className={`p-0 m-0 bi bi-chat-square-text  ${styles.chatIcon}`}
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="معلومات التواصل مع الشركة"
+            onClick={toggleChat}
+          ></i>
         </div>
       </div>
       <div

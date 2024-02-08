@@ -1,6 +1,12 @@
 import styles from "@/app/page.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
-import { faClock ,faPhone, faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faClock,
+  faPhone,
+  faUser,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -15,7 +21,9 @@ export default function Home() {
                     <section
                       className={`contact-wrap w-100 p-4 ${styles.boxSuggestions}`}
                     >
-                      <h3 className={styles.contactTitle}>للاقتراحات والشكوى</h3>
+                      <h3 className={styles.contactTitle}>
+                        للاقتراحات والشكوى
+                      </h3>
                       <form method="POST" id="contactForm" name="contactForm">
                         <div className={`row ${styles.contactWrap}`}>
                           <div className="col-md-12">
@@ -88,22 +96,47 @@ export default function Home() {
                           className={`${styles.conInfoShape_2} align-self-center`}
                         >
                           <div className={`${styles.conInfoEle} w-100`}>
-                            <h3  className={`${styles.contactTitle} ${styles.conInfoH3}`}>معلومات التواصل</h3>
+                            <h3
+                              className={`${styles.contactTitle} ${styles.conInfoH3}`}
+                            >
+                              معلومات التواصل
+                            </h3>
                             <div className={styles.conList}>
-                            <div className={styles.conListItem}>
-                            <FontAwesomeIcon icon={faEnvelope} className={styles.conListIcon}/>
-                            <span className={styles.conListEle}>cso@tvtc.gov.sa</span>
+                              <div className={styles.conListItem}>
+                                <FontAwesomeIcon
+                                  icon={faEnvelope}
+                                  className={styles.conListIcon}
+                                />
+                                <Link
+                                  href={"mailto:bct@tvtc.gov.sa"}
+                                  className={styles.conListEle}
+                                >
+                                  bct@tvtc.gov.sa
+                                </Link>
+                              </div>
+                              <div className={styles.conListItem}>
+                                <FontAwesomeIcon
+                                  icon={faPhone}
+                                  className={styles.conListIcon}
+                                />
+                                <span className={styles.conListEle}>
+                                  0112896664
+                                </span>
+                              </div>
+                              <div className={styles.conListItem}>
+                                <FontAwesomeIcon
+                                  icon={faClock}
+                                  className={styles.conListIcon}
+                                />
+                                <span className={styles.conListEle} dir="ltr">
+                                  8:00 am - 2:00 pm{" "}
+                                </span>
+                              </div>
                             </div>
-                            <div className={styles.conListItem}>
-                            <FontAwesomeIcon icon={faPhone} className={styles.conListIcon}/>
-                            <span className={styles.conListEle}>0112896664</span>
-                            </div>
-                            <div className={styles.conListItem}>
-                            <FontAwesomeIcon icon={faClock} className={styles.conListIcon}/>
-                            <span className={styles.conListEle} dir="ltr">8:00 am - 2:00 pm </span>
-                            </div>
-                            </div>
-                            <p className={`${styles.conInfoP}`}>لا تتردد في الاتصال بنا في أي وقت.<br/> سيتم التواصل في أقرب وقت ممكن!</p>
+                            <p className={`${styles.conInfoP}`}>
+                              لا تتردد في الاتصال بنا في أي وقت.
+                              <br /> سيتم التواصل في أقرب وقت ممكن!
+                            </p>
                           </div>
                         </div>
                         <div
