@@ -7,12 +7,13 @@ import { useState } from "react";
 import Link from "next/link";
 import styles2 from "@/app/components/training_entity/page.module.css";
 
-
 export default function deptAdmin({
   deprtmentName,
   nameHead,
   deptID,
   noOfStud = 0,
+  isAddOpen,
+  add,
 }) {
   return (
     <>
@@ -24,17 +25,23 @@ export default function deptAdmin({
           name={nameHead}
           deptName={deptID}
           number={noOfStud}
+          isAdded={isAddOpen}
+          toggleAdd={add}
         />
       </div>
     </>
   );
 }
-const CompanyCard = ({ dept, name, deptName, number = 0 }) => {
-  const [isAdded, setAdded] = useState(false);
-  const toggleAdd = () => {
-    setAdded(!isAdded);
-  };
+export const CompanyCard = ({
+  dept,
+  name,
+  deptName,
+  number = 0,
+  isAdded,
+  toggleAdd,
+}) => {
   const [isEdited, setEdited] = useState(false);
+
   const toggleEdit = () => {
     setEdited(!isEdited);
   };
@@ -293,4 +300,7 @@ const CompanyCard = ({ dept, name, deptName, number = 0 }) => {
       </div>
     </>
   );
+};
+export const PopupAdd = ({ isAdded, toggleAdd }) => {
+  return <></>;
 };

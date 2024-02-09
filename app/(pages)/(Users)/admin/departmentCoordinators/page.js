@@ -25,7 +25,6 @@ export default function page({ initialItems }) {
       name: "قسم الحاسب وتقنية المعلومات",
       deptHead: {
         email: "malharby@tvtc.gov.sa",
-        name: "م. محمد فهيد الحربي",
       },
       majors: ["دعم فني", "برمجيات", "شبكات"],
       deptID: "IT",
@@ -162,6 +161,8 @@ export default function page({ initialItems }) {
                     deptID={data.deptID}
                     noOfStud={data.noOfStud}
                     key={index}
+                    isAddOpen={isAdded}
+                    add={toggleAdd}
                   />
                 ))}
               </section>

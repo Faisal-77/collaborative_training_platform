@@ -99,3 +99,19 @@
 .viewBtn {
   cursor: pointer;
 }
+.bgHome {
+  background-image: url("../../../Image/slider__22xx.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  aspect-ratio: 9 / 3;
+}
+.AdminHeader {
+  background: rgba(18, 108, 102, 0.82);
+  color: #fff;
+  border-radius: 6px;
+  padding: 30px 50px;
+  display: block;
+  width: fit-content;
+  text-align: center;
+  font-size: 35px;
+}
