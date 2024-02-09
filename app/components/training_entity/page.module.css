@@ -371,6 +371,9 @@
 
   box-shadow: #cfc57c81 0px 0px 3px 3px;
 }
+.text_form_textarea {
+  height: 120px;
+}
 .btn_create {
   background: #b0a007;
   border-radius: 6px;
@@ -578,9 +581,9 @@
   width: 407px;
   height: 183px;
   margin: 0 30px 30px;
-  background: #A3D09D;
+  background: #a3d09d;
   box-shadow: -7px 8px 5px rgba(0, 0, 0, 0.25);
-  font-family: 'Tajawal';
+  font-family: "Tajawal";
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -589,7 +592,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .back_arrow {
   font-size: 50px;
@@ -605,108 +608,107 @@
 .back_arrow_plan_continer {
   text-align: right;
 }
-.training_plan_cont_row{
+.training_plan_cont_row {
   margin: 30px 0;
 }
-.training_plan_cont{
+.training_plan_cont {
   /* Missions-1 */
-padding: 20px 0;
-background: #0287A2;
-border-radius: 6px;
-font-family: 'Tajawal';
-font-style: normal;
-font-weight: 700;
-font-size: 24px;
-line-height: 29px;
-color: #FFFFFF;
+  padding: 20px 0;
+  background: #0287a2;
+  border-radius: 6px;
+  font-family: "Tajawal";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  color: #ffffff;
 }
-.training_plan_content{
+.training_plan_content {
   /* Rectangle 31 */
-background: #86EAFE;
-margin: 20px 0;
-padding: 25px 0 ;
-font-family: 'Tajawal';
+  background: #86eafe;
+  margin: 20px 0;
+  padding: 25px 0;
+  font-family: "Tajawal";
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
   line-height: 20px;
   color: #000;
-
 }
-.trining_plan_title_span{
+.trining_plan_title_span {
   margin: 0 5px;
 }
 
-.add_button{
+.add_button {
   /* Component 22 */
-width: 180px;
-height: 76px;
+  width: 180px;
+  height: 76px;
 
-filter: drop-shadow(-4px 4.5px 5px rgba(0, 0, 0, 0.25));
-background: #BE9A1A;
-border-radius: 6px;
-border: none;
-font-family: 'Tajawal';
-font-style: normal;
-font-weight: 800;
-font-size: 24px;
-line-height: 22px;
-color: #FFFFFF;
+  filter: drop-shadow(-4px 4.5px 5px rgba(0, 0, 0, 0.25));
+  background: #be9a1a;
+  border-radius: 6px;
+  border: none;
+  font-family: "Tajawal";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 22px;
+  color: #ffffff;
 }
-.add_button_container{
+.add_button_container {
   width: 200px;
   height: 100px;
   align-items: baseline;
   text-align: left;
 }
-.add_button:hover{
+.add_button:hover {
   background-color: #cbc37d;
 }
-.add_button_plan{
-margin: 30px 10px 5px 0;
-width: 100px;
-height: 45px;
-filter: drop-shadow(-4px 4.5px 5px rgba(0, 0, 0, 0.25));
-background: #BE9A1A;
-border-radius: 6px;
-border: none;
-font-family: 'Tajawal';
-font-style: normal;
-font-weight: 600;
-font-size: 20px;
-line-height: 20px;
-color: #FFFFFF;
+.add_button_plan {
+  margin: 30px 10px 5px 0;
+  width: 100px;
+  height: 45px;
+  filter: drop-shadow(-4px 4.5px 5px rgba(0, 0, 0, 0.25));
+  background: #be9a1a;
+  border-radius: 6px;
+  border: none;
+  font-family: "Tajawal";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  color: #ffffff;
 }
-.add_button_plan:hover{
+.add_button_plan:hover {
   background-color: #cbc37d;
 }
-.saveAndCancel_button_plan{
+.saveAndCancel_button_plan {
   margin: 0 5px;
-width: 155px;
-height: 35px;
-filter: drop-shadow(-4px 4.5px 5px rgba(0, 0, 0, 0.25));
-background: #BE9A1A;
-border-radius: 6px;
-border: none;
-font-family: 'Tajawal';
-font-style: normal;
-font-weight: 600;
-font-size: 20px;
-line-height: 22px;
-color: #FFFFFF;
+  width: 155px;
+  height: 35px;
+  filter: drop-shadow(-4px 4.5px 5px rgba(0, 0, 0, 0.25));
+  background: #be9a1a;
+  border-radius: 6px;
+  border: none;
+  font-family: "Tajawal";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 22px;
+  color: #ffffff;
 }
-.saveAndCancel_button_plan:hover{
+.saveAndCancel_button_plan:hover {
   background-color: #cbc37d;
 }
-.training_plan_icon{
+.training_plan_icon {
   font-size: xx-large;
   margin: 0 5px;
 }
-.training_plan_icon_garpeg{
+.training_plan_icon_garpeg {
   font-size: xx-large;
   margin: 0 5px;
-  color: #DC3445;
+  color: #dc3445;
 }
-.training_plan_icon_title{
+.training_plan_icon_title {
   text-align: right;
 }

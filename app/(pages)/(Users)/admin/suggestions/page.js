@@ -8,8 +8,73 @@ import Link from "next/link";
 import styles from "@/app/page.module.css";
 import adminStyle from "@/app/components/adminComponents/page.module.css";
 import suggestions from "@/app/(pages)/suggestions/page";
+import ViewSugg from "@/app/components/adminComponents/viewSugg";
 
 export default function page() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const fakeData = [
+    {
+      id: 1,
+      name: "Faisa",
+      history: "12/12/2022",
+      suggestion:
+        "disease green kitchen band alive means taught differ next change trade organized slipped complex bark prevent pictured daughter planet enough pick pig feet division",
+      compl: true,
+    },
+    {
+      id: 2,
+      name: "Maud Joseph",
+      history: "6/5/2062",
+      suggestion:
+        "driving newspaper mainly find change outside discussion needed cross bee order build soap leg slave spring bit herd cage also best won music cat",
+      compl: false,
+    },
+    {
+      id: 3,
+      name: "Fanny Higgins",
+      history: "6/1/2085",
+      suggestion:
+        "value crew point battle keep power aboard anybody rear your building crowd ten actual smile draw active meat say are fought corn be took",
+      compl: false,
+    },
+    {
+      id: 4,
+      name: "Daniel Moreno",
+      history: "3/18/2038",
+      suggestion:
+        "trip tie several mine vapor brief exactly stock proper gift dream draw statement lot instance everywhere clear declared five space cattle famous origin dig",
+      compl: false,
+    },
+    {
+      id: 5,
+      name: "Russell Goodwin",
+      history: "11/12/2050",
+      suggestion:
+        "tried further giving thousand way bound finest research smallest throw acres property football meant seat duty part unusual vessels thin television feel darkness wood",
+      compl: false,
+    },
+    {
+      id: 6,
+      name: "Sue Atkins",
+      history: "7/26/2076",
+      suggestion:
+        "everyone hang gold cat ball although numeral well feel planet shown white watch compound solve stone behind baby longer clothes like could went shall",
+      compl: false,
+    },
+    {
+      id: 7,
+      name: "Effie Martin",
+      history: "9/3/2123",
+      suggestion:
+        "movement pour dear riding doing floating necessary event western should gray bring arm standard electric equal current fun had under further label frighten refer",
+      compl: true,
+    },
+  ];
+  const togglePopup = () => {
+    setIsPopupOpen((prevState) => {
+      return !prevState; // Returning the new state value
+    });
+  };
   const [isSidebarVisible, setSidebarVisible] = useState(false);
   const toggleSidebar = () => {
     setSidebarVisible(!isSidebarVisible);
@@ -92,32 +157,32 @@ export default function page() {
                       <div className={` ${adminStyle.col}`}>التاريخ</div>
                       <div className={` ${adminStyle.col}`}>عرض</div>
                     </div>
-                    <div className={`${adminStyle.row}`}>
-                      <div
-                        className={` ${adminStyle.typeOfRow} ${adminStyle.sugg}`}
-                      ></div>
-                      <div className={` ${adminStyle.col}`}>1</div>
-                      <div className={` ${adminStyle.col}`}>dfgjks</div>
-                      <div className={` ${adminStyle.col}`}>dfgjks</div>
-                      <div className={` ${adminStyle.viewBtn}`}>
-                        <i className="bi bi-eye-fill"></i>
+                    {fakeData.map((sugg, index) => (
+                      <div className={`${adminStyle.row}`} key={index}>
+                        <div
+                          className={` ${adminStyle.typeOfRow} ${
+                            sugg.compl ? adminStyle.complaint : adminStyle.sugg
+                          }`}
+                        ></div>
+                        <div className={` ${adminStyle.col}`}>{sugg.name}</div>
+                        <div className={` ${adminStyle.col}`}>
+                          {sugg.history}
+                        </div>
+
+                        <div
+                          className={` ${adminStyle.viewBtn}`}
+                          onClick={togglePopup}
+                        >
+                          <i className="bi bi-eye-fill"></i>
+                        </div>
                       </div>
-                    </div>
-                    <div className={`${adminStyle.row}`}>
-                      <div
-                        className={` ${adminStyle.typeOfRow} ${adminStyle.complaint} `}
-                      ></div>
-                      <div className={` ${adminStyle.col}`}>2</div>
-                      <div className={` ${adminStyle.col}`}>dfgjks</div>
-                      <div className={` ${adminStyle.col}`}>dfgjks</div>
-                      <div className={` ${adminStyle.viewBtn}`}>
-                        <i className="bi bi-eye-fill"></i>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
             </main>
+
+            <ViewSugg isOpen={isPopupOpen} onClose={togglePopup} />
           </section>
         </div>
       </div>

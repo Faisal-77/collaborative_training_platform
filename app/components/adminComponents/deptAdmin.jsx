@@ -6,6 +6,8 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { useState } from "react";
 import Link from "next/link";
 import styles2 from "@/app/components/training_entity/page.module.css";
+
+
 export default function deptAdmin({
   deprtmentName,
   nameHead,
@@ -163,7 +165,7 @@ const CompanyCard = ({ dept, name, deptName, number = 0 }) => {
                     <input
                       className={`${styles2.btn_create} text-center`}
                       type="submit"
-                      value="إضافة منسق جديد"
+                      value="تعديل منسق جديد"
                     />
                   </div>
                 </div>
