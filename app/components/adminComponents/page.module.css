@@ -114,4 +114,53 @@
   width: fit-content;
   text-align: center;
   font-size: 35px;
+  box-shadow: -7px 8px 5px rgba(0, 0, 0, 0.25);
+}
+.rowServices {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 50px;
+}
+.ServicesTitle {
+  font-weight: 900;
+}
+.AdminLink {
+  padding: 0;
+  margin: 0;
+  width: 18.375rem;
+  height: 11.4375rem;
+  display: block;
+  text-decoration: none;
+}
+
+.AdminCard {
+  background-color: #a3d09d;
+  width: 18.375rem;
+  height: 11.4375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: -7px 8px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  transition: transform 150ms ease-in-out;
+}
+.AdminCard:hover {
+  background-color: hsl(117, 40%, 60%);
+  transform: translate(0px, 0px) scale(0.99);
+  border: none;
+
+  transition: transform 150ms ease-in-out;
+}
+.cardBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cardTitle {
+  font-size: 26px;
+  color: white;
+  font-weight: 800;
 }

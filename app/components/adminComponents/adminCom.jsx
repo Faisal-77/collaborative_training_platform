@@ -52,7 +52,7 @@ export default function AdminCom() {
               <div
                 className={`col-2 h-100 text-center p-0 m-0 ${styles.colsOftools} ${styles.hideOnSmall}`}
               >
-                <Link href={"/"} style={{ color: "white" }}>
+                <Link href={"/admin/"} style={{ color: "white" }}>
                   <i className={`bi bi-house`}></i>
                 </Link>
                 <i className={`bi bi-arrow-clockwise me-4`}></i>

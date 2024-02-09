@@ -1,8 +1,28 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import AdminHeader from "@/app/components/adminComponents/adminHeader";
 import styles from "@/app/components/adminComponents/page.module.css";
+import Link from "next/link";
+import CardServices from "@/app/components/adminComponents/adminHome";
 
 export default function page() {
+  const links = [
+    {
+      title: "جهات التدريب",
+      url: "/admin/trainingCompany",
+    },
+    {
+      title: "منسقين الأقسام",
+      url: "/admin/departmentCoordinators",
+    },
+    {
+      title: "الطلبات",
+      url: "/admin/orderCompany",
+    },
+    {
+      title: "الشكاوى والاقتراحات",
+      url: "/admin/suggestions",
+    },
+  ];
   return (
     <>
       <div className="container-fluid">
@@ -11,23 +31,34 @@ export default function page() {
             <AdminHeader />
           </div>
         </div>
-        <div className={`row`}>
+        <div className={`row `}>
           <div className={`col-12 p-5  ${styles.bgHome}`}>
-            <div className="container m-5">
+            <div className="container-fluid">
               <div className="row p-5 ">
-                <h1 className={`col-12 text-break ${styles.AdminHeader}`}>
-                  مرحبًا بك، <b>&nbsp; اسم المستخدم &nbsp;</b> في منصة التدريب
-                  التعاوني
-                </h1>
+                <div className="col-12 p-5">
+                  <h1 className={` text-break  ${styles.AdminHeader}`}>
+                    مرحبًا بك، <b>&nbsp; اسم المستخدم &nbsp;</b> في منصة التدريب
+                    التعاوني
+                  </h1>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="col-12 p-5 border-bottom">
-          <div className="container m-5">
-            <div className="row">
-              <div className="col-12 p-5">
-                <h1 className={styles.AdminHeader}>الرئيسية</h1>
+        <div className="row">
+          <div className="col-12 p-5 border-bottom ">
+            <div className="container-fluid shadow border rounded bg-light">
+              <div className="row p-5  flex-wrap">
+                <div className="col-12 p-5 ">
+                  <h1
+                    className={`${styles.AdminHeader} ${styles.ServicesTitle}`}
+                  >
+                    الخدمات
+                  </h1>
+                </div>
+                <div className={styles.rowServices}>
+                  <CardServices links={links} />
+                </div>
               </div>
             </div>
           </div>
