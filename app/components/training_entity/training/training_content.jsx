@@ -2,33 +2,40 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import styles from "@/app/components/training_entity/page.module.css";
-
-import React, { useState } from "react";
+import { useState } from "react";
+import Evaluation from "./evaluation";
 
 export default function Training_content() {
+
+  const [display , setDisplay] = useState(true)
   return (
+    <>
+    {display ? 
     <div className={`${styles.req_conainer} container`}>
       <div className={`${styles.req_title} row`}>
 
         <div className={`${styles.text} col text-center`}>
-        <span className={`${styles.text_req_span}`}> المتدرب </span>
-        </div>
-        <div className={`${styles.text} col text-center`}>
-        <span className={`${styles.text_req_span}`}> التخصص </span>
-        </div>
-        <div className={`${styles.text} col text-center`}>
-        <span className={`${styles.text_req_span}`}> الفترة </span>
+          <span className={`${styles.text_req_span}`}> المتدرب </span>
         </div>
 
         <div className={`${styles.text} col text-center`}>
-        <span className={`${styles.text_req_span}`}> عرض </span>
+          <span className={`${styles.text_req_span}`}> التخصص </span>
         </div>
 
         <div className={`${styles.text} col text-center`}>
-        <span className={`${styles.text_req_span}`}> تقييم المتدرب </span>
+          <span className={`${styles.text_req_span}`}> الفترة </span>
+        </div>
+
+        <div className={`${styles.text} col text-center`}>
+          <span className={`${styles.text_req_span}`}> عرض </span>
+        </div>
+
+        <div className={`${styles.text} col text-center`}>
+          <span className={`${styles.text_req_span}`}> تقييم المتدرب </span>
         </div>
         
       </div>
+      
       <CompanyCard
          name={"ريان الكرساوي"}
          mejor={"هندسة البرمجيات"}
@@ -38,6 +45,7 @@ export default function Training_content() {
          email={"Rayan1999a@gmail.com"}
          date_of_start={"2024 / 10 / 10"}
          attendence={"2"}
+         setDisplay={setDisplay}
       />
       <CompanyCard
          name={"ريان الكرساوي"}
@@ -48,6 +56,7 @@ export default function Training_content() {
          email={"Rayan1999a@gmail.com"}
          date_of_start={"2024 / 10 / 10"}
          attendence={"2"}
+         setDisplay={setDisplay}
       />
       <CompanyCard
          name={"ريان الكرساوي"}
@@ -58,18 +67,23 @@ export default function Training_content() {
          email={"Rayan1999a@gmail.com"}
          date_of_start={"2024 / 10 / 10"}
          attendence={"2"}
+         setDisplay={setDisplay}
       />
     </div>
+    :
+    <Evaluation setDisplay={setDisplay} />
+    }
+    </>
   );
 }
-const CompanyCard = ({name , num_std , mejor , time, phone_number , email , date_of_start , attendence}) => {
+const CompanyCard = ({name , num_std , mejor , time, phone_number , email , date_of_start , attendence , setDisplay}) => {
   const [isChatClicked, setChatClicked] = useState(false);
   const toggleChat = () => {
     setChatClicked(!isChatClicked);
   };
   return (
     <div className={`${styles.training_conent} row`}>
-
+     
         <div className={`col text-center`}>
             {name}
         </div>
@@ -83,7 +97,7 @@ const CompanyCard = ({name , num_std , mejor , time, phone_number , email , date
             <button onClick={toggleChat} className={styles.training_plan_button}>عرض</button>
         </div>
         <div className={`col text-center`}>
-        <button className={styles.training_plan_button}>تقييم المتدرب</button>
+          <button onClick={() => setDisplay(false)} className={styles.training_plan_button}>تقييم المتدرب</button>
         </div>
         <div
           className={styles.popupContainer}

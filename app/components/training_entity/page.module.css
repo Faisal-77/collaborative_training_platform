@@ -497,7 +497,7 @@
 
 .evaluation_container {
   /* Frame 16 */
-
+  margin-top: 30px;
   background: #0287a2;
   padding-bottom: 15px;
   box-shadow: -6px 6px 4px rgba(0, 0, 0, 0.25);
@@ -514,7 +514,7 @@
   height: 50px;
   align-items: center;
   margin: 20px 0;
-  padding-top: 10px 50px ;
+  padding-top: 10px;
 }
 .eval_content {
   height: 50px;
@@ -563,4 +563,150 @@
 .icone_inter_gread {
   margin-right: 10px;
   cursor: pointer;
+}
+.training_plan_container {
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.training_plan {
+  /* Rectangle 51 */
+  width: 407px;
+  height: 183px;
+  margin: 0 30px 30px;
+  background: #A3D09D;
+  box-shadow: -7px 8px 5px rgba(0, 0, 0, 0.25);
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 22px;
+  /* or 92% */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+}
+.back_arrow {
+  font-size: 50px;
+  cursor: pointer;
+}
+.back_arrow_plan {
+  font-size: 50px;
+  margin: 0 10px;
+  text-align: right;
+  cursor: pointer;
+}
+
+.back_arrow_plan_continer {
+  text-align: right;
+}
+.training_plan_cont_row{
+  margin: 30px 0;
+}
+.training_plan_cont{
+  /* Missions-1 */
+padding: 20px 0;
+background: #0287A2;
+border-radius: 6px;
+font-family: 'Tajawal';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 29px;
+color: #FFFFFF;
+}
+.training_plan_content{
+  /* Rectangle 31 */
+background: #86EAFE;
+margin: 20px 0;
+padding: 25px 0 ;
+font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  color: #000;
+
+}
+.trining_plan_title_span{
+  margin: 0 5px;
+}
+
+.add_button{
+  /* Component 22 */
+width: 180px;
+height: 76px;
+
+filter: drop-shadow(-4px 4.5px 5px rgba(0, 0, 0, 0.25));
+background: #BE9A1A;
+border-radius: 6px;
+border: none;
+font-family: 'Tajawal';
+font-style: normal;
+font-weight: 800;
+font-size: 24px;
+line-height: 22px;
+color: #FFFFFF;
+}
+.add_button_container{
+  width: 200px;
+  height: 100px;
+  align-items: baseline;
+  text-align: left;
+}
+.add_button:hover{
+  background-color: #cbc37d;
+}
+.add_button_plan{
+margin: 30px 10px 5px 0;
+width: 100px;
+height: 45px;
+filter: drop-shadow(-4px 4.5px 5px rgba(0, 0, 0, 0.25));
+background: #BE9A1A;
+border-radius: 6px;
+border: none;
+font-family: 'Tajawal';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 20px;
+color: #FFFFFF;
+}
+.add_button_plan:hover{
+  background-color: #cbc37d;
+}
+.saveAndCancel_button_plan{
+  margin: 0 5px;
+width: 155px;
+height: 35px;
+filter: drop-shadow(-4px 4.5px 5px rgba(0, 0, 0, 0.25));
+background: #BE9A1A;
+border-radius: 6px;
+border: none;
+font-family: 'Tajawal';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 22px;
+color: #FFFFFF;
+}
+.saveAndCancel_button_plan:hover{
+  background-color: #cbc37d;
+}
+.training_plan_icon{
+  font-size: xx-large;
+  margin: 0 5px;
+}
+.training_plan_icon_garpeg{
+  font-size: xx-large;
+  margin: 0 5px;
+  color: #DC3445;
+}
+.training_plan_icon_title{
+  text-align: right;
 }

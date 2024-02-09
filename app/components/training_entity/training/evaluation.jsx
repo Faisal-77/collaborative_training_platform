@@ -4,7 +4,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import styles from "@/app/components/training_entity/page.module.css";
 import React, { useEffect, useState } from "react";
 
-export default function Evaluation() {
+export default function Evaluation({setDisplay}) {
   const [graed, setGread] = useState(["", "", "", "", "", "", "", ""]);
   const qusion = [
     "إتقانه للمهارات وقدرته على التطبيق",
@@ -20,7 +20,16 @@ export default function Evaluation() {
   const [total, setTotal] = useState();
 
   return (
+    
     <div className={`${styles.evaluation_container} container`}>
+      <div className={`${styles.eval_title} row`}>
+          <div className={`${styles.back_arrow_plan_continer} col`}>
+              <i 
+                  onClick={() => setDisplay(true)}
+                  className={`${styles.back_arrow_plan} bi bi-caret-right-square-fill`}> 
+              </i>
+          </div>
+      </div>
       <div className={`${styles.eval_title} row`}>
         <div className={`col-1`}></div>
         <div className={`col text-center`}>
