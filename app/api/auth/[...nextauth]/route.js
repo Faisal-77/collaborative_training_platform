@@ -3,6 +3,8 @@ import Student from "@/models/student";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from 'bcryptjs';
+import User from "@/models/users";
+import Type from "@/models/type";
 
 export const authOptions = {
     providers:[
@@ -14,7 +16,7 @@ export const authOptions = {
                 const {user_name , password} = credentials;
                 try{
                     await connectToDatabase();
-                    const user = await Student.findOne({user_name})
+                    const user = await User.findOne({user_name})
                     
                     if (!user){
                         return;
@@ -23,7 +25,7 @@ export const authOptions = {
                     if ( ! password_match){
                         return;
                     }
-                    return user
+                    return user 
                 }catch(err){
                     console.log("errors : ", err)
                 }finally{

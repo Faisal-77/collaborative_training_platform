@@ -1,6 +1,7 @@
 "use client";
 import styles from "@/app/page.module.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import { signOut } from "next-auth/react"
 import { useState } from "react";
 const UserTools = () => {
   const [isUserDropdownVisible, setUserDropdownVisible] = useState(false);
@@ -22,7 +23,7 @@ const UserTools = () => {
             <button className={styles.userBtn}>إعدادات الحساب</button>
           </li>
           <li>
-            <button className={styles.userBtn}> تسجيل خروج</button>
+            <button onClick={() => signOut()} className={styles.userBtn}> تسجيل خروج</button>
           </li>
         </ul>
       </div>

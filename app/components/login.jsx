@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
 export default function Login() {
   const router = useRouter();
@@ -15,7 +15,6 @@ export default function Login() {
   const [user_name, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -27,14 +26,35 @@ export default function Login() {
       if (res.error) {
         setError("خطأ في اسم المستخدم أو كلمة المرور");
         return;
+      }if (res.ok){
+          try{
+            const middalware = await fetch("api/middalware", {
+              method: "POST",
+              body: JSON.stringify(user_name),
+            });
+            const   user_type   = await middalware.json();
+           
+            if(user_type == "Stydent"){
+            router.push("/stu_dashbord")
+            return;
+            }else if(user_type == "Training_entity"){
+              router.push("/training_entity");
+            return;
+            }else if(user_type == "Admin"){
+              router.push("/admin/departmentCoordinators");
+            return;
+            }
+            
+          }catch(errpr){
+            console.log(error)
+          }
       }
-      router.replace("stu_dashbord");
     } catch (error) {
       console.error(error);
-      setError("حدث خطأ أثناء تسجيل الدخول");
+      setError(" حدث خطأ أثناء تسجيل الدخول");
     }
   };
-
+  
   return (
     <>
       <section className={styles.formBackground}>

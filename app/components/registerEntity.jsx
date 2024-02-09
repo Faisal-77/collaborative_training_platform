@@ -59,7 +59,7 @@ const TwoStepForm = () => {
   const handelSubmit = async (e) => {
     e.preventDefault();
 
-    const user_namePattern = /^[^\d\s]+$/u;
+    const user_namePattern = /^[^0-9\s][^\s]*$/;
     const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\S]{8,}$/;
 
     if (!user_namePattern.test(formData.user_name)) {

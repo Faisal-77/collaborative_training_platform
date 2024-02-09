@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 import bcrypt from 'bcryptjs'
 import Training from "@/models/training";
 import User from "@/models/users";
+import Type from "@/models/type";
 export  async function POST (req ) {
     try{
         const {formData} = await req.json(); 
@@ -13,9 +14,8 @@ export  async function POST (req ) {
         await Training.create({name , field , email , phone_number , user_name , password : hashPassword})
         const foren_key =  await Training.findOne({user_name}).select('_id');
         await User.create ({user_name , password : hashPassword , type:"Training_entity" , foren_key })
-        console.log('create entity Successfully')
+        await Type.create({user_name , type:"Training_entity"})
         return NextResponse.json({ message:"done" })
-
     }catch (error){
         console.log(error)
     }finally {
