@@ -12,6 +12,34 @@ import mcitt from "@/Image/mcittt.svg";
 import ncps from "@/Image/ncps.svg";
 
 export function Orders() {
+  
+///      لجلب جهات التدريب الموجودة في قاعدة البيانات  
+  const entityes_display = async ()=>{
+    try{
+      const entityes = await fetch("../api/entity", {
+        method: "GET",
+      });
+      const entity =  entityes.json()
+      
+      return entity 
+    }catch(err){
+      console.log(err)
+    }
+  }
+  ///     تستقبل اسم جهت التدريب وتقوم بقبول جهت التدريب 
+  const update_to_accept = async (name)=>{
+    try{
+      const entityes = await fetch("../api/accept_entity", {
+        method: "PUT",
+        body : JSON.stringify({name})
+      });
+      const res = await entityes.json();
+      return res
+    }catch(err){
+      console.log(err)
+    }
+  }
+
   return (
     <section className={`col-lg-10 col-md-12 p-0 m-0 ${styles.mainAdmin}`}>
       <main className="container-fluid mt-5">

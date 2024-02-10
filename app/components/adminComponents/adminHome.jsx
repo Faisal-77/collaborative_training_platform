@@ -5,9 +5,9 @@ import Link from "next/link";
 export default function CardServices({ links }) {
   return (
     <>
-      {links.map((link) => (
+      {links.map((link , ind) => (
         <Link href={link.url} className={`${styles.AdminLink}`}>
-          <div className={`card ${styles.AdminCard}`}>
+          <div className={`card ${styles.AdminCard}`} ind={ind}>
             <div className={`card-body ${styles.cardBody} h-100`}>
               <h4 className={styles.cardTitle}>{link.title}</h4>
             </div>

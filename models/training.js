@@ -20,6 +20,9 @@ const schema_Training_entity = new Schema({
     password : {
         type : String ,
         select : false
+    },
+    state : {
+        type : Boolean ,
     }
 },
     {timestamps : true}

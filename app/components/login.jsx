@@ -33,7 +33,6 @@ export default function Login() {
               body: JSON.stringify(user_name),
             });
             const   user_type   = await middalware.json();
-           
             if(user_type == "Stydent"){
             router.push("/stu_dashbord")
             return;

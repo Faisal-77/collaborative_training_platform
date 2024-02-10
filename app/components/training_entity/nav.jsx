@@ -13,7 +13,7 @@ export default function Nav() {
             <div
                 className={`col-2 h-100 text-center p-2  ${styles.colsOftools}`}
               >
-                 <Link href={"/"} style={{ color: "white" }}>
+                 <Link href={"/training_entity"} style={{ color: "white" }}>
                   <i className={`bi bi-house`}></i>
                 </Link>
                 
@@ -25,16 +25,16 @@ export default function Nav() {
                     <li className="col"></li>
 
                     <li className="col">
-                        <Link href={"/"}>الطلبات</Link>
+                        <Link href={"/training_entity/requist_training"}>الطلبات</Link>
                     </li>
                     <li className="col">
-                        <Link href={"/"}>التدريب</Link>
+                        <Link href={"/training_entity/training"}>التدريب</Link>
                     </li>
                     <li className="col-4">
-                        <Link href={"/"}>الشكاوى والاقتراحات</Link>
+                        <Link href={"/training_entity"}>الشكاوى والاقتراحات</Link>
                     </li>
                     <li className="col">
-                        <Link href={"/"}>التواصل</Link>
+                        <Link href={"/training_entity"}>التواصل</Link>
                     </li>
              
                 </ul>

@@ -11,7 +11,7 @@ export  async function POST (req ) {
         const {name , field , email, phone_number , user_name , password } = formData
         const hashPassword = await bcrypt.hash(password , 10)
         await connectToDatabase();
-        await Training.create({name , field , email , phone_number , user_name , password : hashPassword})
+        await Training.create({name , field , email , phone_number , user_name , password : hashPassword , state : false})
         const foren_key =  await Training.findOne({user_name}).select('_id');
         await User.create ({user_name , password : hashPassword , type:"Training_entity" , foren_key })
         await Type.create({user_name , type:"Training_entity"})

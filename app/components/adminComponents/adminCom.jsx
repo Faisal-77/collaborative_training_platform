@@ -21,6 +21,18 @@ export default function AdminCom() {
   const toggleSidebar = () => {
     setSidebarVisible(!isSidebarVisible);
   };
+  ///   لجلب جهات التدريب المقبولة من قاعدة البيانات 
+  const display_accept_entityse = async ()=>{
+    try{
+      const entityes = await fetch("../api/entitiy_allowd", {
+        method: "GET",
+      });
+      const entity = await  entityes.json()
+      return entity 
+    }catch(err){
+      console.log(err)
+    }
+  }
   return (
     <>
       <div className="container-fluid">
