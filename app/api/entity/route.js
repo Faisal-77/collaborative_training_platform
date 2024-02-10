@@ -6,7 +6,7 @@ export async function GET() {
   try {
     await connectToDatabase();
 
-    const entities = await Training.find({}, { name: 1, field: 1, _id: 0 });
+    const entities = await Training.find({state : false}, { name: 1, field: 1, _id: 0 });
     
     return NextResponse.json(entities);
   } catch (error) {
