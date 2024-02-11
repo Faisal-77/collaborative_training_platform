@@ -12,6 +12,21 @@ import ViewSugg from "@/app/components/adminComponents/viewSugg";
 
 export default function page() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  ///   جلب الأقتراحات من قواعد البيانات
+  const suggestions_display = async ()=>{
+    try{
+      const suggestions = await fetch("../api/get_suggestions", {
+        method: "GET",
+      });
+      const res =  suggestions.json()
+      
+      return res 
+    }catch(err){
+      console.log(err)
+    }
+  }
+  
   const fakeData = [
     {
       id: 1,

@@ -1,3 +1,4 @@
+"use client"
 import styles from "@/app/page.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -6,9 +7,41 @@ import {
   faUser,
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 export default function Home() {
+    const router = useRouter();
+    const [name , setName] = useState("");
+    const [phone_number , setPhone] = useState("");
+    const [email , setEmail] = useState("");
+    const [content , setContent] = useState("");
+  const handelSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("../api/suggestions", {
+        method: "POST",
+        body: JSON.stringify({
+          name,
+          phone_number,
+          email,
+          content
+        }),
+      });
+
+      if (res.ok) {
+        const form_seq = e.target;
+        form_seq.reset();
+        router.push("/");
+      } else {
+        console.log("خطأ في التسجيل");
+      }
+    } catch (error) {
+      console.log("error api :", error);
+    }
+  };
+
   return (
     <>
       <section className="ftco-section">
@@ -24,7 +57,7 @@ export default function Home() {
                       <h3 className={styles.contactTitle}>
                         للاقتراحات والشكوى
                       </h3>
-                      <form method="POST" id="contactForm" name="contactForm">
+                      <form onSubmit={handelSubmit} method="POST" id="contactForm" name="contactForm">
                         <div className={`row ${styles.contactWrap}`}>
                           <div className="col-md-12">
                             <div className="form-group">
@@ -34,6 +67,7 @@ export default function Home() {
                                 name="name"
                                 id="name"
                                 placeholder="الاسم"
+                                onChange={(e) => setName(e.target.value)}
                               />
                             </div>
                           </div>
@@ -45,6 +79,7 @@ export default function Home() {
                                 name="phone"
                                 id="phone"
                                 placeholder="رقم الهاتف"
+                                onChange={(e) => setPhone(e.target.value)}
                               />
                             </div>
                           </div>
@@ -56,6 +91,7 @@ export default function Home() {
                                 name="email"
                                 id="email"
                                 placeholder="البريد الإلكتروني"
+                                onChange={(e) => setEmail(e.target.value)}
                               />
                             </div>
                           </div>
@@ -68,6 +104,7 @@ export default function Home() {
                                 cols="30"
                                 rows="7"
                                 placeholder="الرسالة"
+                                onChange={(e) => setContent(e.target.value)}
                               ></textarea>
                             </div>
                           </div>
