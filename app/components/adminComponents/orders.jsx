@@ -3,42 +3,42 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Image from "next/image";
 import styles from "@/app/page.module.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { useState } from "react";
-import aramco from "@/Image/Aramco.svg";
-import sabic from "@/Image/Sabic.svg";
-import sdaia from "@/Image/sdaia.svg";
-import alrajih from "@/Image/alrajihbank.svg";
-import mcitt from "@/Image/mcittt.svg";
-import ncps from "@/Image/ncps.svg";
+import { useState, useEffect } from "react";
+import ImgPlace from "@/Image/placeholderImage.png";
 
 export function Orders() {
-  
-///      لجلب جهات التدريب الموجودة في قاعدة البيانات  
-  const entityes_display = async ()=>{
-    try{
-      const entityes = await fetch("../api/entity", {
-        method: "GET",
-      });
-      const entity =  entityes.json()
-      
-      return entity 
-    }catch(err){
-      console.log(err)
-    }
-  }
-  ///     تستقبل اسم جهت التدريب وتقوم بقبول جهت التدريب 
-  const update_to_accept = async (name)=>{
-    try{
-      const entityes = await fetch("../api/accept_entity", {
-        method: "PUT",
-        body : JSON.stringify({name})
-      });
-      const res = await entityes.json();
-      return res
-    }catch(err){
-      console.log(err)
-    }
-  }
+  ///      لجلب جهات التدريب الموجودة في قاعدة البيانات
+  const [entity, setEntity] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("../api/entity", {
+          method: "GET",
+        });
+        const data = await response.json();
+        setEntity(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // const entityes_display = async () => {
+  //   try {
+  //     const entityes = await fetch("../api/entity", {
+  //       method: "GET",
+  //     });
+  //     const entity = entityes.json();
+
+  //     return entity.name;
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+  //     تستقبل اسم جهت التدريب وتقوم بقبول جهت التدريب
 
   return (
     <section className={`col-lg-10 col-md-12 p-0 m-0 ${styles.mainAdmin}`}>
@@ -46,89 +46,64 @@ export function Orders() {
         <section
           className={`d-flex align-items-stretch flex-wrap flex-row gap-2`}
         >
-          <div
-            className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
-          >
-            <CompanyCard
-              logo={aramco}
-              name={"شركة أرامكو السعودية"}
-              info={"مجال العمل: الطاقة والكيميائيات"}
-              contactEmail={"G-SAED@aramco.com"}
-              contactPhone={"+966138772828"}
-            />
-          </div>
-          <div
-            className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
-          >
-            <CompanyCard
-              logo={sabic}
-              name={"الشركة السعودية للصناعات    الأساسية (سابك)"}
-              info={"مجال العمل: إنتاج الكيماويات"}
-              contactEmail={"IR@SABIC.com"}
-              contactPhone={"+966112258000"}
-            />
-          </div>
-          <div
-            className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
-          >
-            <CompanyCard
-              logo={alrajih}
-              name={"مصرف الراجحي"}
-              info={
-                "مجال العمل: تقديم التمويل المصغر للأفراد، والتأجير التمويلي وتمويل المشروعات الصغيرة والمتوسطة"
-              }
-              contactEmail={"care@alrajhibank.com"}
-              contactPhone={"+966920003344"}
-            />
-          </div>
-          <div
-            className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
-          >
-            <CompanyCard
-              logo={sdaia}
-              name={"الهيئة السعودية للبيانات والذكاء الاصطناعي"}
-              info={
-                "مجال العمل: الجهة المختصة في المملكة بالبيانات والذكاء الاصطناعي"
-              }
-              contactEmail={"Suggestions@sdaia.gov.sa"}
-              contactPhone={"8001221111"}
-            />
-          </div>
-          <div
-            className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
-          >
-            <CompanyCard
-              logo={mcitt}
-              name={"وزارة الاتصالات وتقنية المعلومات"}
-              info={
-                "مجال العمل: تطوير وتنظيم قطاع الاتصالات وتكنولوجيا المعلومات"
-              }
-              contactEmail={"info@mcit.gov.sa"}
-              contactPhone={"4444814011"}
-            />
-          </div>
-          <div
-            className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
-          >
-            <CompanyCard
-              logo={ncps}
-              name={"المركز الوطني لتنمية القطاع غير الربحي"}
-              info={
-                "مجال العمل: دعم وتطوير القطاع الذي يتضمن المنظمات والمؤسسات غير الهادفة للربح"
-              }
-              contactEmail={"mc@ncnp.gov.sa"}
-              contactPhone={"19918"}
-            />
-          </div>
+          {/* {entityes_display().then((entity) => {
+            <div
+              className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+            >
+              {entity.map((item) => {
+                return (
+                  <CompanyCard
+                    logo={item.logo}
+                    name={item.name}
+                    info={item.info}
+                    contactEmail={item.contactEmail}
+                    contactPhone={item.contactPhone}
+                  />
+                );
+              })}
+            </div>;
+          })} */}
+          {entity !== null ? (
+            entity.map((item) => {
+              return (
+                <div
+                  className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+                >
+                  <CompanyCard
+                    logo={item.logo}
+                    name={item.name}
+                    info={item.field}
+                    contactEmail={item.contactEmail}
+                    contactPhone={item.contactPhone}
+                  />
+                </div>
+              );
+            })
+          ) : (
+            <p>الرجاء الانتظار...</p>
+          )}
         </section>
       </main>
     </section>
   );
 }
-const CompanyCard = ({ logo, name, info }) => {
+const CompanyCard = ({ logo = ImgPlace, name, info }) => {
+  const update_to_accept = async (name) => {
+    try {
+      const entityes = await fetch("../api/accept_entity", {
+        method: "PUT",
+        body: JSON.stringify({ name }),
+      });
+      const res = await entityes.json();
+      return res;
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const [isAccepted, setAccepted] = useState(false);
   const toggleAccept = () => {
     setAccepted(!isAccepted);
+    update_to_accept(name);
   };
   const [isRejected, setRejected] = useState(false);
   const toggleReject = () => {
@@ -137,7 +112,12 @@ const CompanyCard = ({ logo, name, info }) => {
   return (
     <>
       <div className={`text-center ${styles.logoBox}`}>
-        <Image src={logo} className={styles.companyLogos} />
+        <Image
+          src={logo}
+          className={styles.companyLogos}
+          alt="Company Logo"
+          title="Company Logo"
+        />
       </div>
       <div className={`${styles.companyContent}`}>
         <h4 className={`text-break ${styles.companyName}`}>{name}</h4>

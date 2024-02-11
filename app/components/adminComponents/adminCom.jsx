@@ -6,33 +6,29 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import AdminHeader from "./adminHeader";
 import SelectForm from "@/app/components/selectForm";
 import Link from "next/link";
-import aramco from "@/Image/Aramco.svg";
-import sabic from "@/Image/Sabic.svg";
-import sdaia from "@/Image/sdaia.svg";
-import alrajih from "@/Image/alrajihbank.svg";
-import mcitt from "@/Image/mcittt.svg";
-import ncps from "@/Image/ncps.svg";
+import ImgPlace from "@/Image/placeholderImage.png";
 
 import { useState } from "react";
 import AdminSidebar from "./adminSidebar";
 export default function AdminCom() {
   const [isSidebarVisible, setSidebarVisible] = useState(false);
-
+  // const [entity, setEntity] = useState(null);
   const toggleSidebar = () => {
     setSidebarVisible(!isSidebarVisible);
   };
-  ///   لجلب جهات التدريب المقبولة من قاعدة البيانات 
-  const display_accept_entityse = async ()=>{
-    try{
+  ///   لجلب جهات التدريب المقبولة من قاعدة البيانات
+  const display_accept_entityse = async () => {
+    try {
       const entityes = await fetch("../api/entitiy_allowd", {
         method: "GET",
       });
-      const entity = await  entityes.json()
-      return entity 
-    }catch(err){
-      console.log(err)
+      const entity = await entityes.json();
+      return entity;
+    } catch (err) {
+      console.log(err);
     }
-  }
+  };
+
   return (
     <>
       <div className="container-fluid">
@@ -97,81 +93,23 @@ export default function AdminCom() {
               <section
                 className={`d-flex align-items-stretch flex-wrap flex-row gap-2 `}
               >
-                <div
-                  className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
-                >
-                  <CompanyCard
-                    logo={aramco}
-                    name={"شركة أرامكو السعودية"}
-                    info={"مجال العمل: الطاقة والكيميائيات"}
-                    contactEmail={"G-SAED@aramco.com"}
-                    contactPhone={"+966138772828"}
-                  />
-                </div>
-                <div
-                  className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
-                >
-                  <CompanyCard
-                    logo={sabic}
-                    name={"الشركة السعودية للصناعات    الأساسية (سابك)"}
-                    info={"مجال العمل: إنتاج الكيماويات"}
-                    contactEmail={"IR@SABIC.com"}
-                    contactPhone={"+966112258000"}
-                  />
-                </div>
-                <div
-                  className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
-                >
-                  <CompanyCard
-                    logo={alrajih}
-                    name={"مصرف الراجحي"}
-                    info={
-                      "مجال العمل: تقديم التمويل المصغر للأفراد، والتأجير التمويلي وتمويل المشروعات الصغيرة والمتوسطة"
-                    }
-                    contactEmail={"care@alrajhibank.com"}
-                    contactPhone={"+966920003344"}
-                  />
-                </div>
-
-                <div
-                  className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
-                >
-                  <CompanyCard
-                    logo={sdaia}
-                    name={"الهيئة السعودية للبيانات والذكاء الاصطناعي"}
-                    info={
-                      "مجال العمل: الجهة المختصة في المملكة بالبيانات والذكاء الاصطناعي"
-                    }
-                    contactEmail={"Suggestions@sdaia.gov.sa"}
-                    contactPhone={"8001221111"}
-                  />
-                </div>
-                <div
-                  className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
-                >
-                  <CompanyCard
-                    logo={mcitt}
-                    name={"وزارة الاتصالات وتقنية المعلومات"}
-                    info={
-                      "مجال العمل: تطوير وتنظيم قطاع الاتصالات وتكنولوجيا المعلومات"
-                    }
-                    contactEmail={"info@mcit.gov.sa"}
-                    contactPhone={"4444814011"}
-                  />
-                </div>
-                <div
-                  className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
-                >
-                  <CompanyCard
-                    logo={ncps}
-                    name={"المركز الوطني لتنمية القطاع غير الربحي"}
-                    info={
-                      "مجال العمل: دعم وتطوير القطاع الذي يتضمن المنظمات والمؤسسات غير الهادفة للربح"
-                    }
-                    contactEmail={"mc@ncnp.gov.sa"}
-                    contactPhone={"19918"}
-                  />
-                </div>
+                {display_accept_entityse().then((data) => (
+                  <>
+                    {data.map((entity) => (
+                      <div
+                        className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+                        key={entity._id}
+                      >
+                        <CompanyCard
+                          name={entity.name}
+                          info={entity.field}
+                          contactEmail={entity.email}
+                          contactPhone={entity.phone_number}
+                        />
+                      </div>
+                    ))}
+                  </>
+                ))}
               </section>
             </main>
           </section>
@@ -180,7 +118,13 @@ export default function AdminCom() {
     </>
   );
 }
-const CompanyCard = ({ logo, name, info, contactEmail, contactPhone }) => {
+const CompanyCard = ({
+  logo = ImgPlace,
+  name,
+  info,
+  contactEmail,
+  contactPhone,
+}) => {
   const [isChatClicked, setChatClicked] = useState(false);
   const toggleChat = () => {
     setChatClicked(!isChatClicked);
@@ -188,7 +132,12 @@ const CompanyCard = ({ logo, name, info, contactEmail, contactPhone }) => {
   return (
     <>
       <div className={`text-center ${styles.logoBox}`}>
-        <Image src={logo} className={styles.companyLogos} />
+        <Image
+          src={logo}
+          className={styles.companyLogos}
+          alt="Company Logo"
+          title="Company Logo"
+        />
       </div>
       <div className={`${styles.companyContent}`}>
         <h4 className={`text-break ${styles.companyName}`}>{name}</h4>
