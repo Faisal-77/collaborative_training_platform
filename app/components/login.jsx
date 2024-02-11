@@ -40,7 +40,10 @@ export default function Login() {
               router.push("/training_entity");
             return;
             }else if(user_type == "Admin"){
-              router.push("/admin/departmentCoordinators");
+              router.push("/admin");
+            return;
+            }else if(user_type == "department_manager"){
+              router.push("/admin");
             return;
             }
             

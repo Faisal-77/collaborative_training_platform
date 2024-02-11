@@ -21,6 +21,7 @@ export const authOptions = {
                     if (!user){
                         return;
                     }
+                    
                     const password_match = await bcrypt.compare(password , user.password);
                     if ( ! password_match){
                         return;
