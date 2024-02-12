@@ -5,12 +5,12 @@ import styles from "@/app/page.module.css";
 import AdminHeader from "@/app/components/adminComponents/adminHeader";
 import Link from "next/link";
 import SelectForm from "@/app/components/selectForm";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DeptAdmin from "@/app/components/adminComponents/deptAdmin";
 import AdminSidebar from "@/app/components/adminComponents/adminSidebar";
 import { useCombinedSort } from "@/lib/filter";
 
-export default function page({ initialItems }) {
+export default function page() {
   const [isSidebarVisible, setSidebarVisible] = useState(false);
   const [isAdded, setAdded] = useState(false);
   const toggleAdd = () => {
@@ -20,84 +20,38 @@ export default function page({ initialItems }) {
     setSidebarVisible(!isSidebarVisible);
   };
   ///     جلب منسقين الأقسام من قواعد البيانات
-  const department_manager_display = async ()=>{
-    try{
+  const department_manager_display = async () => {
+    try {
       const res = await fetch("../api/get_depart_manager", {
         method: "GET",
       });
-      const department =  res.json()
-      
-      return department; 
-    }catch(err){
-      console.log(err)
+      const department = res.json();
+
+      return department;
+    } catch (err) {
+      console.log(err);
     }
-  }
-  initialItems = [
-    {
-      id: 1,
-      name: "قسم الحاسب وتقنية المعلومات",
-      deptHead: {
-        email: "malharby@tvtc.gov.sa",
-      },
-      majors: ["دعم فني", "برمجيات", "شبكات"],
-      deptID: "IT",
-    },
-    {
-      id: 2,
-      name: "قسم التقنية الإدارية",
-      deptHead: {
-        email: "saalda@tvtc.gov.sa",
-        name: "أ. مشعل بن عبدالمحسن الحربي",
-      },
-      majors: ["إدارة أعمال", "محاسبية", "التسويق والابتكار"],
-    },
-    {
-      id: 3,
-      name: "قسم التقنية الكهربائية",
-      deptHead: {
-        email: "faljeraifani@tvtc.gov.sa",
-        name: "أ. فهد بن علي الجريفاني",
-      },
-      majors: ["قوى كهربائية"],
-    },
-    {
-      id: 4,
-      name: "قسم التقنية الخاصة",
-      deptHead: {
-        email: "aalfawzan1@tvtc.gov.sa",
-        name: "أ. أديب بن محمد الفوزان",
-      },
-      majors: ["تطبيقات مكتبية"],
-    },
-    {
-      id: 5,
-      name: "قسم التقنية السيارات",
-      deptHead: {
-        email: "kalbakri@tvtc.gov.sa",
-        name: "م. خالد بن علي البكري",
-      },
-      majors: ["محركات ومركبات"],
-    },
-    {
-      id: 6,
-      name: "قسم التقنية الميكانيكية",
-      deptHead: {
-        email: "falrobaish@tvtc.gov.sa",
-        name: "م. فهد بن محمد الربيش",
-      },
-      majors: ["التصنيع", "التبريد وتكييف الهواء"],
-    },
-    {
-      id: 7,
-      name: "قسم التقنية الإلكترونية",
-      deptHead: {
-        email: "Aaalnajran@tvtc.gov.sa",
-        name: "م. عبدالكريم بن عبدالله النجران",
-      },
-      majors: ["إلكترونيات صناعية وتحكم", "أجهزة طبية"],
-    },
-  ];
-  const { items, handleSortChangeAZ } = useCombinedSort(initialItems);
+  };
+  const [showDepartmentManager, setShowDepartmentManager] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("../api/get_depart_manager", {
+          method: "GET",
+        });
+        const data = await response.json();
+
+        setShowDepartmentManager(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // const { items, handleSortChangeAZ } = useCombinedSort();
 
   return (
     <>
@@ -147,7 +101,7 @@ export default function page({ initialItems }) {
                 <SelectForm
                   selectedOption={"الترتيب"}
                   options={["أ - ي", "ي - أ", "الأحدث", "الأقدم"]}
-                  onChange={handleSortChangeAZ}
+                  onChange=""
                   defaultSelected={"الترتيب"}
                 />
               </div>
@@ -167,17 +121,21 @@ export default function page({ initialItems }) {
           >
             <main className="container-fluid mt-5">
               <section className={`row align-items-stretch pe-5 ps-5`}>
-                {items.map((data, index) => (
-                  <DeptAdmin
-                    deprtmentName={data.name}
-                    nameHead={data.deptHead.name}
-                    deptID={data.deptID}
-                    noOfStud={data.noOfStud}
-                    key={index}
-                    isAddOpen={isAdded}
-                    add={toggleAdd}
-                  />
-                ))}
+                {showDepartmentManager !== null ? (
+                  showDepartmentManager.map((data, index) => (
+                    <DeptAdmin
+                      deprtmentName={data.department}
+                      nameHead={data.full_name}
+                      deptID={data.deptID}
+                      noOfStud={data.noOfStud}
+                      key={index}
+                      isAddOpen={isAdded}
+                      add={toggleAdd}
+                    />
+                  ))
+                ) : (
+                  <p className="text-center">لا يوجد منسقين</p>
+                )}
               </section>
             </main>
           </section>
