@@ -863,6 +863,11 @@
   font-size: 20px;
   font-weight: 700;
 }
+
+.mainAdmin_train {
+  height: 77dvh;
+  overflow: none;
+}
 /* `sm` applies to x-small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
   /*width in small screens*/

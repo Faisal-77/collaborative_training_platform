@@ -6,55 +6,17 @@ import walking_img from "@/Image/img_walking.jpg";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { signIn } from "next-auth/react";
-import { redirect, useRouter } from "next/navigation";
+import {  useRouter } from "next/navigation";
 
-export default function Login() {
+export default function Forget_password() {
   const router = useRouter();
 
   const [user_name, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const res = await signIn("credentials", {
-        user_name,
-        password,
-        redirect: false,
-      });
-      if (res.error) {
-        setError("خطأ في اسم المستخدم أو كلمة المرور");
-        return;
-      }if (res.ok){
-          try{
-            const middalware = await fetch("api/middalware", {
-              method: "POST",
-              body: JSON.stringify(user_name),
-            });
-            const   user_type   = await middalware.json();
-            if(user_type == "Stydent"){
-            router.push("/stu_dashbord")
-            return;
-            }else if(user_type == "Training_entity"){
-              router.push("/training_entity");
-            return;
-            }else if(user_type == "Admin"){
-              router.push("/admin");
-            return;
-            }else if(user_type == "department_manager"){
-              router.push("/admin");
-            return;
-            }
-            
-          }catch(errpr){
-            console.log(error)
-          }
-      }
-    } catch (error) {
-      console.error(error);
-      setError(" حدث خطأ أثناء تسجيل الدخول");
-    }
   };
   
   return (
@@ -69,7 +31,7 @@ export default function Login() {
                     <section
                       className={`contact-wrap w-100 p-4 ${styles.form}`}
                     >
-                      <h1>تسجيل الدخول</h1>
+                      <h1>تغيير كلمة المرور</h1>
                       <form onSubmit={handleSubmit}>
                         <div
                           className={`row contact-wrap justify-content-center`}
@@ -111,7 +73,7 @@ export default function Login() {
                           <div className="col-md-10 ">
                             <div className="form-group">
                               <span className={styles.linksLogin}>
-                                <Link href={"/forget_password"}>نسيت كلمة المرور؟</Link>
+                                <Link href={"/"}>الغاء</Link>
                               </span>
                             </div>
                           </div>
@@ -126,7 +88,7 @@ export default function Login() {
                               )}
                               <input
                                 type="submit"
-                                value="تسجيل الدخول"
+                                value="حفظ"
                                 className={`${styles.submitBtn} `}
                               />
                             </div>
@@ -144,29 +106,7 @@ export default function Login() {
                       <span className={`${styles.sub_header}`}>
                         <h2>مرحبًا بك في مركز التدريب التعاوني</h2>
                       </span>
-                      <h3
-                        className={`align-self-center ${styles.infoBoxTitle}`}
-                      >
-                        إذا لم يكن لديك حساب أنشئ حسابك من هنا
-                      </h3>
-                      <span
-                        className={`align-self-center text-center ${styles.registerBtnSpan}`}
-                      >
-                        <Link
-                          href={"/registerEntity"}
-                          className={`${styles.registerBtn}`}
-                        >
-                          {" "}
-                          جهة التدريب{" "}
-                        </Link>
-                        <Link
-                          href={"/registerStud"}
-                          className={styles.registerBtn}
-                        >
-                          {" "}
-                          المتدرب{" "}
-                        </Link>
-                      </span>
+                      
                       <Image
                         src={walking_img}
                         className={`${styles.infoBoxImg}`}

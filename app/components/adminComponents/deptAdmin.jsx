@@ -15,6 +15,40 @@ export default function deptAdmin({
   isAddOpen,
   add,
 }) {
+
+    const [full_name , setFullName] = useState("");
+    const [email , setEmail] = useState("");
+    const [department , setDepart] = useState("");
+    const [user_name , setUser] = useState("");
+    const [phoneNumber , setPhone] = useState("");
+
+    const handelSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        const res = await fetch("../api/department_manager", {
+          method: "POST",
+          body: JSON.stringify({
+            department,
+            full_name,
+            email,
+            user_name,
+            phoneNumber,
+          }),
+        });
+  
+        if (res.ok) {
+          console.log('ok')
+          const form = e.target;
+          form.reset();
+          
+        } else {
+          console.log("خطأ في التسجيل");
+        }
+      } catch (error) {
+        console.log("error api :", error);
+      }
+    };
+
   return (
     <>
       <div
@@ -27,19 +61,31 @@ export default function deptAdmin({
           number={noOfStud}
           isAdded={isAddOpen}
           toggleAdd={add}
+          handelSubmit={handelSubmit}
+          setFullName={setFullName}
+          setEmail={setEmail}
+          setDepart={setDepart}
+          setUser={setUser}
+          setPhone={setPhone}
         />
       </div>
     </>
   );
 }
 export const CompanyCard = ({
+  setFullName,
+  setEmail,
+  setDepart,
+  setUser,
+  setPhone,
   dept,
   name,
   deptName,
   number = 0,
   isAdded,
   toggleAdd,
-}) => {
+  handelSubmit
+},) => {
   const [isEdited, setEdited] = useState(false);
 
   const toggleEdit = () => {
@@ -107,7 +153,7 @@ export const CompanyCard = ({
                 </h2>
               </div>
 
-              <form>
+              <form onSubmit={handelSubmit}>
                 <div className={`${styles2.row_content} row`}>
                   <div className={`${styles2.col_content} col`}>
                     <label htmlFor="name"> الاسم </label>
@@ -198,7 +244,7 @@ export const CompanyCard = ({
                 </h2>
               </div>
 
-              <form>
+              <form onSubmit={handelSubmit}>
                 <div className={`${styles2.row_content} row`}>
                   <div className={`${styles2.col_content} col`}>
                     <label htmlFor="name"> الاسم </label>
@@ -208,6 +254,7 @@ export const CompanyCard = ({
                       type="text"
                       placeholder="ادخل الاسم"
                       name="name"
+                      onChange={(e) => setFullName(e.target.value)}
                     />
                   </div>
 
@@ -219,6 +266,7 @@ export const CompanyCard = ({
                       type="text"
                       placeholder="اسم المستخدم"
                       name="userName"
+                      onChange={(e) => setUser(e.target.value)}
                     />
                   </div>
                 </div>
@@ -231,6 +279,7 @@ export const CompanyCard = ({
                       type="text"
                       placeholder="ادخل البريد الالكتروني"
                       name="mail"
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
 
@@ -242,6 +291,7 @@ export const CompanyCard = ({
                       type="text"
                       placeholder="رقم الجوال"
                       name="number"
+                      onChange={(e) => setPhone(e.target.value)}
                     />
                   </div>
                 </div>
@@ -254,6 +304,7 @@ export const CompanyCard = ({
                       type="text"
                       placeholder="ادخل القسم"
                       name="dept"
+                      onChange={(e) => setDepart(e.target.value)}
                     />
                   </div>
 

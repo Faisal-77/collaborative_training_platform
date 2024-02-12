@@ -1,6 +1,5 @@
 import { connectToDatabase, dis_connact_database } from "@/lib/DataBase";
 import { NextResponse } from "next/server";
-import Training from "@/models/training";
 import Suggestions from "@/models/suggestions";
 
 export async function GET() {

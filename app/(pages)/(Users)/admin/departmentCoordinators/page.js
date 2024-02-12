@@ -19,6 +19,19 @@ export default function page({ initialItems }) {
   const toggleSidebar = () => {
     setSidebarVisible(!isSidebarVisible);
   };
+  ///     جلب منسقين الأقسام من قواعد البيانات
+  const department_manager_display = async ()=>{
+    try{
+      const res = await fetch("../api/get_depart_manager", {
+        method: "GET",
+      });
+      const department =  res.json()
+      
+      return department; 
+    }catch(err){
+      console.log(err)
+    }
+  }
   initialItems = [
     {
       id: 1,
