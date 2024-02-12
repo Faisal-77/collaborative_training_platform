@@ -301,6 +301,3 @@ export const CompanyCard = ({
     </>
   );
 };
-export const PopupAdd = ({ isAdded, toggleAdd }) => {
-  return <></>;
-};

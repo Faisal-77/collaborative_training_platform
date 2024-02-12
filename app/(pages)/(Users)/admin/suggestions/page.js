@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AdminSidebar from "@/app/components/adminComponents/adminSidebar";
 import AdminHeader from "@/app/components/adminComponents/adminHeader";
@@ -9,82 +9,46 @@ import styles from "@/app/page.module.css";
 import adminStyle from "@/app/components/adminComponents/page.module.css";
 import suggestions from "@/app/(pages)/suggestions/page";
 import ViewSugg from "@/app/components/adminComponents/viewSugg";
+import { useCombinedSort } from "@/lib/filter";
 
 export default function page() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   ///   جلب الأقتراحات من قواعد البيانات
-  const suggestions_display = async ()=>{
-    try{
-      const suggestions = await fetch("../api/get_suggestions", {
-        method: "GET",
-      });
-      const res =  suggestions.json()
-      
-      return res 
-    }catch(err){
-      console.log(err)
-    }
-  }
-  
-  const fakeData = [
-    {
-      id: 1,
-      name: "Faisa",
-      history: "12/12/2022",
-      suggestion:
-        "disease green kitchen band alive means taught differ next change trade organized slipped complex bark prevent pictured daughter planet enough pick pig feet division",
-      compl: true,
-    },
-    {
-      id: 2,
-      name: "Maud Joseph",
-      history: "6/5/2062",
-      suggestion:
-        "driving newspaper mainly find change outside discussion needed cross bee order build soap leg slave spring bit herd cage also best won music cat",
-      compl: false,
-    },
-    {
-      id: 3,
-      name: "Fanny Higgins",
-      history: "6/1/2085",
-      suggestion:
-        "value crew point battle keep power aboard anybody rear your building crowd ten actual smile draw active meat say are fought corn be took",
-      compl: false,
-    },
-    {
-      id: 4,
-      name: "Daniel Moreno",
-      history: "3/18/2038",
-      suggestion:
-        "trip tie several mine vapor brief exactly stock proper gift dream draw statement lot instance everywhere clear declared five space cattle famous origin dig",
-      compl: false,
-    },
-    {
-      id: 5,
-      name: "Russell Goodwin",
-      history: "11/12/2050",
-      suggestion:
-        "tried further giving thousand way bound finest research smallest throw acres property football meant seat duty part unusual vessels thin television feel darkness wood",
-      compl: false,
-    },
-    {
-      id: 6,
-      name: "Sue Atkins",
-      history: "7/26/2076",
-      suggestion:
-        "everyone hang gold cat ball although numeral well feel planet shown white watch compound solve stone behind baby longer clothes like could went shall",
-      compl: false,
-    },
-    {
-      id: 7,
-      name: "Effie Martin",
-      history: "9/3/2123",
-      suggestion:
-        "movement pour dear riding doing floating necessary event western should gray bring arm standard electric equal current fun had under further label frighten refer",
-      compl: true,
-    },
-  ];
+  // const suggestions_display = async () => {
+  //   try {
+  //     const suggestions = await fetch("../api/get_suggestions", {
+  //       method: "GET",
+  //     });
+  //     const res = suggestions.json();
+
+  //     return res;
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+
+  const [suggestions, setSuggestions] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("../api/get_suggestions", {
+          method: "GET",
+        });
+        const data = await response.json();
+
+        setSuggestions(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const { items, handleSortChangeAZ } = useCombinedSort(suggestions);
+
   const togglePopup = () => {
     setIsPopupOpen((prevState) => {
       return !prevState; // Returning the new state value
@@ -150,6 +114,7 @@ export default function page() {
                   selectedOption={"الترتيب"}
                   options={["أ - ي", "ي - أ", "الأحدث", "الأقدم"]}
                   defaultSelected={"الترتيب"}
+                  onChange={handleSortChangeAZ}
                 />
               </div>
             </div>
@@ -172,32 +137,50 @@ export default function page() {
                       <div className={` ${adminStyle.col}`}>التاريخ</div>
                       <div className={` ${adminStyle.col}`}>عرض</div>
                     </div>
-                    {fakeData.map((sugg, index) => (
-                      <div className={`${adminStyle.row}`} key={index}>
-                        <div
-                          className={` ${adminStyle.typeOfRow} ${
-                            sugg.compl ? adminStyle.complaint : adminStyle.sugg
-                          }`}
-                        ></div>
-                        <div className={` ${adminStyle.col}`}>{sugg.name}</div>
-                        <div className={` ${adminStyle.col}`}>
-                          {sugg.history}
-                        </div>
+                    {items !== null ? (
+                      items.map((sugg, index) => {
+                        return (
+                          <>
+                            <div className={`${adminStyle.row}`} key={index}>
+                              <div
+                                className={` ${adminStyle.typeOfRow} ${
+                                  // sugg.compl
+                                  //   ? adminStyle.complaint
+                                  adminStyle.sugg
+                                }`}
+                              ></div>
+                              <div className={` ${adminStyle.col}`}>
+                                {sugg.name}
+                              </div>
+                              <div className={` ${adminStyle.col}`}>
+                                {sugg.compl}
+                              </div>
 
-                        <div
-                          className={` ${adminStyle.viewBtn}`}
-                          onClick={togglePopup}
-                        >
-                          <i className="bi bi-eye-fill"></i>
-                        </div>
-                      </div>
-                    ))}
+                              <div
+                                className={` ${adminStyle.viewBtn}`}
+                                onClick={togglePopup}
+                              >
+                                <i className="bi bi-eye-fill"></i>
+                              </div>
+                            </div>
+                            <ViewSugg
+                              isOpen={isPopupOpen}
+                              onClose={togglePopup}
+                              compl={sugg.content}
+                              name={sugg.name}
+                            />
+                          </>
+                        );
+                      })
+                    ) : (
+                      <h1 className="text-center text-white mt-5">
+                        نرجوا الانتظار...
+                      </h1>
+                    )}
                   </div>
                 </div>
               </div>
             </main>
-
-            <ViewSugg isOpen={isPopupOpen} onClose={togglePopup} />
           </section>
         </div>
       </div>
