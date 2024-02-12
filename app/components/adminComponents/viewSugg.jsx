@@ -5,12 +5,14 @@ import adminStyle from "@/app/components/adminComponents/page.module.css";
 import styles2 from "@/app/components/training_entity/page.module.css";
 import styles from "@/app/page.module.css";
 
-const ViewSugg = ({ isOpen, onClose, name, compl, hist }) => {
+const ViewSugg = ({ isOpen, onClose, name, date, content , index }) => {
   return (
     <>
       <div
+        key={index}
         className={styles.popupContainer}
         style={{ display: isOpen ? "flex" : "none" }}
+        
       >
         <div className={`${styles2.form_request} container`}>
           <div className={`row`}>
@@ -44,7 +46,7 @@ const ViewSugg = ({ isOpen, onClose, name, compl, hist }) => {
                     type="text"
                     name="userName"
                     placeholder="الشكوى"
-                    value={compl}
+                    value={content}
                     disabled
                   />
                 </div>
@@ -58,7 +60,7 @@ const ViewSugg = ({ isOpen, onClose, name, compl, hist }) => {
                     className={styles2.text_form_input}
                     type="text"
                     placeholder="تاريخ الشكوى"
-                    value={hist}
+                    value={date}
                     disabled
                     name="his"
                   />

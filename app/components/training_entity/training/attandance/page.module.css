@@ -1,0 +1,14 @@
+
+  .EE:hover {
+    background-color: #838485;
+    color: #000000 !important;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+ 
+  
+  .EE{
+    background-color: #CFC67C;
+    color: #ffffff;
+    border-radius: 5px;
+  }

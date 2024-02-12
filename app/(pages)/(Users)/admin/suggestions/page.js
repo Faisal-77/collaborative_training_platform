@@ -10,7 +10,7 @@ import adminStyle from "@/app/components/adminComponents/page.module.css";
 import suggestions from "@/app/(pages)/suggestions/page";
 import ViewSugg from "@/app/components/adminComponents/viewSugg";
 
-export default function page() {
+export default function page_sugg() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   ///   جلب الأقتراحات من قواعد البيانات
