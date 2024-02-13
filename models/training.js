@@ -23,7 +23,7 @@ const schema_Training_entity = new Schema({
     },
     state : {
         type : Boolean ,
-    }
+    },  
 },
     {timestamps : true}
 )

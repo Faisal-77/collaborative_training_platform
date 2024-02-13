@@ -210,6 +210,25 @@ const CompanyCard = ({ logo = ImgPlace, name, info }) => {
 };
 
 export function Order2({ typeOfRequest }) {
+
+  const [requestTrainin, setRequestTrainin] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("../api/get_training_request", {
+          method: "GET",
+        });
+        const data = await response.json();
+
+        setRequestTrainin(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+  
   return (
     <section className={`col-lg-10 col-md-12 p-0 m-0 ${styles.mainAdmin}`}>
       <main className="container-fluid mt-5">

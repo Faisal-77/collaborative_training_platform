@@ -4,7 +4,6 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import styles from "../training_entity/page.module.css";
 
 import React, { useState } from "react";
-import Request_form from "./request_form";
 
 export default function Request_content() {
   return (

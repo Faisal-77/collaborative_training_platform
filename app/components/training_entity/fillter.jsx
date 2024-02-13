@@ -54,6 +54,41 @@ export default function Fillter() {
 }
 
  function Request_form({toggleChat , isChatClicked}) {
+    const [name , setName] = useState("");
+    const [field , setFild] = useState("");
+    const [number_of_student , setNumber] = useState("");
+    const [time , setTime] = useState("");
+    const [hour , setHour] = useState("");
+    const [department , setDepartment] = useState("");
+    const [mejor , setMejor] = useState("");
+
+  const handelSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("../api/training_request", {
+        method: "POST",
+        body: JSON.stringify({
+          name,
+          field,
+          number_of_student,
+          time,
+          hour,
+          department ,
+          mejor
+        }),
+      });
+
+      if (res.ok) {
+        const form_seq = e.target;
+        form_seq.reset();
+        toggleChat()
+      } else {
+        console.log("خطأ في التسجيل");
+      }
+    } catch (error) {
+      console.log("error api :", error);
+    }
+  };
     return (
     <div  className={`${styles.popupContainer}`}
         style={{ display: isChatClicked ? "flex" : "none" }} >
@@ -67,81 +102,106 @@ export default function Fillter() {
                   <h2 className={`${styles.form_title} text-center`}>انشاء طلب جديده</h2> 
               </div>
   
-              <form>
-                  <div className={`${styles.row_content} row`}>
-                     
-                      <div className={`${styles.col_content} col`}>
-                           <label htmlFor="mejor"> التخصص </label>
-                           <br />
-                          <input 
-                              className={styles.text_form_input}
-                              type="text" 
-                              placeholder="ادخل التخصص"
-                              name="mejor"
-                              
-                          />
-                      </div>
-  
-                      <div className={`${styles.col_content} col`}>
-                          <label htmlFor="number" > العدد </label>
-                          <br />
-                          <input 
-                              className={styles.text_form_input}
-                              type="text" 
-                              placeholder="العدد"
-                              name="number"
-                          />
-                      </div>
-                  </div>
-                  <div className={`${styles.row_content} row`}>
-                     
-                      <div className={`${styles.col_content} col`}>
-                           <label htmlFor="mejor"> التخصص </label>
-                           <br />
-                          <input 
-                              className={styles.text_form_input}
-                              type="text" 
-                              placeholder="ادخل التخصص"
-                              name="mejor"
-                              
-                          />
-                      </div>
-  
-                      <div className={`${styles.col_content} col`}>
-                          <label htmlFor="number" > العدد </label>
-                          <br />
-                          <input 
-                              className={styles.text_form_input}
-                              type="text" 
-                              placeholder="العدد"
-                              name="number"
-                          />
-                      </div>
-                  </div>
-                  <div className={`${styles.row_content} row`}>
-                     
-                      <div className={`${styles.col_content} col`}>
-                           <label htmlFor="mejor"> التخصص </label>
-                           <br />
-                          <input 
-                              className={styles.text_form_input}
-                              type="text" 
-                              placeholder="ادخل التخصص"
-                              name="mejor"
-                              
-                          />
-                      </div>
-  
-                      <div className={`${styles.col_content} col`}>
-                          <br />
-                        <input 
-                          className={`${styles.btn_create} text-center`}
-                          type="submit"
-                          value="انشاء الطلب"
-                        />
-                      </div>
-                  </div>
-              </form>
+              <form onSubmit={handelSubmit}>
+          <div className={`${styles.row_content} row`}>
+            <div className={`${styles.col_content} col`}>
+              <label htmlFor="mejor"> اسم المنشئة </label>
+              <br />
+              <input
+                className={styles.text_form_input}
+                type="text"
+                placeholder="ادخل المنشئة"
+                name="mejor"
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+
+            <div className={`${styles.col_content} col`}>
+              <label htmlFor="number"> المجال </label>
+              <br />
+              <input
+                className={styles.text_form_input}
+                type="text"
+                placeholder="المجال"
+                name="number"
+                onChange={(e) => setFild(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className={`${styles.row_content} row`}>
+            <div className={`${styles.col_content} col`}>
+              <label htmlFor="mejor"> الفترة </label>
+              <br />
+              <input
+                className={styles.text_form_input}
+                type="text"
+                placeholder="ادخل الفترة"
+                name="mejor"
+                onChange={(e) => setTime(e.target.value)}
+              />
+            </div>
+
+            <div className={`${styles.col_content} col`}>
+              <label htmlFor="number"> ساعات العمل </label>
+              <br />
+              <input
+                className={styles.text_form_input}
+                type="text"
+                placeholder="ادخل ساعات العمل"
+                name="number"
+                onChange={(e) => setHour(e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div className={`${styles.row_content} row`}>
+            <div className={`${styles.col_content} col`}>
+              <label htmlFor="mejor"> القسم </label>
+              <br />
+              <input
+                className={styles.text_form_input}
+                type="text"
+                placeholder="ادخل القسم"
+                name="mejor"
+                onChange={(e) => setDepartment(e.target.value)}
+              />
+            </div>
+           
+            <div className={`${styles.col_content} col`}>
+              <label htmlFor="mejor"> التخصص </label>
+              <br />
+              <input
+                className={styles.text_form_input}
+                type="text"
+                placeholder="ادخل التخصص"
+                name="mejor"
+                onChange={(e) => setMejor(e.target.value)}
+              />
+            </div>
+             </div>
+             <div className={`${styles.row_content} row`}>
+
+             <div className={`${styles.col_content} col`}>
+              <label htmlFor="mejor"> عدد المتدربين </label>
+              <br />
+              <input
+                    className={styles.text_form_input}
+                    type="text"
+                    placeholder="ادخل التخصص"
+                    name="mejor"
+                    onChange={(e) => setNumber(e.target.value)}
+              />
+            </div>
+            <div className={`${styles.col_content} col`}>
+              <br />
+              <input
+                className={`${styles.btn_create} text-center`}
+                type="submit"
+                value="انشاء الطلب"
+              />
+            </div>
+          </div>
+        </form>
           </div>
       </div>
       </div>
