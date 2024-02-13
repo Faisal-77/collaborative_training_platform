@@ -307,7 +307,27 @@ const OrdersCard2 = ({
   };
   const toggleStatus = () => {
     setIsStatus(!isStatus);
+
   };
+            ////// كود ريان
+  const [requestTrainin_accept, setRequestTrainin_accept] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("../api/allowd_request_trainig", {
+          method: "GET",
+        });
+        const data = await response.json();
+
+        setRequestTrainin_accept(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <>
       <div className={`${styles.companyCard2} card p-0 `}>
