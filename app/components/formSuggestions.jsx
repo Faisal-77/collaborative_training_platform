@@ -17,6 +17,7 @@ export default function Home() {
     const [phone_number , setPhone] = useState("");
     const [email , setEmail] = useState("");
     const [content , setContent] = useState("");
+    
   const handelSubmit = async (e) => {
     e.preventDefault();
     try {

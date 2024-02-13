@@ -1,5 +1,4 @@
 import {connectToDatabase,  dis_connact_database } from "@/lib/DataBase";
-import Student from "@/models/student";
 import Suggestions from "@/models/suggestions";
 import { NextResponse } from "next/server";
 export  async function POST (req) {
