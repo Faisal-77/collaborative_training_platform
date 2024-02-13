@@ -380,7 +380,7 @@ const OrdersCard2 = ({
             <h5 className="text-center mt-2  ">حالة الطلب</h5>
             <ul className={`list-unstyled  ${styles.ordUl}`}>
               <li>
-                وصل إلى منسق القسم :{" "}
+                وصل إلى منسق القسم :
                 <i
                   className={`float-start  bi bi-check-circle-fill text-success`}
                   title=" وصل إلى منسق القسم"
@@ -394,14 +394,14 @@ const OrdersCard2 = ({
                 ></i>
               </li>
               <li>
-                تعيين المشرفين :{" "}
+                تعيين المشرفين :
                 <i
                   className="float-start  bi bi-check-circle-fill text-success "
                   title="تم تعيين المشرفين"
                 ></i>
               </li>
               <li>
-                إصدار خطابات التدريب :{" "}
+                إصدار خطابات التدريب :
                 <i
                   className="float-start  bi bi-check-circle-fill text-success "
                   title="تم أصدار خطابات التدريب"

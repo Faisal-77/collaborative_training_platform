@@ -107,7 +107,6 @@ export default function page() {
           ) : (
             <Orders />
           )}
-          {(typeOfRequest, orders)}
         </div>
       </div>
     </>
