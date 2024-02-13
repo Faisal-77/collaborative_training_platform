@@ -32,22 +32,18 @@ export function Orders() {
     <section className={`col-lg-10 col-md-12 p-0 m-0 ${styles.mainAdmin}`}>
       <main className="container-fluid mt-5">
         <section
-          className={`d-flex align-items-stretch flex-wrap flex-row gap-2`}
+          className={`d-flex align-items-stretch justify-content-around flex-wrap flex-row gap-5 p-5`}
         >
           {entity !== null ? (
             entity.map((item) => {
               return (
-                <div
-                  className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
-                >
-                  <CompanyCard
-                    logo={item.logo}
-                    name={item.name}
-                    info={item.field}
-                    contactEmail={item.contactEmail}
-                    contactPhone={item.contactPhone}
-                  />
-                </div>
+                <CompanyCard
+                  logo={item.logo}
+                  name={item.name}
+                  info={item.field}
+                  contactEmail={item.contactEmail}
+                  contactPhone={item.contactPhone}
+                />
               );
             })
           ) : (
@@ -105,7 +101,7 @@ const CompanyCard = ({ logo = ImgPlace, name, info }) => {
   };
   return (
     <>
-      <div className={`text-center ${styles.logoBox}`}>
+      {/* <div className={`text-center ${styles.logoBox}`}>
         <Image
           src={logo}
           className={styles.companyLogos}
@@ -124,7 +120,28 @@ const CompanyCard = ({ logo = ImgPlace, name, info }) => {
           <button className={`w-25 ${styles.submitBtn}`} onClick={toggleReject}>
             رفض
           </button>
+        </div> */}
+      <div className={`${styles.companyCard2} card p-0 `}>
+        <div className={styles.logoBox}>
+          <Image
+            src={logo}
+            className={styles.companyLogos}
+            alt="Company Logo"
+            title="Company Logo"
+          />
         </div>
+        <div className="card-body">
+          <h4 className={`text-break text-white ${styles.companyName}`}>
+            {name}
+          </h4>
+          <p className={`text-break ${styles.companyInfo}`}>{info}</p>
+        </div>
+        <div className="row justify-content-around p-2 mb-4">
+          <button className={`w-25 ${styles.ordBtn}`}>قبول</button>
+          <button className={`w-25 ${styles.ordBtn}`}>رفض</button>
+        </div>
+      </div>
+      <div className={`${styles.companyContent}`}>
         <div
           className={styles.popupContainer}
           style={{ display: isAccepted ? "flex" : "none" }}
@@ -179,25 +196,6 @@ const CompanyCard = ({ logo = ImgPlace, name, info }) => {
 };
 
 export function Order2({ typeOfRequest }) {
-
-  const [requestTrainin, setRequestTrainin] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("../api/get_training_request", {
-          method: "GET",
-        });
-        const data = await response.json();
-
-        setRequestTrainin(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
-  }, []);
-  
   return (
     <section className={`col-lg-10 col-md-12 p-0 m-0 ${styles.mainAdmin}`}>
       <main className="container-fluid mt-5">
