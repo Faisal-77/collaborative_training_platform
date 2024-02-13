@@ -5,6 +5,8 @@ import Link from "next/link";
 import CardServices from "@/app/components/adminComponents/adminHome";
 
 export default function page() {
+
+  
   const links = [
     {
       title: "جهات التدريب",

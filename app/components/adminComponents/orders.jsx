@@ -6,25 +6,51 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { useState, useEffect } from "react";
 import ImgPlace from "@/Image/placeholderImage.png";
 
-export function Orders() {
+export function Orders()  {
   ///      لجلب جهات التدريب الموجودة في قاعدة البيانات
   const [entity, setEntity] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("../api/entity", {
-          method: "GET",
-        });
-        const data = await response.json();
-        setEntity(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch("../api/entity", {
+  //         method: "GET",
+  //       });
+  //       const data = await response.json();
+  //       setEntity(data);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
+
+  
+                  /// to delete training entity
+  const deletOne = async (name) => {
+    try {
+      const req = await fetch("/api/remove_training_entity", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name }),
+      });
+      console.log(req);
+      if (req.ok) {
+        const res = await req.json();
+        console.log(res);
+        return;
+      } else {
+        console.log("Error:", req.status);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
+   
 
   // const entityes_display = async () => {
   //   try {
@@ -63,9 +89,13 @@ export function Orders() {
               })}
             </div>;
           })} */}
+
+          <button onClick={async()=> await deletOne("aramco")}>button</button>
+
           {entity !== null ? (
             entity.map((item) => {
               return (
+               
                 <div
                   className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
                 >
