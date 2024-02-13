@@ -737,9 +737,11 @@
   font-size: 23px;
   font-weight: 700;
   margin-bottom: 35px;
+  color: #fff;
 }
 .companyInfo {
   font-size: 20px;
+  color: #fff;
 }
 .chatIcon {
   font-size: 50px !important;

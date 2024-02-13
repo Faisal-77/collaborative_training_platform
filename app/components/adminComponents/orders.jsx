@@ -137,56 +137,59 @@ const CompanyCard = ({ logo = ImgPlace, name, info }) => {
           <p className={`text-break ${styles.companyInfo}`}>{info}</p>
         </div>
         <div className="row justify-content-around p-2 mb-4">
-          <button className={`w-25 ${styles.ordBtn}`}>قبول</button>
-          <button className={`w-25 ${styles.ordBtn}`}>رفض</button>
+          <button className={`w-25 ${styles.ordBtn}`} onClick={toggleAccept}>
+            قبول
+          </button>
+          <button className={`w-25 ${styles.ordBtn}`} onClick={toggleReject}>
+            رفض
+          </button>
         </div>
       </div>
-      <div className={`${styles.companyContent}`}>
-        <div
-          className={styles.popupContainer}
-          style={{ display: isAccepted ? "flex" : "none" }}
-        >
-          <div className={styles.chatBox}>
-            <div className={styles.contentContact}>
-              <div
-                className={`align-self-end ${styles.closeBtn}`}
-                onClick={toggleAccept}
-              >
-                <i className="bi bi-x-circle"></i>
-              </div>
-              <h5 className="text-center mt-2 fs-1 text-success">
-                <i className="bi bi-check-circle-fill"></i>
-              </h5>
-              <h5 className="text-center mt-5  ">تمت إضافة الطلب بنجاح</h5>
+
+      <div
+        className={styles.popupContainer}
+        style={{ display: isAccepted ? "flex" : "none" }}
+      >
+        <div className={styles.chatBox}>
+          <div className={styles.contentContact}>
+            <div
+              className={`align-self-end ${styles.closeBtn}`}
+              onClick={toggleAccept}
+            >
+              <i className="bi bi-x-circle"></i>
             </div>
+            <h5 className="text-center mt-2 fs-1 text-success">
+              <i className="bi bi-check-circle-fill"></i>
+            </h5>
+            <h5 className="text-center mt-5  ">تمت إضافة الطلب بنجاح</h5>
           </div>
         </div>
-        <div
-          className={styles.popupContainer}
-          style={{ display: isRejected ? "flex" : "none" }}
-        >
-          <div className={styles.chatBox}>
-            <div className={styles.contentContact}>
-              <div
-                className={`align-self-end ${styles.closeBtn}`}
-                onClick={toggleReject}
+      </div>
+      <div
+        className={styles.popupContainer}
+        style={{ display: isRejected ? "flex" : "none" }}
+      >
+        <div className={styles.chatBox}>
+          <div className={styles.contentContact}>
+            <div
+              className={`align-self-end ${styles.closeBtn}`}
+              onClick={toggleReject}
+            >
+              <i className="bi bi-x-circle"></i>
+            </div>
+            <h5 className="text-center mt-2 fs-1 text-danger">
+              <i className="bi bi-exclamation-circle-fill"></i>
+            </h5>
+            <h5 className="text-center mt-5  ">هل أنت متأكد من رفض الطلب</h5>
+            <div className="row justify-content-around mt-3">
+              <button
+                className={`w-25 ${styles.submitBtn}`}
+                onClick={async () => await deletOne(name)}
               >
-                <i className="bi bi-x-circle"></i>
-              </div>
-              <h5 className="text-center mt-2 fs-1 text-danger">
-                <i className="bi bi-exclamation-circle-fill"></i>
-              </h5>
-              <h5 className="text-center mt-5  ">هل أنت متأكد من رفض الطلب</h5>
-              <div className="row justify-content-around mt-3">
-                <button
-                  className={`w-25 ${styles.submitBtn}`}
-                  onClick={async () => await deletOne(name)}
-                >
-                  نعم
-                </button>
+                نعم
+              </button>
 
-                <button className={`w-25 ${styles.submitBtn}`}>لا</button>
-              </div>
+              <button className={`w-25 ${styles.submitBtn}`}>لا</button>
             </div>
           </div>
         </div>
@@ -307,9 +310,8 @@ const OrdersCard2 = ({
   };
   const toggleStatus = () => {
     setIsStatus(!isStatus);
-
   };
-            ////// كود ريان
+  ////// كود ريان
   const [requestTrainin_accept, setRequestTrainin_accept] = useState(null);
 
   useEffect(() => {
