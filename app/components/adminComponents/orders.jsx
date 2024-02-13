@@ -6,64 +6,26 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { useState, useEffect } from "react";
 import ImgPlace from "@/Image/placeholderImage.png";
 
-export function Orders()  {
+export function Orders() {
   ///      لجلب جهات التدريب الموجودة في قاعدة البيانات
   const [entity, setEntity] = useState(null);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch("../api/entity", {
-  //         method: "GET",
-  //       });
-  //       const data = await response.json();
-  //       setEntity(data);
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
-
-  
-                  /// to delete training entity
-  const deletOne = async (name) => {
-    try {
-      const req = await fetch("/api/remove_training_entity", {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name }),
-      });
-      console.log(req);
-      if (req.ok) {
-        const res = await req.json();
-        console.log(res);
-        return;
-      } else {
-        console.log("Error:", req.status);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("../api/entity", {
+          method: "GET",
+        });
+        const data = await response.json();
+        setEntity(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  
-   
+    };
 
-  // const entityes_display = async () => {
-  //   try {
-  //     const entityes = await fetch("../api/entity", {
-  //       method: "GET",
-  //     });
-  //     const entity = entityes.json();
+    fetchData();
+  }, []);
 
-  //     return entity.name;
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
   //     تستقبل اسم جهت التدريب وتقوم بقبول جهت التدريب
 
   return (
@@ -72,30 +34,9 @@ export function Orders()  {
         <section
           className={`d-flex align-items-stretch flex-wrap flex-row gap-2`}
         >
-          {/* {entityes_display().then((entity) => {
-            <div
-              className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
-            >
-              {entity.map((item) => {
-                return (
-                  <CompanyCard
-                    logo={item.logo}
-                    name={item.name}
-                    info={item.info}
-                    contactEmail={item.contactEmail}
-                    contactPhone={item.contactPhone}
-                  />
-                );
-              })}
-            </div>;
-          })} */}
-
-          <button onClick={async()=> await deletOne("aramco")}>button</button>
-
           {entity !== null ? (
             entity.map((item) => {
               return (
-               
                 <div
                   className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
                 >
@@ -130,6 +71,29 @@ const CompanyCard = ({ logo = ImgPlace, name, info }) => {
       console.log(err);
     }
   };
+  /// to delete training entity
+  const deletOne = async (name) => {
+    try {
+      const req = await fetch("/api/remove_training_entity", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name }),
+      });
+      console.log(req);
+      if (req.ok) {
+        const res = await req.json();
+        console.log(res);
+        return;
+      } else {
+        console.log("Error:", req.status);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const [isAccepted, setAccepted] = useState(false);
   const toggleAccept = () => {
     setAccepted(!isAccepted);
@@ -197,7 +161,12 @@ const CompanyCard = ({ logo = ImgPlace, name, info }) => {
               </h5>
               <h5 className="text-center mt-5  ">هل أنت متأكد من رفض الطلب</h5>
               <div className="row justify-content-around mt-3">
-                <button className={`w-25 ${styles.submitBtn}`}>نعم</button>
+                <button
+                  className={`w-25 ${styles.submitBtn}`}
+                  onClick={async () => await deletOne(name)}
+                >
+                  نعم
+                </button>
 
                 <button className={`w-25 ${styles.submitBtn}`}>لا</button>
               </div>
