@@ -76,7 +76,7 @@ const Cooperative = () => {
   return (
     <div>
    <Navbar/>
-<nav className="navbar p-0 m-0 navbar-expand-lg w-100">
+   <nav className="navbar p-0 m-0 navbar-expand-lg w-100">
   <div className="container-fluid " style={{backgroundColor:'#126C66'}}>
     
     <div className="collapse  navbar-collapse" id="navbarNavDropdown">
@@ -87,9 +87,8 @@ const Cooperative = () => {
             <Image src={HomeIcon} width={30} height={30} alt="home" />
           </Link>
         
-          <Link className="nav-link  text-white fw-bold" aria-current="page" href='/'>
+          
           <Image src={RefreshIcon} height={30} width={30} alt="home" />
-          </Link>
        
       </div>
       <div className=' text-white bg-white p-0 m-0' style={{height: '50px'}}>|
@@ -97,24 +96,22 @@ const Cooperative = () => {
         <div className='' style={{width:"85%"}}>
         <ul className="navbar-nav d-flex justify-content-around align-items-center w-100">
         <li className="nav-item">
-          <Link href={'/'} className="nav-link active"  aria-current="page" to='/'>التدريب</Link>
+          <Link href={'/departmentManager/training'} className="nav-link active"  aria-current="page" to='/'>التدريب</Link>
         </li>
 
         <li className="nav-item">
-          <Link href={'/'} className="nav-link "  to='/NewTrainingPage'>تدريب جديد</Link>
+          <Link href={'/departmentManager/new_training'} className="nav-link "  to='/NewTrainingPage'>تدريب جديد</Link>
         </li>
         <li className="nav-item">
-          <Link href={''} className="nav-link "  to='/Cooperative'>متدربي التدريب التعاوني</Link>
+          <Link href={'/departmentManager/student'} className="nav-link "  to='/Cooperative'>متدربي التدريب التعاوني</Link>
         </li>
         <li className="nav-item">
-          <Link href={"/"} className="nav-link "  to='/Moderators'>المشرفين</Link>
+          <Link href={'/departmentManager/moderators'} className="nav-link "  to='/Moderators'>المشرفين</Link>
         </li>
         <li className="nav-item">
-          <Link href={'/'} className="nav-link "  to='/'>الشكاوى</Link>
+          <Link href={'/departmentManager'} className="nav-link "  to='/'>الشكاوى</Link>
         </li>
         </ul></div>
-    
-    
       
     </div>
   </div>

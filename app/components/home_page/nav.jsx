@@ -95,11 +95,7 @@ export default function nav() {
                 جهات التدريب
               </Link>
             </li>
-            <li className={styles.hideOnSmall}>
-              <Link href={"/"} className={styles.text_nav}>
-                الخدمات
-              </Link>
-            </li>
+            
             <li className={styles.hideOnSmall}>
               <Link href={"/suggestions"} className={styles.text_nav}>
                 الاقتراحات

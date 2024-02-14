@@ -43,7 +43,7 @@ export default function Login() {
               router.push("/admin");
             return;
             }else if(user_type == "department_manager"){
-              router.push("/admin");
+              router.push("/departmentManager");
             return;
             }
             

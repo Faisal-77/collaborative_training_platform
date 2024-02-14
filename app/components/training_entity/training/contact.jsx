@@ -13,24 +13,15 @@ export default function Contact() {
                     name={"مدير التدريب التعاوني"}
                     setClicked={setClicked}
                 />
-                <Training_plan_cell
-                    name={"منسق القسم"}
-                    setClicked={setClicked}
-                />
             </div>
             <div
                 className={styles.popupContainer}
                 style={{ display: isPlanClicked ? "flex" : "none" }}
             >
                  <Student_info 
-                    name={"name"}
-                    num_std={"num_std"}
-                    mejor={"mejor"}
-                    time={"time"}
-                    phone_number={"phone_number"}
-                    email={"email"}
-                    date_of_start={"date_of_start"}
-                    attendence={"attendence"}
+                    name={"دكتور محمد السنتري"}
+                    phone_number={"053 065 4648"}
+                    email={"rayan1999a@gmail.com"}
                     isPlanClicked={isPlanClicked}
                     setClicked={setClicked}
                     />
@@ -49,7 +40,7 @@ function Training_plan_cell({name , setClicked}) {
     )
   }
   
-  function Student_info({ name , num_std , mejor , time, phone_number , email , date_of_start , attendence , setClicked }) {
+  function Student_info({ name , phone_number , email  , setClicked }) {
     return (
         <div className={styles.chatBox_training}>
             <div className={styles.contentContact}>
@@ -57,37 +48,12 @@ function Training_plan_cell({name , setClicked}) {
                     <i className="bi bi-x-circle"
                     onClick={()=>setClicked(false)}></i>
                 </div>
-
             <div>
             <span>
             <b className={styles.contactText_training_title}>  الاسم: </b>
             </span>
             <span className={styles.contactSpan}>
             <p className={styles.contactText_training}>{name}</p>
-            </span>
-            <br />
-    
-            <span>
-            <b className={styles.contactText_training_title}>الرقم التدريبي: </b>
-            </span>
-            <span className={styles.contactSpan}>
-            <p className={styles.contactText_training}>{num_std}</p>
-            </span>
-            <br />
-    
-            <span>
-            <b className={styles.contactText_training_title}> التخصص: </b>
-            </span> 
-            <span className={styles.contactSpan}>
-            <p className={styles.contactText_training}>{mejor}</p>
-            </span>
-            <br />
-    
-            <span>
-            <b className={styles.contactText_training_title}>الفترة:</b>
-            </span>
-            <span className={styles.contactSpan}>
-            <p className={styles.contactText_training}>{time}</p>
             </span>
             <br />
     
@@ -108,21 +74,6 @@ function Training_plan_cell({name , setClicked}) {
             </span>
             <br />
     
-            <span>
-            <b className={styles.contactText_training_title}>تاريخ المباشرة: </b>
-            </span>
-            <span className={styles.contactSpan}>
-            <p className={styles.contactText_training}>{date_of_start}</p>
-            </span>
-            <br />
-    
-            <span>
-            <b className={styles.contactText_training_title}>عدد ايام الغياب:</b>
-            </span>
-            <span className={styles.contactSpan}>
-            <p className={styles.contactText_training}>{attendence}</p>
-            </span>
-            <br />
         </div>
       </div>
       </div>
