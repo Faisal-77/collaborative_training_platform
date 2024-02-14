@@ -14,20 +14,6 @@ import { useCombinedSort } from "@/lib/filter";
 export default function page_sugg() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  ///   جلب الأقتراحات من قواعد البيانات
-  // const suggestions_display = async () => {
-  //   try {
-  //     const suggestions = await fetch("../api/get_suggestions", {
-  //       method: "GET",
-  //     });
-  //     const res = suggestions.json();
-
-  //     return res;
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-
   const [suggestions, setSuggestions] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
@@ -45,8 +31,8 @@ export default function page_sugg() {
 
     fetchData();
   }, []);
-  
-          //// الشكاوى
+
+  //// الشكاوى
   const [suggestions_training, setSuggestions_training] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
@@ -157,37 +143,98 @@ export default function page_sugg() {
                     </div>
                     {items !== null ? (
                       items.map((sugg, index) => {
+                        const dateString = sugg.createdAt;
+                        const date = new Date(dateString);
+                        const options = {
+                          year: "numeric",
+                          month: "2-digit",
+                          day: "2-digit",
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          second: "2-digit",
+                        };
+                        const formattedDate = date.toLocaleString(
+                          "ar-SA",
+                          options
+                        );
                         return (
                           <>
                             <div className={`${adminStyle.row}`} key={index}>
                               <div
-                                className={` ${adminStyle.typeOfRow} ${
-                                  // sugg.compl
-                                  //   ? adminStyle.complaint
-                                  adminStyle.sugg
-                                }`}
+                                className={` ${adminStyle.typeOfRow} ${adminStyle.sugg}`}
                               ></div>
                               <div className={` ${adminStyle.col}`}>
                                 {sugg.name}
                               </div>
                               <div className={` ${adminStyle.col}`}>
-                                {sugg.compl}
+                                {formattedDate} {/* Display formatted date */}
                               </div>
-
                               <div
                                 className={` ${adminStyle.viewBtn}`}
                                 onClick={togglePopup}
                               >
                                 <i className="bi bi-eye-fill"></i>
                               </div>
-                              <ViewSugg
-                                key={index}
-                                isOpen={isPopupOpen}
-                                onClose={togglePopup}
-                                content={sugg.content}
-                                name={sugg.name}
-                              />
                             </div>
+                            <ViewSugg
+                              index={index}
+                              isOpen={isPopupOpen}
+                              onClose={togglePopup}
+                              content={sugg.content}
+                              name={sugg.name}
+                              date={formattedDate}
+                            />
+                          </>
+                        );
+                      })
+                    ) : (
+                      <h1 className="text-center text-white mt-5">
+                        نرجوا الانتظار...
+                      </h1>
+                    )}
+                    {suggestions_training !== null ? (
+                      suggestions_training.map((sugg, index) => {
+                        const dateString = sugg.createdAt;
+                        const date = new Date(dateString);
+                        const options = {
+                          year: "numeric",
+                          month: "2-digit",
+                          day: "2-digit",
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          second: "2-digit",
+                        };
+                        const formattedDate = date.toLocaleString(
+                          "ar-SA",
+                          options
+                        );
+                        return (
+                          <>
+                            <div className={`${adminStyle.row}`} key={index}>
+                              <div
+                                className={` ${adminStyle.typeOfRow} ${adminStyle.sugg}`}
+                              ></div>
+                              <div className={` ${adminStyle.col}`}>
+                                {sugg.name}
+                              </div>
+                              <div className={` ${adminStyle.col}`}>
+                                {formattedDate} {/* Display formatted date */}
+                              </div>
+                              <div
+                                className={` ${adminStyle.viewBtn}`}
+                                onClick={togglePopup}
+                              >
+                                <i className="bi bi-eye-fill"></i>
+                              </div>
+                            </div>
+                            <ViewSugg
+                              index={index}
+                              isOpen={isPopupOpen}
+                              onClose={togglePopup}
+                              content={sugg.content}
+                              name={sugg.name}
+                              date={formattedDate}
+                            />
                           </>
                         );
                       })
