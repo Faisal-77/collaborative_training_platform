@@ -1,7 +1,7 @@
 import styles from "@/app/page.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Image from "next/image";
-import logo from "@/Image/white__logo1.png";
+import logo from "@/Image/white__logo1.svg";
 import Link from "next/link";
 
 export default function Header() {

@@ -136,19 +136,19 @@
 }
 
 .AdminCard {
-  background-color: #a3d09d;
-  width: 18.375rem;
-  height: 11.4375rem;
-  display: flex;
+  background-color: #a3d09d !important;
+  width: 18.375rem !important;
+  height: 11.4375rem !important;
+  display: flex !important;
   align-items: center;
   justify-content: center;
-  border: none;
-  box-shadow: -7px 8px 5px rgba(0, 0, 0, 0.25);
+  border: none !important;
+  box-shadow: -7px 8px 5px rgba(0, 0, 0, 0.25) !important;
   border-radius: 6px;
   transition: transform 150ms ease-in-out;
 }
 .AdminCard:hover {
-  background-color: hsl(117, 40%, 60%);
+  background-color: hsl(117, 40%, 60%) !important;
   transform: translate(0px, 0px) scale(0.99);
   border: none;
 

@@ -1,5 +1,7 @@
 import { Schema ,model , models } from "mongoose";
 
+
+
 const training_requset = new Schema({
     name: {
         type : String , 
@@ -30,5 +32,4 @@ const training_requset = new Schema({
 )
 
 const Training_requset  = models.training_requset || model("training_requset" , training_requset);
-
 export default Training_requset;

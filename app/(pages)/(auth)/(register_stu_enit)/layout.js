@@ -1,6 +1,6 @@
 import styles from "@/app/page.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from "@/Image/btvtcLogo.png";
+import logo from "@/Image/logo_tvtc.svg";
 import Image from "next/image";
 
 export default function RootLayout({ children }) {
