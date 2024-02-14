@@ -212,7 +212,7 @@ export default function page_sugg() {
                           <>
                             <div className={`${adminStyle.row}`} key={index}>
                               <div
-                                className={` ${adminStyle.typeOfRow} ${adminStyle.sugg}`}
+                                className={` ${adminStyle.typeOfRow} ${adminStyle.complaint}`}
                               ></div>
                               <div className={` ${adminStyle.col}`}>
                                 {sugg.name}
