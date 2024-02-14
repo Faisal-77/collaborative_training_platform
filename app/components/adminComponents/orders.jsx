@@ -313,7 +313,6 @@ const OrdersCard2 = ({
   };
   ////// كود ريان
   const [requestTrainin_accept, setRequestTrainin_accept] = useState(null);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
