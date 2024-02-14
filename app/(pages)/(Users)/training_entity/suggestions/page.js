@@ -58,6 +58,25 @@ export default function page() {
     setIsPopupOpen((prevState) => {
       return !prevState; // Returning the new state value
     });
+
+    //الشكاوى
+    const [suggestions_training, setSuggestions_training] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("../api/get_training_sug", {
+          method: "GET",
+        });
+        const data = await response.json();
+
+        setSuggestions_training(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   };
   const [isSidebarVisible, setSidebarVisible] = useState(false);
   const toggleSidebar = () => {
