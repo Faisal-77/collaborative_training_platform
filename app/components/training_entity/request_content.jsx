@@ -8,29 +8,27 @@ import React, { useState } from "react";
 export default function Request_content() {
   return (
     <div className={`${styles.req_conainer} container`}>
-       <div className={`${styles.req_title} row`}>
+      <div className={`${styles.req_title} row`}>
+        <div className={`${styles.text} col text-center`}>
+          <span className={`${styles.text_req_span}`}> التخصص </span>
+        </div>
 
-<div className={`${styles.text} col text-center`}>
-<span className={`${styles.text_req_span}`}> التخصص </span>
-</div>
+        <div className={`${styles.text} col text-center`}>
+          <span className={`${styles.text_req_span}`}> العدد </span>
+        </div>
 
-<div className={`${styles.text} col text-center`}>
-<span className={`${styles.text_req_span}`}> العدد </span>
-</div>
+        <div className={`${styles.text} col text-center`}>
+          <span className={`${styles.text_req_span}`}> الفترة </span>
+        </div>
 
-<div className={`${styles.text} col text-center`}>
-<span className={`${styles.text_req_span}`}> الفترة </span>
-</div>
+        <div className={`${styles.text} col text-center`}>
+          <span className={`${styles.text_req_span}`}> الساعات </span>
+        </div>
 
-<div className={`${styles.text} col text-center`}>
-<span className={`${styles.text_req_span}`}> الساعات </span>
-</div>
-
-<div className={`${styles.text} col text-center`}>
-<span className={`${styles.text_req_span}`}> الحالة </span>
-</div>
-
-</div>
+        <div className={`${styles.text} col text-center`}>
+          <span className={`${styles.text_req_span}`}> الحالة </span>
+        </div>
+      </div>
       <CompanyCard
         state={"مرفوض"}
         mejor={"هندسة البرمجيات"}
@@ -198,8 +196,7 @@ function Rejected({ spp, date_of_rejected }) {
       </span>
 
       <button className={`${styles.create_button_box} text-center mt-2`}>
-        {" "}
-        انشاء الطلب{" "}
+        انشاء الطلب
       </button>
     </div>
   );

@@ -80,6 +80,7 @@ const CompanyCard = ({ logo = ImgPlace, name, info }) => {
       console.log(req);
       if (req.ok) {
         const res = await req.json();
+        toggleReject();
         console.log(res);
         return;
       } else {
@@ -101,26 +102,6 @@ const CompanyCard = ({ logo = ImgPlace, name, info }) => {
   };
   return (
     <>
-      {/* <div className={`text-center ${styles.logoBox}`}>
-        <Image
-          src={logo}
-          className={styles.companyLogos}
-          alt="Company Logo"
-          title="Company Logo"
-        />
-      </div>
-      <div className={`${styles.companyContent}`}>
-        <h4 className={`text-break ${styles.companyName}`}>{name}</h4>
-        <p className={`text-break ${styles.companyInfo}`}>{info}</p>
-        <div className={`row justify-content-around p-3`}>
-          <button className={`w-25 ${styles.submitBtn}`} onClick={toggleAccept}>
-            قبول
-          </button>
-
-          <button className={`w-25 ${styles.submitBtn}`} onClick={toggleReject}>
-            رفض
-          </button>
-        </div> */}
       <div className={`${styles.companyCard2} card p-0 `}>
         <div className={styles.logoBox}>
           <Image
@@ -199,6 +180,24 @@ const CompanyCard = ({ logo = ImgPlace, name, info }) => {
 };
 
 export function Order2({ typeOfRequest }) {
+  ////// كود ريان
+  const [requestTrainin_accept, setRequestTrainin_accept] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("../api/allowd_request_trainig", {
+          method: "GET",
+        });
+        const data = await response.json();
+
+        setRequestTrainin_accept(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <section className={`col-lg-10 col-md-12 p-0 m-0 ${styles.mainAdmin}`}>
       <main className="container-fluid mt-5">
@@ -215,17 +214,21 @@ export function Order2({ typeOfRequest }) {
               hours={8}
             />
           ) : typeOfRequest === "قيد التنفيذ" ? (
-            <OrdersCard2
-              companyName={"وزارة الاتصالات وتقنية المعلومات"}
-              major={"برمجيات"}
-              count={5}
-              field={"تقنية المعلومات"}
-              shift={"صباحا"}
-              hours={8}
-              supervisor={"محمد"}
-              noStudents={15}
-              percent={10}
-            />
+            requestTrainin_accept.map((item) => {
+              return (
+                <OrdersCard2
+                  companyName={item.name}
+                  major={item.major}
+                  count={5}
+                  field={"تقنية المعلومات"}
+                  shift={"صباحا"}
+                  hours={8}
+                  supervisor={"محمد"}
+                  noStudents={15}
+                  percent={10}
+                />
+              );
+            })
           ) : null}
         </section>
       </main>
@@ -311,24 +314,6 @@ const OrdersCard2 = ({
   const toggleStatus = () => {
     setIsStatus(!isStatus);
   };
-  ////// كود ريان
-  const [requestTrainin_accept, setRequestTrainin_accept] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("../api/allowd_request_trainig", {
-          method: "GET",
-        });
-        const data = await response.json();
-
-        setRequestTrainin_accept(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
-  }, []);
 
   return (
     <>

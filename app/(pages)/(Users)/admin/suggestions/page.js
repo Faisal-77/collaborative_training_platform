@@ -162,13 +162,14 @@ export default function page_sugg() {
                               >
                                 <i className="bi bi-eye-fill"></i>
                               </div>
+                              <ViewSugg
+                                key={index}
+                                isOpen={isPopupOpen}
+                                onClose={togglePopup}
+                                content={sugg.content}
+                                name={sugg.name}
+                              />
                             </div>
-                            <ViewSugg
-                              isOpen={isPopupOpen}
-                              onClose={togglePopup}
-                              compl={sugg.content}
-                              name={sugg.name}
-                            />
                           </>
                         );
                       })
