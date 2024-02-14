@@ -31,10 +31,10 @@ export default function Nav() {
                         <Link href={"/training_entity/training"}>التدريب</Link>
                     </li>
                     <li className="col-4">
-                        <Link href={"/training_entity"}>الشكاوى والاقتراحات</Link>
+                        <Link href={"/training_entity/suggestions"}>الشكاوى والاقتراحات</Link>
                     </li>
                     <li className="col">
-                        <Link href={"/training_entity"}>التواصل</Link>
+                        <Link href={"/training_entity/conact"}>التواصل</Link>
                     </li>
              
                 </ul>

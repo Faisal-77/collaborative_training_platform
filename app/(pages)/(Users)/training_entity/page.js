@@ -20,7 +20,7 @@ export default function page() {
     },
     {
       title: "التواصل",
-      url: "/training_entity/suggestions",
+      url: "/training_entity/conact",
     },
   ];
   return (

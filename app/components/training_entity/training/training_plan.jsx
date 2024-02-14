@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import styles from "@/app/components/training_entity/page.module.css";
 import { use, useState } from "react";
+import Link from "next/link";
 
 export default function TrainingPlan() {
     const [isPlanClicked, setClicked] = useState(false);
@@ -13,7 +14,9 @@ export default function TrainingPlan() {
     return (
         <div className={styles.container}>
             <div className={styles.back_arrow_container}>
-                <i className={`${styles.back_arrow} bi bi-caret-right-square-fill`}></i>
+               <Link href="/training_entity/training">
+                 <i className={`${styles.back_arrow} bi bi-caret-right-square-fill`}></i>
+                 </Link>
             </div>
             <div className={styles.training_plan_container}>
                 

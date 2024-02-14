@@ -6,11 +6,14 @@ export const config = {matcher: [
     "/admin/departmentCoordinators",
     "/admin/orderCompany",
     "/admin/trainingCompany",
+    "/admin/suggestions",
     "/training_entity/training",
+    "/training_entity/training/attandance",
     "/training_entity/training/training_plan",
     "/training_entity/requist_training",
-    "/training_entity/attendance",
+    "/training_entity/concat",
+    "/training_entity/suggestions",
     "/training_entity",
-    "/admin"
+    "/admin",
   ],
 };

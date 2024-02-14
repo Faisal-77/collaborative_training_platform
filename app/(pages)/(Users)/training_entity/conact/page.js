@@ -9,7 +9,6 @@ export default function page() {
     <div className="container-fluid">
         <Header />
         <Nav />
-        <Fillter />
         <Contact />
     </div>
   )

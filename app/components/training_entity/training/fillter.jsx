@@ -4,6 +4,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import styles from "@/app/components/training_entity/page.module.css";
 import SelectForm from "@/app/components/selectForm";
 import { useState } from "react";
+import Link from "next/link";
 export default function Fillter() {
     const [isChatClicked, setChatClicked] = useState(false);
     const toggleChat = () => {
@@ -36,14 +37,14 @@ export default function Fillter() {
             <div className="col"></div> 
 
             <div className="col text-center">
-                <button className={styles.training_plan_button}>
+                <Link href={"/training_entity/training/training_plan"} className={styles.training_plan_button}>
                     خطة الطلب
-                </button> 
+                </Link> 
             </div>
             <div className="col text-center">
-                <button className={styles.training_plan_button}>
+                <Link href={"/training_entity/training/attandance"} className={styles.training_plan_button}>
                     الحضور والغياب
-                </button>
+                </Link>
             </div> 
             
         </div>
