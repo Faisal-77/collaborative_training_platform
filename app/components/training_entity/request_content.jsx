@@ -5,9 +5,23 @@ import styles from "../training_entity/page.module.css";
 
 import React, { useEffect, useState } from "react";
 
-
 export default function Request_content() {
-  
+  const [requestTrainin, setRequestTrainin] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("../api/get_training_request", {
+          method: "GET",
+        });
+        const data = await response.json();
+
+        setRequestTrainin(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <div className={`${styles.req_conainer} container`}>
       <div className={`${styles.req_title} row`}>
@@ -31,34 +45,21 @@ export default function Request_content() {
           <span className={`${styles.text_req_span}`}> الحالة </span>
         </div>
       </div>
-      <CompanyCard
-        state={"مرفوض"}
-        mejor={"هندسة البرمجيات"}
-        number={12}
-        hours={8}
-        time={"صباحي"}
-        spp={" عدم رفع كامل المرفقات"}
-        date_of_rejected={"2024 /10 / 10"}
-      />
-      <CompanyCard
-        state={"انتظار"}
-        mejor={"هندسة البرمجيات"}
-        number={12}
-        hours={8}
-        time={"صباحي"}
-        date_of_get_req={"2024 / 10 / 10"}
-      />
-      <CompanyCard
-        state={"مقبول"}
-        mejor={"هندسة البرمجيات"}
-        number={12}
-        hours={8}
-        time={"صباحي"}
-        date_of_accept={"2024/5/5"}
-        date_of_start={"2024/5/5"}
-        spp={" عدم رفع كامل المرفقات"}
-        date_of_rejected={"2024 /10 / 10"}
-      />
+      {requestTrainin !== null ? (
+        requestTrainin.map((item) => (
+          <CompanyCard
+            state={item.state}
+            mejor={item.major}
+            number={item.number_of_student}
+            hours={item.hour}
+            time={item.time}
+            spp={" عدم رفع كامل المرفقات"}
+            date_of_rejected={"2024 /10 / 10"}
+          />
+        ))
+      ) : (
+        <p>لا يوجد طلبات</p>
+      )}
     </div>
   );
 }
@@ -79,25 +80,8 @@ const CompanyCard = ({
     setChatClicked(!isChatClicked);
   };
 
-  const [requestTrainin, setRequestTrainin] = useState(null);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("../api/get_training_request", {
-          method: "GET",
-        });
-        const data = await response.json();
-
-        setRequestTrainin(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
-  }, []);
-
   return (
-    <>
+    <div>
       <div
         className={`${
           state == "مقبول"
@@ -141,7 +125,7 @@ const CompanyCard = ({
                         : styles.req_state_wating
                     }`}
           >
-            {state}
+            {state === "Prosessing" ? (state = "تحت المراجعة") : state}
           </span>
         </div>
         <div
@@ -170,7 +154,7 @@ const CompanyCard = ({
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

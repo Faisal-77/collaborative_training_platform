@@ -14,45 +14,44 @@ export default function deptAdmin({
   noOfStud = 0,
   isAddOpen,
   add,
+  sstyle,
 }) {
+  const [full_name, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [department, setDepart] = useState("");
+  const [user_name, setUser] = useState("");
+  const [phoneNumber, setPhone] = useState("");
 
-    const [full_name , setFullName] = useState("");
-    const [email , setEmail] = useState("");
-    const [department , setDepart] = useState("");
-    const [user_name , setUser] = useState("");
-    const [phoneNumber , setPhone] = useState("");
+  const handelSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("../api/department_manager", {
+        method: "POST",
+        body: JSON.stringify({
+          department,
+          full_name,
+          email,
+          user_name,
+          phoneNumber,
+        }),
+      });
 
-    const handelSubmit = async (e) => {
-      e.preventDefault();
-      try {
-        const res = await fetch("../api/department_manager", {
-          method: "POST",
-          body: JSON.stringify({
-            department,
-            full_name,
-            email,
-            user_name,
-            phoneNumber,
-          }),
-        });
-  
-        if (res.ok) {
-          console.log('ok')
-          const form = e.target;
-          form.reset();
-          
-        } else {
-          console.log("خطأ في التسجيل");
-        }
-      } catch (error) {
-        console.log("error api :", error);
+      if (res.ok) {
+        console.log("ok");
+        const form = e.target;
+        form.reset();
+      } else {
+        console.log("خطأ في التسجيل");
       }
-    };
+    } catch (error) {
+      console.log("error api :", error);
+    }
+  };
 
   return (
     <>
       <div
-        className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard}`}
+        className={`col-12 col-md-3 flex-grow-1 flex-shrink-1 flex-basis-1 p-0 ${styles.companyCard} ${sstyle}`}
       >
         <CompanyCard
           dept={deprtmentName}
@@ -84,8 +83,8 @@ export const CompanyCard = ({
   number = 0,
   isAdded,
   toggleAdd,
-  handelSubmit
-},) => {
+  handelSubmit,
+}) => {
   const [isEdited, setEdited] = useState(false);
 
   const toggleEdit = () => {

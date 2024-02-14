@@ -13,7 +13,7 @@ import { useCombinedSort } from "@/lib/filter";
 
 export default function page_sugg() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-
+  const [selectedItem, setSelectedItem] = useState(null);
   const [suggestions, setSuggestions] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
@@ -53,10 +53,9 @@ export default function page_sugg() {
 
   const { items, handleSortChangeAZ } = useCombinedSort(suggestions);
 
-  const togglePopup = () => {
-    setIsPopupOpen((prevState) => {
-      return !prevState; // Returning the new state value
-    });
+  const togglePopup = (item) => {
+    setSelectedItem(item);
+    setIsPopupOpen(!isPopupOpen);
   };
   const [isSidebarVisible, setSidebarVisible] = useState(false);
   const toggleSidebar = () => {
@@ -171,19 +170,11 @@ export default function page_sugg() {
                               </div>
                               <div
                                 className={` ${adminStyle.viewBtn}`}
-                                onClick={togglePopup}
+                                onClick={() => togglePopup(sugg)}
                               >
                                 <i className="bi bi-eye-fill"></i>
                               </div>
                             </div>
-                            <ViewSugg
-                              index={index}
-                              isOpen={isPopupOpen}
-                              onClose={togglePopup}
-                              content={sugg.content}
-                              name={sugg.name}
-                              date={formattedDate}
-                            />
                           </>
                         );
                       })
@@ -191,6 +182,15 @@ export default function page_sugg() {
                       <h1 className="text-center text-white mt-5">
                         نرجوا الانتظار...
                       </h1>
+                    )}
+                    {selectedItem && (
+                      <ViewSugg
+                        isOpen={isPopupOpen}
+                        onClose={() => setIsPopupOpen(false)}
+                        content={selectedItem.content}
+                        name={selectedItem.name}
+                        date={selectedItem.createdAt}
+                      />
                     )}
                     {suggestions_training !== null ? (
                       suggestions_training.map((sugg, index) => {
@@ -222,19 +222,11 @@ export default function page_sugg() {
                               </div>
                               <div
                                 className={` ${adminStyle.viewBtn}`}
-                                onClick={togglePopup}
+                                onClick={() => togglePopup(sugg)}
                               >
                                 <i className="bi bi-eye-fill"></i>
                               </div>
                             </div>
-                            <ViewSugg
-                              index={index}
-                              isOpen={isPopupOpen}
-                              onClose={togglePopup}
-                              content={sugg.content}
-                              name={sugg.name}
-                              date={formattedDate}
-                            />
                           </>
                         );
                       })

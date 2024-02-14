@@ -121,6 +121,7 @@ export default function page() {
           >
             <main className="container-fluid mt-5">
               <section className={`row align-items-stretch pe-5 ps-5`}>
+      
                 {showDepartmentManager !== null ? (
                   showDepartmentManager.map((data, index) => (
                     <DeptAdmin
