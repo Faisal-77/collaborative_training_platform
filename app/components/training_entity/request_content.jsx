@@ -81,7 +81,7 @@ const CompanyCard = ({
     setChatClicked(!isChatClicked);
   };
 
-  const [requestTrainin_accept, setRequestTrainin_accept] = useState(null);
+  const [requestTrainin, setRequestTrainin] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -90,7 +90,7 @@ const CompanyCard = ({
         });
         const data = await response.json();
 
-        setRequestTrainin_accept(data);
+        setRequestTrainin(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
