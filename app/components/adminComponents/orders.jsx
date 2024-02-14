@@ -198,38 +198,58 @@ export function Order2({ typeOfRequest }) {
     };
     fetchData();
   }, []);
+  const [requestTrainin, setRequestTrainin] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("../api/get_training_request", {
+          method: "GET",
+        });
+        const data = await response.json();
+
+        setRequestTrainin(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <section className={`col-lg-10 col-md-12 p-0 m-0 ${styles.mainAdmin}`}>
       <main className="container-fluid mt-5">
         <section
           className={`d-flex align-items-stretch justify-content-around flex-wrap flex-row gap-5 p-5`}
         >
-          {typeOfRequest === "طلبات جديدة" ? (
-            <OrdersCard
-              companyName={"وزارة الاتصالات وتقنية المعلومات"}
-              major={"برمجيات"}
-              count={5}
-              field={"تقنية المعلومات"}
-              shift={"صباحا"}
-              hours={8}
-            />
-          ) : typeOfRequest === "قيد التنفيذ" ? (
-            requestTrainin_accept.map((item) => {
-              return (
-                <OrdersCard2
-                  companyName={item.name}
-                  major={item.major}
-                  count={5}
-                  field={"تقنية المعلومات"}
-                  shift={"صباحا"}
-                  hours={8}
-                  supervisor={"محمد"}
-                  noStudents={15}
-                  percent={10}
-                />
-              );
-            })
-          ) : null}
+          {typeOfRequest === "طلبات جديدة"
+            ? requestTrainin.map((item) => {
+                return (
+                  <OrdersCard
+                    companyName={item.name}
+                    major={item.major}
+                    count={item.number_of_student}
+                    field={item.field}
+                    shift={item.time}
+                    hours={item.hour}
+                  />
+                );
+              })
+            : typeOfRequest === "قيد التنفيذ"
+            ? requestTrainin_accept.map((item) => {
+                return (
+                  <OrdersCard2
+                    companyName={item.name}
+                    major={item.major}
+                    count={5}
+                    field={"تقنية المعلومات"}
+                    shift={"صباحا"}
+                    hours={8}
+                    supervisor={"محمد"}
+                    noStudents={15}
+                    percent={10}
+                  />
+                );
+              })
+            : null}
         </section>
       </main>
     </section>
