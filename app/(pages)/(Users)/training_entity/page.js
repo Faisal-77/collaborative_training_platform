@@ -16,11 +16,11 @@ export default function page() {
     },
     {
       title: "الشكاوا والاقتراحات",
-      url: "/training_entity",
+      url: "/training_entity/suggestions",
     },
     {
-      title: "الشكاوى والاقتراحات",
-      url: "/training_entity",
+      title: "التواصل",
+      url: "/training_entity/suggestions",
     },
   ];
   return (

@@ -3,9 +3,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import styles from "../training_entity/page.module.css";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
 
 export default function Request_content() {
+  
   return (
     <div className={`${styles.req_conainer} container`}>
       <div className={`${styles.req_title} row`}>
@@ -76,6 +78,24 @@ const CompanyCard = ({
   const toggleChat = () => {
     setChatClicked(!isChatClicked);
   };
+
+  const [requestTrainin, setRequestTrainin] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("../api/get_training_request", {
+          method: "GET",
+        });
+        const data = await response.json();
+
+        setRequestTrainin(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <>
       <div

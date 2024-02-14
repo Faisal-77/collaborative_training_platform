@@ -7,11 +7,10 @@ import SelectForm from "@/app/components/selectForm";
 import Link from "next/link";
 import styles from "@/app/page.module.css";
 import adminStyle from "@/app/components/adminComponents/page.module.css";
-import suggestions from "@/app/(pages)/suggestions/page";
+import Fillter_sug from "@/app/components/training_entity/training/felter_sug"
 import ViewSugg from "@/app/components/adminComponents/viewSugg";
 import Header from "@/app/components/training_entity/header";
 import Nav from "@/app/components/training_entity/nav";
-import Fillter from "@/app/components/training_entity/fillter";
 export default function page() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -59,6 +58,25 @@ export default function page() {
     setIsPopupOpen((prevState) => {
       return !prevState; // Returning the new state value
     });
+
+    //الشكاوى
+    const [suggestions_training, setSuggestions_training] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("../api/get_training_sug", {
+          method: "GET",
+        });
+        const data = await response.json();
+
+        setSuggestions_training(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   };
   const [isSidebarVisible, setSidebarVisible] = useState(false);
   const toggleSidebar = () => {
@@ -68,7 +86,7 @@ export default function page() {
     <div className="container-fluid">
         <Header />
         <Nav />
-        <Fillter />
+        <Fillter_sug />
           <section
             className={`col-lg-10 col-md-12 p-2 m-0 ${styles.mainAdmin_train}`}
           >

@@ -29,7 +29,6 @@ export default function page_sugg() {
   // };
 
   const [suggestions, setSuggestions] = useState(null);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -39,6 +38,25 @@ export default function page_sugg() {
         const data = await response.json();
 
         setSuggestions(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  
+          //// الشكاوى
+  const [suggestions_training, setSuggestions_training] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("../api/get_training_sug", {
+          method: "GET",
+        });
+        const data = await response.json();
+
+        setSuggestions_training(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
